@@ -8,6 +8,8 @@
 
 #import "JSONModel.h"
 
+@class IGShow;
+
 @protocol IGTrack
 @end
 
@@ -24,5 +26,9 @@
 @property (nonatomic, strong) NSString *slug;
 
 @property (nonatomic, readonly) NSURL<Ignore> *mp3;
+
+@property (nonatomic, weak) IGShow *show;
+
+- (NSURL *)shareURLWithPlayedTime:(NSTimeInterval)elapsed;
 
 @end

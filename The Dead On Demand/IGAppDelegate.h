@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class JBKenBurnsView;
+
 @interface IGAppDelegate : UIResponder <UIApplicationDelegate>
 
 + (instancetype) sharedInstance;
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic) UIView *colorOverlay;
+@property (nonatomic) JBKenBurnsView *kenBurnsView;
 
 - (void)presentMusicPlayer;
 

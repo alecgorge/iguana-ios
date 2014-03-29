@@ -50,7 +50,7 @@
               
               if(err) {
                   [self failure: err];
-                  NSLog(@"json err: %@", err);
+                  dbug(@"json err: %@", err);
               }
               
               return y;
@@ -76,7 +76,7 @@
               
               if(err) {
                   [self failure: err];
-                  NSLog(@"json err: %@", err);
+                  dbug(@"json err: %@", err);
               }
               
               return y;
@@ -101,7 +101,7 @@
           
           if(err) {
               [self failure: err];
-              NSLog(@"json err: %@", err);
+              dbug(@"json err: %@", err);
           }
           
           success(y);
@@ -124,7 +124,12 @@
               
               if(err) {
                   [self failure: err];
-                  NSLog(@"json err: %@", err);
+                  dbug(@"json err: %@", err);
+              }
+              else {
+                  for(IGTrack *t in y.tracks) {
+                      t.show = y;
+                  }
               }
               
               return y;

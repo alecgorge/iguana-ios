@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <DOUAudioStreamer/DOUAudioFile.h>
-
-@interface AGMediaItem : NSObject<DOUAudioFile>
+@interface AGMediaItem : NSObject
 
 @property (nonatomic) NSInteger id;
 
@@ -24,6 +22,8 @@
 
 @property (nonatomic) NSString *shareText;
 @property (nonatomic) NSURL *shareURL;
+
+- (NSURL *)shareURLWithTime:(NSTimeInterval)seconds;
 
 @property (nonatomic, assign) NSTimeInterval duration;
 

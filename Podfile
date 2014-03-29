@@ -10,9 +10,10 @@ pod 'AFNetworking'
 pod 'MKFoundationKit'
 pod 'AXRatingView'
 pod 'CRToast'
-pod 'KVOController'
+# pod 'KVOController'
 pod 'JBKenBurnsView', :head
 pod 'SDWebImage'
 pod 'ColorUtils'
 pod 'SVWebViewController', :head
 pod 'StreamingKit', :head
+pod 'FlurrySDK'

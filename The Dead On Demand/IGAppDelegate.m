@@ -8,6 +8,7 @@
 
 #import "IGAppDelegate.h"
 
+#import <FlurrySDK/Flurry.h>
 #import <JBKenBurnsView/JBKenBurnsView.h>
 #import <ColorUtils/ColorUtils.h>
 
@@ -32,6 +33,8 @@ static IGAppDelegate *shared;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     shared = self;
     
+    [self setupLibs];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [self setupAppearance];
@@ -49,26 +52,31 @@ static IGAppDelegate *shared;
     return YES;
 }
 
+- (void)setupLibs {
+    [Flurry setCrashReportingEnabled:NO];
+    [Flurry startSession:@"4RGRH573MCY85Z5RJC2X"];
+}
+
 - (void)setupSlideshow {
     UIView *container = [[UIView alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIView *colorOverlay = [[UIView alloc] initWithFrame:container.bounds];
-    JBKenBurnsView *kenBurns = [[JBKenBurnsView alloc] initWithFrame:container.bounds];
-    kenBurns.backgroundColor = UIColor.blackColor;
+    self.kenBurnsView = [[JBKenBurnsView alloc] initWithFrame:container.bounds];
+    self.kenBurnsView.backgroundColor = UIColor.blackColor;
     container.backgroundColor = UIColor.blackColor;
     
     colorOverlay.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:IG_SLIDESHOW_OVERLAY_ALPHA];
     
-    [container addSubview:kenBurns];
+    [container addSubview:self.kenBurnsView];
     [container addSubview:colorOverlay];
     
     self.colorOverlay = colorOverlay;
     
     [IGEchoNestImages.sharedInstance images:^(NSArray *images) {
-        [kenBurns stopAnimation];
-        [kenBurns animateWithImages:images
-                 transitionDuration:IG_SLIDESHOW_DURATION
-                               loop:YES
-                        isLandscape:YES];
+        [self.kenBurnsView stopAnimation];
+        [self.kenBurnsView animateWithImages:images
+                          transitionDuration:IG_SLIDESHOW_DURATION
+                                        loop:YES
+                                 isLandscape:YES];
     }];
     
     [self.window addSubview:container];

@@ -22,17 +22,18 @@
         self.duration = track.length;
         
         self.displayText = track.title;
-        self.displaySubText = show.displayDate;
-        
-        self.shareText = [NSString stringWithFormat:@"#nowplaying %@ — %@ — %@ via %@", self.title, show.displayDate, self.artist, IGIguanaAppConfig.twitterHandle];
-        
-        // http://lotusod.com/years/2002/shows/2002-08-17/sources/111/tracks/1625/intro-to-a-cell
-        self.shareURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/years/%ld/shows/%@/sources/%ld/tracks/%ld/%@",
-                                              IGIguanaAppConfig.siteBase, (long)show.year, show.displayDate,
-                                              (long)show.id, (long)track.id, track.slug]];
+        self.displaySubText = show.displayDate;        
     }
     
     return self;
+}
+
+- (NSURL *)shareURL {
+    return [self.track shareURLWithPlayedTime:0];
+}
+
+- (NSURL *)shareURLWithTime:(NSTimeInterval)seconds {
+    return [self.track shareURLWithPlayedTime:seconds];
 }
 
 @end

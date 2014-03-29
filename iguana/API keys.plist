@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>flurry_enabled</key>
+	<false/>
+	<key>flurry_key</key>
+	<string></string>
+	<key>lastfm_enabled</key>
+	<false/>
+	<key>lastfm_key</key>
+	<string></string>
+	<key>lastfm_secret</key>
+	<string></string>
+	<key>crashlytics_enabled</key>
+	<false/>
+	<key>crashlytics_key</key>
+	<string></string>
+</dict>
+</plist>

@@ -173,6 +173,9 @@ willDisplayHeaderView:(UIView *)view
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath
+                             animated:YES];
+    
     NSUInteger row = indexPath.row;
 
 	if(indexPath.section == IGShowSectionInfo) {

@@ -8,18 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-#import <DOUAudioStreamer/DOUAudioStreamer.h>
+#import <StreamingKit/STKAudioPlayer.h>
 
 #import "AGMediaItem.h"
 
-@interface AGMediaPlayerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface AGMediaPlayerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, STKAudioPlayerDelegate, UIActionSheetDelegate>
 
 + (instancetype)sharedInstance;
 
-@property (nonatomic, readonly) DOUAudioStreamerStatus state;
+@property (nonatomic, readonly) STKAudioPlayerState state;
 
 // playing, buffering etc
 @property (nonatomic, readonly) BOOL playing;
+@property (nonatomic, readonly) BOOL buffering;
 
 // an array of AGMediaItems
 @property (nonatomic) NSMutableArray *playbackQueue;

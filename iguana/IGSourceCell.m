@@ -97,7 +97,7 @@
     // of the cell's contentView and the bottom of the table view cell.
     height += 1.0f;
     
-    NSLog(@"%f", height);
+    dbug(@"%f", height);
 
     return height;
 }

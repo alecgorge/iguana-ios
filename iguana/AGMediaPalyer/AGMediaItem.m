@@ -10,8 +10,14 @@
 
 @implementation AGMediaItem
 
-- (NSURL *)audioFileURL {
-    return self.file;
+- (NSURL *)shareURLWithTime:(NSTimeInterval)seconds {
+    return self.shareURL;
+}
+
+- (BOOL)isEqual:(id)object {
+    if(![object isKindOfClass:AGMediaItem.class]) return NO;
+    
+    return [self.file isEqual:[object file]];
 }
 
 @end
