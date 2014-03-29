@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="LzX-nl-AXL" customClass="UITableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="305"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taper" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVb-gf-bNO">
+                    <rect key="frame" x="11" y="9" width="55" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="nCP-Dr-qwy">
+                    <rect key="frame" x="74" y="9" width="211" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJb-8S-YY1">
+                    <rect key="frame" x="11" y="34" width="47" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVD-A 24/96 SBD+AUD1+AUD2 Matrix Mix (60%-SBD/20%-AUD1/20%-AUD2)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="mUI-pT-Pgt">
+                    <rect key="frame" x="74" y="34" width="211" height="51"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Bb1-EQ-FiG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lineage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcA-cO-vKc">
+                    <rect key="frame" x="11" y="93" width="52" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="PQn-uH-thR">
+                    <rect key="frame" x="74" y="93" width="211" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9i8-ij-pco">
+                    <rect key="frame" x="11" y="118" width="43" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvi-sk-PNf" customClass="AXRatingView">
+                    <rect key="frame" x="74" y="118" width="114" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="Lpe-Rt-F1c"/>
+                        <constraint firstAttribute="width" constant="114" id="ano-su-dbt"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="274" translatesAutoresizingMaskIntoConstraints="NO" id="WCW-1D-blk">
+                    <rect key="frame" x="11" y="143" width="274" height="151"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fAl-Et-7Bj"/>
+                    </constraints>
+                    <string key="text">Set 1 New Minglewood Blues Loser El Paso They Love Each Other Jack Straw Deal Lazy Lightnin' -&gt; Supplication Brown Eyed Women Mama Tried Row Jimmy Dancing In The Street Set 2 Scarlet Begonias -&gt; Fire On The Mountain Estimated Prophet Saint Stephen -&gt; Not Fade Away -&gt; Saint Stephen -&gt; Morning Dew Encore One More Saturday Night</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="AVb-gf-bNO" firstAttribute="leading" secondItem="LzX-nl-AXL" secondAttribute="leading" constant="11" id="0Rg-BP-EDr"/>
+                <constraint firstItem="nCP-Dr-qwy" firstAttribute="top" secondItem="AVb-gf-bNO" secondAttribute="top" id="591-zQ-oAa"/>
+                <constraint firstItem="nCP-Dr-qwy" firstAttribute="leading" secondItem="AVb-gf-bNO" secondAttribute="trailing" constant="8" id="Cqx-Te-fXW"/>
+                <constraint firstItem="9i8-ij-pco" firstAttribute="top" secondItem="PQn-uH-thR" secondAttribute="bottom" constant="8" id="Oci-y6-jFh"/>
+                <constraint firstItem="LcA-cO-vKc" firstAttribute="top" secondItem="mUI-pT-Pgt" secondAttribute="bottom" constant="8" id="SCH-2z-rNc"/>
+                <constraint firstItem="9i8-ij-pco" firstAttribute="leading" secondItem="SJb-8S-YY1" secondAttribute="leading" id="chD-9o-NsV"/>
+                <constraint firstItem="WCW-1D-blk" firstAttribute="top" secondItem="xvi-sk-PNf" secondAttribute="bottom" constant="8" id="dgX-5L-Fci"/>
+                <constraint firstItem="xvi-sk-PNf" firstAttribute="top" secondItem="9i8-ij-pco" secondAttribute="top" id="e0A-xL-sp3"/>
+                <constraint firstItem="mUI-pT-Pgt" firstAttribute="trailing" secondItem="PQn-uH-thR" secondAttribute="trailing" id="ghX-wR-WoH"/>
+                <constraint firstAttribute="trailing" secondItem="WCW-1D-blk" secondAttribute="trailing" constant="35" id="gsd-1F-Se3"/>
+                <constraint firstAttribute="trailing" secondItem="nCP-Dr-qwy" secondAttribute="trailing" constant="35" id="i2h-Zq-nOG"/>
+                <constraint firstItem="mUI-pT-Pgt" firstAttribute="trailing" secondItem="nCP-Dr-qwy" secondAttribute="trailing" id="i4F-uV-1Hb"/>
+                <constraint firstItem="9i8-ij-pco" firstAttribute="leading" secondItem="AVb-gf-bNO" secondAttribute="leading" id="ijd-16-Bth"/>
+                <constraint firstItem="mUI-pT-Pgt" firstAttribute="leading" secondItem="nCP-Dr-qwy" secondAttribute="leading" id="nLd-03-g8j"/>
+                <constraint firstItem="LcA-cO-vKc" firstAttribute="top" secondItem="PQn-uH-thR" secondAttribute="top" id="r0d-na-hAI"/>
+                <constraint firstItem="mUI-pT-Pgt" firstAttribute="leading" secondItem="PQn-uH-thR" secondAttribute="leading" id="ruB-N0-Pfc"/>
+                <constraint firstItem="AVb-gf-bNO" firstAttribute="top" secondItem="LzX-nl-AXL" secondAttribute="top" constant="9" id="sjU-Jd-0FH"/>
+                <constraint firstItem="mUI-pT-Pgt" firstAttribute="leading" secondItem="xvi-sk-PNf" secondAttribute="leading" id="spQ-3d-j4L"/>
+                <constraint firstItem="SJb-8S-YY1" firstAttribute="top" secondItem="nCP-Dr-qwy" secondAttribute="bottom" constant="8" id="u3J-B3-Mla"/>
+                <constraint firstItem="9i8-ij-pco" firstAttribute="leading" secondItem="LcA-cO-vKc" secondAttribute="leading" id="wga-G1-ECu"/>
+                <constraint firstItem="mUI-pT-Pgt" firstAttribute="top" secondItem="SJb-8S-YY1" secondAttribute="top" id="z7q-s7-xfS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>
