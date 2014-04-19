@@ -33,10 +33,10 @@ forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)beginRefreshingTableView {
-    
-    [self.refreshControl beginRefreshing];
-    
     if (self.tableView.contentOffset.y == 0) {
+        self.tableView.contentOffset = CGPointMake(0, -self.refreshControl.frame.size.height);
+        [self.refreshControl beginRefreshing];
+        return;
         [UIView animateWithDuration:0.25
                               delay:0
                             options:UIViewAnimationOptionBeginFromCurrentState

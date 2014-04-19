@@ -15,6 +15,9 @@
 #import <StreamingKit/STKAudioPlayer.h>
 #import <StreamingKit/STKAutoRecoveringHTTPDataSource.h>
 #import <JBKenBurnsView/JBKenBurnsView.h>
+#import <LastFm/LastFm.h>
+
+#import "AGNowPlayingViewController.h"
 
 #import "IGTrackCell.h"
 #import "IGMediaItem.h"
@@ -36,11 +39,10 @@
 @property (weak, nonatomic) IBOutlet UIView *uiTopBar;
 
 @property BOOL doneAppearance;
-@property NSTimeInterval shareTime;
+@property (nonatomic) NSTimeInterval shareTime;
+@property (nonatomic) BOOL currentTrackHasBeenScrobbled;
 
 @property (strong, nonatomic) CAGradientLayer *uiPlaybackQueueMask;
-
-@property (strong, nonatomic) STKAudioPlayer *audioPlayer;
 
 @property (nonatomic, assign) BOOL seeking;
 
@@ -79,7 +81,7 @@
             .equalizerBandFrequencies = {50, 100, 200, 400, 800, 1600, 2600, 16000}
         }];
         
-        self.audioPlayer.delegate = self;
+        self.audioPlayer.delegate = self;        
     }
     
     return self;
@@ -141,7 +143,7 @@
     self.uiPlaybackQueueMask.colors = @[(__bridge id)outerColor, (__bridge id)innerColor,
                                         (__bridge id)innerColor, (__bridge id)outerColor];
     
-    self.uiPlaybackQueueMask.locations = @[@0.05, @0.1, @0.8, @0.95];
+    self.uiPlaybackQueueMask.locations = @[@0.05, @0.15, @0.8, @0.95];
     
     self.uiPlaybackQueueMask.bounds = CGRectMake(0, 0,
                                                  self.uiPlaybackQueueTable.frame.size.width,
@@ -150,6 +152,7 @@
     self.uiPlaybackQueueMask.anchorPoint = CGPointZero;
     
     self.uiPlaybackQueueTable.layer.mask = self.uiPlaybackQueueMask;
+    [self scrollViewDidScroll:self.uiPlaybackQueueTable];
 }
 
 - (void)setupBar {
@@ -199,8 +202,9 @@
     }
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-	if(buttonIndex == 2) return;  // TODO should be 2 without favorites
+- (void)actionSheet:(UIActionSheet *)actionSheet
+clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if(buttonIndex == 2) return;
     
 	if(buttonIndex == 1) {
 		self.shareTime = 0;
@@ -209,8 +213,8 @@
 	[Flurry logEvent:@"share"
 	  withParameters:@{@"with_time": @(self.shareTime != 0)}];
     
-	NSString *textToShare = self.currentItem.shareTitle;
-	NSURL *urlToShare = [self.currentItem shareURLWithPlayedTime:self.shareTime];
+	NSString *textToShare = self.currentItem.shareText;
+	NSURL *urlToShare = [self.currentItem shareURLWithTime:self.shareTime];
 	NSArray *itemsToShare = @[textToShare, urlToShare];
     
 	UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare
@@ -334,6 +338,8 @@
 }
 
 - (void)setCurrentIndex:(NSUInteger)currentIndex {
+    AGNowPlayingViewController.sharedInstance.shouldShowBar = YES;
+
     _currentIndex = currentIndex;
     
     [self.audioPlayer playURL:self.currentItem.file
@@ -344,6 +350,8 @@
         [self.audioPlayer queueURL:m.file
                    withQueueItemId:m];
     }
+    
+    self.currentTrackHasBeenScrobbled = NO;
     
     [self.uiPlaybackQueueTable reloadData];
     [self redrawUI];
@@ -526,6 +534,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.uiPlayButton.hidden = self.playing || self.buffering;
     
     self.uiBackwardButton.enabled = self.currentIndex != 0;
+    self.uiForwardButton.enabled = self.currentIndex >= self.playbackQueue.count - 1;
     
     self.uiTimeElapsedLabel.text = [IGDurationHelper formattedTimeWithInterval:self.audioPlayer.progress];
     self.uiTimeLeftLabel.text = [IGDurationHelper formattedTimeWithInterval:self.audioPlayer.duration];
@@ -545,6 +554,31 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         MPNowPlayingInfoPropertyPlaybackRate		: @(self.playing ? 1.0 : 0),
         MPNowPlayingInfoPropertyElapsedPlaybackTime	: @(self.audioPlayer.progress)
     }];
+    
+	if(!self.currentTrackHasBeenScrobbled && self.progress > .5) {
+		[[LastFm sharedInstance] sendScrobbledTrack:self.currentItem.title
+										   byArtist:self.currentItem.artist
+											onAlbum:self.currentItem.album
+									   withDuration:self.audioPlayer.duration
+										atTimestamp:(int)[[NSDate date] timeIntervalSince1970]
+									 successHandler:nil
+									 failureHandler:nil];
+        
+		self.currentTrackHasBeenScrobbled = YES;
+        
+        if([self.currentItem isKindOfClass:IGMediaItem.class]) {
+            IGMediaItem *i = (IGMediaItem *)self.currentItem;
+            
+            [Flurry logEvent:@"track_played"
+              withParameters:@{@"track_id": @(i.track.id),
+                               @"year": @(i.track.show.year),
+                               @"duration": @(i.duration),
+                               @"song_name": i.track.title,
+                               @"show_date": i.track.show.displayDate,
+                               @"show_id": @(i.track.show.id)
+                               } ];
+        }
+	}
 }
 
 - (IBAction)pressedPaused:(id)sender {
@@ -592,6 +626,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSUInteger index = [self.playbackQueue indexOfObject:queueItemId];
     _currentIndex = index;
+    
+    self.currentTrackHasBeenScrobbled = NO;
     
     [self.uiPlaybackQueueTable reloadData];
 }

@@ -17,6 +17,8 @@
 #import "IGYearsViewController.h"
 #import "IGVenuesViewController.h"
 #import "IGAboutViewController.h"
+#import "IGShowsViewController.h"
+#import "IGSourcesViewController.h"
 
 NS_ENUM(NSUInteger, IGHomeRows) {
     IGHomeRowBandName,
@@ -146,10 +148,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                              animated:YES];
     }
     else if(row == IGHomeRowTopRatedShows) {
-        
+        IGShowsViewController *vc = [[IGShowsViewController alloc] initWithTopShows];
+		[self.navigationController pushViewController:vc
+											 animated:YES];
     }
     else if(row == IGHomeRowRandomShow) {
-        
+        IGSourcesViewController *vc = [[IGSourcesViewController alloc] initWithRandomDate];
+		[self.navigationController pushViewController:vc
+											 animated:YES];
     }
     else if(row == IGHomeRowAbout) {
         IGAboutViewController *vc = [[IGAboutViewController alloc] init];

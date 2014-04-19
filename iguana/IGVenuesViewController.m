@@ -9,6 +9,9 @@
 #import "IGVenuesViewController.h"
 
 #import <MKFoundationKit/MKFoundationKit.h>
+#import <TDBadgedCell/TDBadgedCell.h>
+
+#import "IGShowsViewController.h"
 
 @interface IGVenuesViewController ()
 
@@ -64,6 +67,9 @@
 	label.textColor = [UIColor lightGrayColor];
 	
 	self.tableView.tableFooterView = label;
+    
+    self.tableView.sectionIndexBackgroundColor = IG_COLOR_CELL_BG;
+    self.tableView.sectionIndexColor = IG_COLOR_CELL_TEXT_FADED;
 	
 	self.indicies = stateIndex;
 }
@@ -115,11 +121,11 @@ titleForHeaderInSection:(NSInteger)section {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+	TDBadgedCell *cell = (TDBadgedCell*)[tableView dequeueReusableCellWithIdentifier:@"cell"];
 	
 	if(cell == nil) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-									  reuseIdentifier:@"cell"];
+		cell = [[TDBadgedCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                   reuseIdentifier:@"cell"];
 	}
 	
 	IGVenue *venue;
@@ -129,12 +135,52 @@ titleForHeaderInSection:(NSInteger)section {
 	else {
 		venue = [self filterForSection:indexPath.section][indexPath.row];;
 	}
-
+    
+    cell.backgroundColor = IG_COLOR_CELL_BG;
+    
+    UIView *hilite = [[UIView alloc] initWithFrame:cell.bounds];
+    hilite.backgroundColor = IG_COLOR_CELL_TAP_BG;
+    cell.selectedBackgroundView = hilite;
+    
 	cell.textLabel.text = venue.name;
 	cell.detailTextLabel.text = venue.city;
+    
+    cell.badgeString = venue.showCount.stringValue;
+//    cell.badgeColor = UIColor.blackColor;
+//    cell.badgeTextColor = ;
+    
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    cell.textLabel.textColor = IG_COLOR_CELL_TEXT;
+    cell.detailTextLabel.textColor = IG_COLOR_CELL_TEXT_FADED;
 	
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	IGVenue *venue;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+		venue = self.results[indexPath.row];
+	}
+	else {
+		venue = [self filterForSection:indexPath.section][indexPath.row];;
+	}
+	
+	IGShowsViewController *vc = [[IGShowsViewController alloc] initWithVenue:venue];
+	[self.navigationController pushViewController:vc
+										 animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView
+willDisplayHeaderView:(UIView *)view
+       forSection:(NSInteger)section {
+    // Background color
+    view.tintColor = IG_COLOR_TABLE_HEAD_BG;
+    
+    // Text Color
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    header.textLabel.textColor = IG_COLOR_CELL_TEXT_FADED;
 }
 
 - (void)createSearchBar {

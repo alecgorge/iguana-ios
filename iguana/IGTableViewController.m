@@ -7,11 +7,15 @@
 //
 
 #import "IGTableViewController.h"
+
 #import <QuartzCore/QuartzCore.h>
+
+#import "AGNowPlayingViewController.h"
 
 @interface IGTableViewController ()
 
-@property (nonatomic, strong) CAGradientLayer *mask;
+@property (nonatomic, strong) CAGradientLayer *_mask;
+@property (nonatomic, assign) BOOL _lastShowBar;
 
 @end
 
@@ -30,7 +34,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
-    self.mask.position = CGPointMake(0, scrollView.contentOffset.y);
+    self._mask.position = CGPointMake(0, scrollView.contentOffset.y);
     [CATransaction commit];
 }
 
@@ -44,22 +48,32 @@
                          self.tableView.alpha = 1;
                      }];
     
-    if(!self.mask) {
-        self.mask = [CAGradientLayer layer];
+    if(!self._mask || AGNowPlayingViewController.sharedInstance.shouldShowBar != self._lastShowBar) {
+        self._mask = [CAGradientLayer layer];
         CGColorRef outerColor = [UIColor colorWithWhite:1.0 alpha:0.1].CGColor;
         CGColorRef innerColor = [UIColor colorWithWhite:1.0 alpha:1.0].CGColor;
         
-        self.mask.colors = @[(__bridge id)outerColor, (__bridge id)innerColor];
+        if(AGNowPlayingViewController.sharedInstance.shouldShowBar) {
+            self._mask.colors = @[(__bridge id)outerColor, (__bridge id)innerColor,
+                                 (__bridge id)innerColor, (__bridge id)outerColor];
         
-        self.mask.locations = @[@0.05, @0.15];
+            self._mask.locations = @[@0.05, @0.15, @0.8, @0.95];
+        }
+        else {
+            self._mask.colors = @[(__bridge id)outerColor, (__bridge id)innerColor];
+            
+            self._mask.locations = @[@0.05, @0.15];
+        }
         
-        self.mask.bounds = CGRectMake(0, 0,
+        self._mask.bounds = CGRectMake(0, 0,
                                       self.tableView.frame.size.width,
                                       self.tableView.frame.size.height);
         
-        self.mask.anchorPoint = CGPointZero;
+        self._mask.anchorPoint = CGPointZero;
         
-        self.view.layer.mask = self.mask;
+        self.view.layer.mask = self._mask;
+        
+        self._lastShowBar = AGNowPlayingViewController.sharedInstance.shouldShowBar;
     }
 }
 

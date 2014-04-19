@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.alecgorge.iguana.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.alecgorge.ios.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -50,11 +50,11 @@
 	<key>iguana</key>
 	<dict>
 		<key>app_name</key>
-		<string>The Dead On Demand</string>
+		<string>Listen to the Dead</string>
 		<key>band_name</key>
 		<string>The Grateful Dead</string>
 		<key>iguana_api_base</key>
-		<string>http://thedeadondemand.alecgorge.com/api/artists/gd</string>
+		<string>http://localhost:9000/api/artists/gd</string>
 		<key>iguana_artist_slug</key>
 		<string>gd</string>
 		<key>itunes_app_id</key>
@@ -64,7 +64,7 @@
 		<key>site_base</key>
 		<string>http://thedeadondemand.alecgorge.com</string>
 		<key>twitter_handle</key>
-		<string>thedeadondemand</string>
+		<string>gratefuldeadod</string>
 	</dict>
 </dict>
 </plist>

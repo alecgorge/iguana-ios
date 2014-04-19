@@ -14,4 +14,8 @@
     return [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];
 }
 
+//+ (BOOL)propertyIsOptional:(NSString *)propertyName {
+//	return
+//}
+
 @end

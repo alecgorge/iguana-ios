@@ -8,7 +8,7 @@
 
 #import "IGYearsViewController.h"
 
-#import "IGYearViewController.h"
+#import "IGShowsViewController.h"
 #import "IGYearCell.h"
 
 @interface IGYearsViewController ()
@@ -73,7 +73,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
     
-    IGYearViewController *vc = [[IGYearViewController alloc] initWithYear:self.years[row]];
+    IGShowsViewController *vc = [[IGShowsViewController alloc] initWithYear:self.years[row]];
     [self.navigationController pushViewController:vc
                                          animated:YES];
 }

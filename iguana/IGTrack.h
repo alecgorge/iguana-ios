@@ -27,7 +27,7 @@
 
 @property (nonatomic, readonly) NSURL<Ignore> *mp3;
 
-@property (nonatomic, weak) IGShow *show;
+@property (nonatomic, weak) IGShow<Ignore> *show;
 
 - (NSURL *)shareURLWithPlayedTime:(NSTimeInterval)elapsed;
 

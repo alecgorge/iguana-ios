@@ -3,18 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>flurry_enabled</key>
-	<false/>
-	<key>flurry_key</key>
-	<string></string>
+	<true/>
+	<key>flurry_keys</key>
+	<dict>
+		<key>gd</key>
+		<string>4RGRH573MCY85Z5RJC2X</string>
+	</dict>
 	<key>lastfm_enabled</key>
-	<false/>
+	<true/>
 	<key>lastfm_key</key>
-	<string></string>
+	<string>fdb33798836426ae4c2a6a2ff6d39510</string>
 	<key>lastfm_secret</key>
-	<string></string>
+	<string>ae4a4689916c6b378458009149c1550f</string>
 	<key>crashlytics_enabled</key>
-	<false/>
+	<true/>
 	<key>crashlytics_key</key>
-	<string></string>
+	<string>bbdd6a4df81e6b1498130a0f1fbf72d14e334fb4</string>
 </dict>
 </plist>

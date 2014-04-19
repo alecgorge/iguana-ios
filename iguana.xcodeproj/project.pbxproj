@@ -40,9 +40,6 @@
 		7C80E7AA18E6332400535A75 /* IGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C80E7A918E6332400535A75 /* IGTableViewController.m */; };
 		7C80E7AB18E6332400535A75 /* IGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C80E7A918E6332400535A75 /* IGTableViewController.m */; };
 		7C80E7AC18E6332400535A75 /* IGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C80E7A918E6332400535A75 /* IGTableViewController.m */; };
-		7C80E7AE18E6467B00535A75 /* scrollMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C80E7AD18E6467B00535A75 /* scrollMask.png */; };
-		7C80E7AF18E6467B00535A75 /* scrollMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C80E7AD18E6467B00535A75 /* scrollMask.png */; };
-		7C80E7B018E6467B00535A75 /* scrollMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C80E7AD18E6467B00535A75 /* scrollMask.png */; };
 		7C93438C18C461C70076889E /* glyphicons_076_headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438A18C461C70076889E /* glyphicons_076_headphones.png */; };
 		7C93438D18C461C70076889E /* glyphicons_076_headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438A18C461C70076889E /* glyphicons_076_headphones.png */; };
 		7C93438E18C461C70076889E /* glyphicons_076_headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438B18C461C70076889E /* glyphicons_076_headphones@2x.png */; };
@@ -168,8 +165,8 @@
 		7CD15CC018C3B20300D52DCC /* IGDurationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CBF18C3B20300D52DCC /* IGDurationHelper.m */; };
 		7CD15CC118C3B20300D52DCC /* IGDurationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CBF18C3B20300D52DCC /* IGDurationHelper.m */; };
 		7CD15CC418C3B64200D52DCC /* IGIguanaAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15C8718C29E1C00D52DCC /* IGIguanaAppConfig.m */; };
-		7CD15CC718C3C3E900D52DCC /* IGYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CC618C3C3E900D52DCC /* IGYearViewController.m */; };
-		7CD15CC818C3C3E900D52DCC /* IGYearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CC618C3C3E900D52DCC /* IGYearViewController.m */; };
+		7CD15CC718C3C3E900D52DCC /* IGShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CC618C3C3E900D52DCC /* IGShowsViewController.m */; };
+		7CD15CC818C3C3E900D52DCC /* IGShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CC618C3C3E900D52DCC /* IGShowsViewController.m */; };
 		7CD15CCA18C3C49400D52DCC /* IGShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD15CC918C3C49400D52DCC /* IGShowCell.xib */; };
 		7CD15CCB18C3C49400D52DCC /* IGShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD15CC918C3C49400D52DCC /* IGShowCell.xib */; };
 		7CD15CCE18C3C63500D52DCC /* IGShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CCD18C3C63500D52DCC /* IGShowCell.m */; };
@@ -183,6 +180,9 @@
 		7CFBFA1618E72B350072C8EC /* API keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1518E72B350072C8EC /* API keys.plist */; };
 		7CFBFA1718E72B350072C8EC /* API keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1518E72B350072C8EC /* API keys.plist */; };
 		7CFBFA1818E72B350072C8EC /* API keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1518E72B350072C8EC /* API keys.plist */; };
+		7CFBFA1B18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */; };
+		7CFBFA1C18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */; };
+		7CFBFA1D18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */; };
 		B28A4D52A2BB47968CD71AF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C76755E0C90A4456BE73CBB5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -232,7 +232,6 @@
 		7C80E7A718E62E3E00535A75 /* IGColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGColors.h; sourceTree = "<group>"; };
 		7C80E7A818E6332400535A75 /* IGTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGTableViewController.h; sourceTree = "<group>"; };
 		7C80E7A918E6332400535A75 /* IGTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGTableViewController.m; sourceTree = "<group>"; };
-		7C80E7AD18E6467B00535A75 /* scrollMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scrollMask.png; sourceTree = "<group>"; };
 		7C93438A18C461C70076889E /* glyphicons_076_headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glyphicons_076_headphones.png; sourceTree = "<group>"; };
 		7C93438B18C461C70076889E /* glyphicons_076_headphones@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glyphicons_076_headphones@2x.png"; sourceTree = "<group>"; };
 		7C93439018C4EB9A0076889E /* IGShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGShowViewController.h; sourceTree = "<group>"; };
@@ -292,7 +291,7 @@
 		7CD15C4918C29CCD00D52DCC /* iguanaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iguanaTests-Info.plist"; sourceTree = "<group>"; };
 		7CD15C4B18C29CCD00D52DCC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7CD15C4D18C29CCD00D52DCC /* iguanaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iguanaTests.m; sourceTree = "<group>"; };
-		7CD15C5B18C29D5900D52DCC /* The Dead On Demand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Dead On Demand.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CD15C5B18C29D5900D52DCC /* Listen to the Dead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Listen to the Dead.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CD15C6118C29D5900D52DCC /* The Dead On Demand-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "The Dead On Demand-Info.plist"; sourceTree = "<group>"; };
 		7CD15C6318C29D5900D52DCC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7CD15C6718C29D5900D52DCC /* The Dead On Demand-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "The Dead On Demand-Prefix.pch"; sourceTree = "<group>"; };
@@ -331,8 +330,8 @@
 		7CD15CBE18C3B20300D52DCC /* IGDurationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDurationHelper.h; sourceTree = "<group>"; };
 		7CD15CBF18C3B20300D52DCC /* IGDurationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDurationHelper.m; sourceTree = "<group>"; };
 		7CD15CC218C3B52B00D52DCC /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		7CD15CC518C3C3E900D52DCC /* IGYearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGYearViewController.h; sourceTree = "<group>"; };
-		7CD15CC618C3C3E900D52DCC /* IGYearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGYearViewController.m; sourceTree = "<group>"; };
+		7CD15CC518C3C3E900D52DCC /* IGShowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGShowsViewController.h; sourceTree = "<group>"; };
+		7CD15CC618C3C3E900D52DCC /* IGShowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGShowsViewController.m; sourceTree = "<group>"; };
 		7CD15CC918C3C49400D52DCC /* IGShowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IGShowCell.xib; sourceTree = "<group>"; };
 		7CD15CCC18C3C63500D52DCC /* IGShowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGShowCell.h; sourceTree = "<group>"; };
 		7CD15CCD18C3C63500D52DCC /* IGShowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGShowCell.m; sourceTree = "<group>"; };
@@ -342,6 +341,8 @@
 		7CD15CD518C3F41100D52DCC /* IGSourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGSourceCell.m; sourceTree = "<group>"; };
 		7CD15CD918C3F42900D52DCC /* IGSourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IGSourceCell.xib; sourceTree = "<group>"; };
 		7CFBFA1518E72B350072C8EC /* API keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "API keys.plist"; sourceTree = "<group>"; };
+		7CFBFA1918E72BCB0072C8EC /* IGThirdPartyKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGThirdPartyKeys.h; sourceTree = "<group>"; };
+		7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGThirdPartyKeys.m; sourceTree = "<group>"; };
 		998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C76755E0C90A4456BE73CBB5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -483,7 +484,6 @@
 		7C93438918C461980076889E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				7C80E7AD18E6467B00535A75 /* scrollMask.png */,
 				7C93438A18C461C70076889E /* glyphicons_076_headphones.png */,
 				7C93438B18C461C70076889E /* glyphicons_076_headphones@2x.png */,
 			);
@@ -589,7 +589,7 @@
 			children = (
 				7CD15C2518C29CCD00D52DCC /* iguana.app */,
 				7CD15C4018C29CCD00D52DCC /* iguanaTests.xctest */,
-				7CD15C5B18C29D5900D52DCC /* The Dead On Demand.app */,
+				7CD15C5B18C29D5900D52DCC /* Listen to the Dead.app */,
 				7CD15C7118C29D5900D52DCC /* The Dead On DemandTests.xctest */,
 				7C74AD9F18C904D50001B9A4 /* LotusOD.app */,
 				7C74ADB518C904D50001B9A4 /* LotusODTests.xctest */,
@@ -713,6 +713,8 @@
 				7CD15C8A18C39D2400D52DCC /* Models */,
 				7CD15C8F18C39EDC00D52DCC /* IGAPIClient.h */,
 				7CD15C9018C39EDC00D52DCC /* IGAPIClient.m */,
+				7CFBFA1918E72BCB0072C8EC /* IGThirdPartyKeys.h */,
+				7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -747,8 +749,8 @@
 				7CD15CAA18C3AAEA00D52DCC /* IGHomeViewController.m */,
 				7CD15CAD18C3AC6400D52DCC /* IGYearsViewController.h */,
 				7CD15CAE18C3AC6400D52DCC /* IGYearsViewController.m */,
-				7CD15CC518C3C3E900D52DCC /* IGYearViewController.h */,
-				7CD15CC618C3C3E900D52DCC /* IGYearViewController.m */,
+				7CD15CC518C3C3E900D52DCC /* IGShowsViewController.h */,
+				7CD15CC618C3C3E900D52DCC /* IGShowsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -880,9 +882,9 @@
 			productReference = 7CD15C4018C29CCD00D52DCC /* iguanaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7CD15C5A18C29D5900D52DCC /* The Dead On Demand */ = {
+		7CD15C5A18C29D5900D52DCC /* Listen to the Dead */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CD15C7F18C29D5900D52DCC /* Build configuration list for PBXNativeTarget "The Dead On Demand" */;
+			buildConfigurationList = 7CD15C7F18C29D5900D52DCC /* Build configuration list for PBXNativeTarget "Listen to the Dead" */;
 			buildPhases = (
 				C6D48E34F46C433B8C883F97 /* Check Pods Manifest.lock */,
 				7CD15C5718C29D5900D52DCC /* Sources */,
@@ -894,9 +896,9 @@
 			);
 			dependencies = (
 			);
-			name = "The Dead On Demand";
+			name = "Listen to the Dead";
 			productName = "The Dead On Demand";
-			productReference = 7CD15C5B18C29D5900D52DCC /* The Dead On Demand.app */;
+			productReference = 7CD15C5B18C29D5900D52DCC /* Listen to the Dead.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7CD15C7018C29D5900D52DCC /* The Dead On DemandTests */ = {
@@ -971,7 +973,7 @@
 			targets = (
 				7CD15C2418C29CCD00D52DCC /* iguana */,
 				7CD15C3F18C29CCD00D52DCC /* iguanaTests */,
-				7CD15C5A18C29D5900D52DCC /* The Dead On Demand */,
+				7CD15C5A18C29D5900D52DCC /* Listen to the Dead */,
 				7CD15C7018C29D5900D52DCC /* The Dead On DemandTests */,
 				7C74AD9E18C904D50001B9A4 /* LotusOD */,
 				7C74ADB418C904D50001B9A4 /* LotusODTests */,
@@ -987,7 +989,6 @@
 				7C74ADA818C904D50001B9A4 /* InfoPlist.strings in Resources */,
 				7C74ADB018C904D50001B9A4 /* Images.xcassets in Resources */,
 				7CFBFA1818E72B350072C8EC /* API keys.plist in Resources */,
-				7C80E7B018E6467B00535A75 /* scrollMask.png in Resources */,
 				7CACCAF818E51BBE009458D2 /* IGReviewerCell.xib in Resources */,
 				7C80E79C18E61B2200535A75 /* Pods-acknowledgements.plist in Resources */,
 			);
@@ -1018,7 +1019,6 @@
 				7CD15C3318C29CCD00D52DCC /* InfoPlist.strings in Resources */,
 				7CD15C3B18C29CCD00D52DCC /* Images.xcassets in Resources */,
 				7C93438E18C461C70076889E /* glyphicons_076_headphones@2x.png in Resources */,
-				7C80E7AE18E6467B00535A75 /* scrollMask.png in Resources */,
 				7C9343C518C50D4D0076889E /* glyphicons_083_random.png in Resources */,
 				7C9343CB18C50D4D0076889E /* glyphicons_172_rewind@2x.png in Resources */,
 				7C93439918C4ED7D0076889E /* IGTrackCell.xib in Resources */,
@@ -1065,7 +1065,6 @@
 				7CD15C6418C29D5900D52DCC /* InfoPlist.strings in Resources */,
 				7CD15C6C18C29D5900D52DCC /* Images.xcassets in Resources */,
 				7C93438F18C461C70076889E /* glyphicons_076_headphones@2x.png in Resources */,
-				7C80E7AF18E6467B00535A75 /* scrollMask.png in Resources */,
 				7C9343C618C50D4D0076889E /* glyphicons_083_random.png in Resources */,
 				7C9343CC18C50D4D0076889E /* glyphicons_172_rewind@2x.png in Resources */,
 				7C93439A18C4ED7D0076889E /* IGTrackCell.xib in Resources */,
@@ -1203,6 +1202,7 @@
 				7C80E7A318E61B7200535A75 /* IGAboutViewController.m in Sources */,
 				7C2CA0DD18DB21630071E240 /* main.m in Sources */,
 				7CACCAEF18E519A6009458D2 /* IGReviewsTableViewController.m in Sources */,
+				7CFBFA1D18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */,
 				7CACCAFD18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1223,7 +1223,7 @@
 				7C93439218C4EB9A0076889E /* IGShowViewController.m in Sources */,
 				7C0AB4E118E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
 				7C9343F118C55C470076889E /* IGNowPlayingAutoShrinker.m in Sources */,
-				7CD15CC718C3C3E900D52DCC /* IGYearViewController.m in Sources */,
+				7CD15CC718C3C3E900D52DCC /* IGShowsViewController.m in Sources */,
 				7C0AB4DC18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
 				7CD15CA618C3AA8F00D52DCC /* IGRefreshableTableViewController.m in Sources */,
 				7CD15CAB18C3AAEA00D52DCC /* IGHomeViewController.m in Sources */,
@@ -1247,6 +1247,7 @@
 				7CD15CC018C3B20300D52DCC /* IGDurationHelper.m in Sources */,
 				7CD15CBB18C3B06A00D52DCC /* IGNibProxyCell.m in Sources */,
 				7CD15CAF18C3AC6400D52DCC /* IGYearsViewController.m in Sources */,
+				7CFBFA1B18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */,
 				7C80E7A118E61B7200535A75 /* IGAboutViewController.m in Sources */,
 				7CD15C9118C39EDC00D52DCC /* IGAPIClient.m in Sources */,
 				7CD15C9D18C3A69100D52DCC /* IGVenue.m in Sources */,
@@ -1272,7 +1273,7 @@
 				7C93439318C4EB9A0076889E /* IGShowViewController.m in Sources */,
 				7C0AB4E218E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
 				7C9343F218C55C470076889E /* IGNowPlayingAutoShrinker.m in Sources */,
-				7CD15CC818C3C3E900D52DCC /* IGYearViewController.m in Sources */,
+				7CD15CC818C3C3E900D52DCC /* IGShowsViewController.m in Sources */,
 				7C0AB4DD18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
 				7CD15C9E18C3A69100D52DCC /* IGVenue.m in Sources */,
 				7CD15CA218C3A6BF00D52DCC /* IGTrack.m in Sources */,
@@ -1296,6 +1297,7 @@
 				7CD15CB818C3B02B00D52DCC /* IGYearCell.m in Sources */,
 				7CD15CB018C3AC6400D52DCC /* IGYearsViewController.m in Sources */,
 				7CD15C9618C3A26F00D52DCC /* IGShow.m in Sources */,
+				7CFBFA1C18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */,
 				7C80E7A218E61B7200535A75 /* IGAboutViewController.m in Sources */,
 				7CD15CBC18C3B06A00D52DCC /* IGNibProxyCell.m in Sources */,
 				7C9343F718C55CA10076889E /* AGNowPlayingViewController.m in Sources */,
@@ -1328,7 +1330,7 @@
 		};
 		7CD15C7618C29D5900D52DCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7CD15C5A18C29D5900D52DCC /* The Dead On Demand */;
+			target = 7CD15C5A18C29D5900D52DCC /* Listen to the Dead */;
 			targetProxy = 7CD15C7518C29D5900D52DCC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1625,6 +1627,7 @@
 				INFOPLIST_FILE = "The Dead On Demand/The Dead On Demand-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1641,6 +1644,7 @@
 				INFOPLIST_FILE = "The Dead On Demand/The Dead On Demand-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1733,7 +1737,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CD15C7F18C29D5900D52DCC /* Build configuration list for PBXNativeTarget "The Dead On Demand" */ = {
+		7CD15C7F18C29D5900D52DCC /* Build configuration list for PBXNativeTarget "Listen to the Dead" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CD15C8018C29D5900D52DCC /* Debug */,

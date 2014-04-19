@@ -8,8 +8,10 @@
 
 #import "IGRefreshableTableViewController.h"
 
-@interface IGYearViewController : IGRefreshableTableViewController
+@interface IGShowsViewController : IGRefreshableTableViewController
 
 - (instancetype)initWithYear:(IGYear *)year;
+- (instancetype)initWithVenue:(IGVenue *)venue;
+- (instancetype)initWithTopShows;
 
 @end

@@ -21,6 +21,7 @@
 // playing, buffering etc
 @property (nonatomic, readonly) BOOL playing;
 @property (nonatomic, readonly) BOOL buffering;
+@property (strong, nonatomic) STKAudioPlayer *audioPlayer;
 
 // an array of AGMediaItems
 @property (nonatomic) NSMutableArray *playbackQueue;

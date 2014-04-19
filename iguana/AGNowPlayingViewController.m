@@ -8,6 +8,8 @@
 
 #import "AGNowPlayingViewController.h"
 
+#import "AGMediaPlayerViewController.h"
+
 @interface AGNowPlayingViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *uiTitleLabel;
@@ -23,7 +25,7 @@
 
 @implementation AGNowPlayingViewController
 
-+ (instancetype)sharedNowPlayingBar {
++ (instancetype)sharedInstance {
     static dispatch_once_t once;
     static AGNowPlayingViewController *sharedFoo;
     dispatch_once(&once, ^ {
@@ -32,25 +34,78 @@
     return sharedFoo;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                      action:@selector(handleSingleTap:)];
+    [self.view addGestureRecognizer:singleFingerTap];
+    
+    [self startUpdates];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.view.alpha = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                             self.view.alpha = 1;
+                         });
+                     }];
+    
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.navigationContainer.navigationBar.alpha = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                             self.navigationContainer.navigationBar.alpha = 1;
+                         });
+                     }];
+
+    [IGAppDelegate.sharedInstance presentMusicPlayer];
+}
+
+- (void)startUpdates {
+    [self redrawUI];
+    
+    [self performSelector:@selector(startUpdates)
+               withObject:nil
+               afterDelay:0.5];
+}
+
+- (void)redrawUI {
+    AGMediaPlayerViewController *media = AGMediaPlayerViewController.sharedInstance;
+    if(media.playbackQueue.count == 0) {
+        return;
+    }
+    
+    self.uiPauseButton.hidden = !(media.playing || media.buffering);
+    self.uiPlayButton.hidden = media.playing || media.buffering;
+    
+    self.uiBackwardsButton.enabled = media.currentIndex != 0;
+    self.uiForwardButton.enabled = media.currentIndex >= media.playbackQueue.count - 1;
+    
+    self.uiTimeElapsedLabel.text = [IGDurationHelper formattedTimeWithInterval:media.audioPlayer.progress];
+    self.uiTimeLeftLabel.text = [IGDurationHelper formattedTimeWithInterval:media.audioPlayer.duration];
+    
+    self.uiTitleLabel.text = media.currentItem.title;
+    self.uiAlbumLabel.text = media.currentItem.album;
 }
 
 - (IBAction)pressedBackwards:(id)sender {
+    [AGMediaPlayerViewController.sharedInstance backward];
 }
 - (IBAction)pressedPlay:(id)sender {
+    [AGMediaPlayerViewController.sharedInstance play];
 }
 - (IBAction)pressedPause:(id)sender {
+    [AGMediaPlayerViewController.sharedInstance pause];
 }
 - (IBAction)pressedForward:(id)sender {
+    [AGMediaPlayerViewController.sharedInstance forward];
 }
 
 @end

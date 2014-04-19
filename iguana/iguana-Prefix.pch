@@ -21,18 +21,19 @@
 #define IS_IPAD() (false)
 #endif
 
-#ifdef DEBUG
+//#ifdef DEBUG
 #define dbug( s, ... ) NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 #define MARK() NSLog( @"MARKED: <%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, nil)
-#else
-#define dbug( s, ... ) CLS_LOG( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
-#define MARK()
-#endif
+//#else
+//#define dbug( s, ... ) CLS_LOG( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+//#define MARK()
+//#endif
 
 #import <ColorUtils/ColorUtils.h>
 #import "IGColors.h"
 
 #import <MKFoundationKit/MKFoundationKit.h>
+#import <FlurrySDK/Flurry.h>
 
 #import "IGIguanaAppConfig.h"
 #import "IGAPIClient.h"

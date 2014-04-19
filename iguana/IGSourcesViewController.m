@@ -41,22 +41,48 @@ NS_ENUM(NSInteger, IGSourcesRows) {
     return self;
 }
 
+- (instancetype)initWithRandomDate {
+	if(self = [super initWithStyle:UITableViewStyleGrouped]) {
+		self.displayDate = nil;
+		self.sources = @[];
+	}
+	
+	return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = [NSString stringWithFormat:@"%@ Sources", self.displayDate];
+	if(self.displayDate)
+		self.title = [NSString stringWithFormat:@"%@ Sources", self.displayDate];
+	else
+		self.title = @"Random Show";
 }
 
 - (void)refresh:(UIRefreshControl *)sender {
-    [IGAPIClient.sharedInstance showsOn:self.displayDate
-                                success:^(NSArray *sources) {
-                                    if(sources) {
-                                        self.sources = sources;
-                                        [self.tableView reloadData];
-                                    }
-                                    
-                                    [super refresh:sender];
-                                }];
+	if(self.displayDate) {
+		[IGAPIClient.sharedInstance showsOn:self.displayDate
+									success:^(NSArray *sources) {
+										if(sources) {
+											self.sources = sources;
+											[self.tableView reloadData];
+										}
+										
+										[super refresh:sender];
+									}];
+	}
+	else {
+		[IGAPIClient.sharedInstance randomShow:^(NSArray *sources) {
+										if(sources) {
+											self.displayDate = [sources[0] displayDate];
+											self.title = [NSString stringWithFormat:@"%@ Sources", self.displayDate];
+											self.sources = sources;
+											[self.tableView reloadData];
+										}
+										
+										[super refresh:sender];
+									}];
+	}
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

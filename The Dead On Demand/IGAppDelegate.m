@@ -9,16 +9,22 @@
 #import "IGAppDelegate.h"
 
 #import <FlurrySDK/Flurry.h>
+#import <Crashlytics/Crashlytics.h>
+#import <LastFm/LastFm.h>
+
 #import <JBKenBurnsView/JBKenBurnsView.h>
 #import <ColorUtils/ColorUtils.h>
 
+#import "IGThirdPartyKeys.h"
 #import "IGEchoNestImages.h"
+#import "IGNowPlayingAutoShrinker.h"
 
 #import "IGHomeViewController.h"
 
 @interface IGAppDelegate ()
 
 @property (nonatomic) UINavigationController *navigationController;
+@property (nonatomic) IGNowPlayingAutoShrinker *autoshrinker;
 
 @end
 
@@ -42,6 +48,9 @@ static IGAppDelegate *shared;
     IGHomeViewController *vc = [[IGHomeViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     
+    self.autoshrinker = [[IGNowPlayingAutoShrinker alloc] init];
+    self.navigationController.delegate = self.autoshrinker;
+    
     self.window.rootViewController = self.navigationController;
     
     [self setupSlideshow];
@@ -53,8 +62,27 @@ static IGAppDelegate *shared;
 }
 
 - (void)setupLibs {
-    [Flurry setCrashReportingEnabled:NO];
-    [Flurry startSession:@"4RGRH573MCY85Z5RJC2X"];
+    if(IGThirdPartyKeys.sharedInstance.isFlurryEnabled) {
+        [Flurry setCrashReportingEnabled:NO];
+        [Flurry startSession:IGThirdPartyKeys.sharedInstance.flurryApiKey];
+    }
+    
+    if(IGThirdPartyKeys.sharedInstance.isLastFmEnabled) {
+        [LastFm sharedInstance].apiKey = IGThirdPartyKeys.sharedInstance.lastFmApiKey;
+        [LastFm sharedInstance].apiSecret = IGThirdPartyKeys.sharedInstance.lastFmApiSecret;
+        [LastFm sharedInstance].session = [NSUserDefaults.standardUserDefaults stringForKey:@"lastfm_session_key"];
+        [LastFm sharedInstance].username = [NSUserDefaults.standardUserDefaults stringForKey:@"lastfm_username_key"];
+    }
+    
+    if(IGThirdPartyKeys.sharedInstance.isCrashlyticsEnabled) {
+        [Crashlytics startWithAPIKey:IGThirdPartyKeys.sharedInstance.crashlyticsApiKey];
+        [Crashlytics setObjectValue:IGIguanaAppConfig.artistSlug
+                             forKey:@"artist"];
+    }
+    
+//    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"7daac925db1ef3557a249f71e5018c68"];
+//    [[BITHockeyManager sharedHockeyManager] startManager];
+//    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
 }
 
 - (void)setupSlideshow {

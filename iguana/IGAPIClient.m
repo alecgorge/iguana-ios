@@ -113,8 +113,92 @@
       }];
 }
 
+- (void)venue:(IGVenue *)venue success:(void (^)(IGVenue *))success {
+    [self GET:[@"venues/" stringByAppendingFormat:@"%lu", (unsigned long)venue.id]
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSError *err;
+          IGVenue *y = [[IGVenue alloc] initWithDictionary:responseObject[@"data"]
+													 error:&err];
+          
+          if(err) {
+              [self failure: err];
+              dbug(@"json err: %@", err);
+          }
+          
+          success(y);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          [self failure:error];
+          
+          success(nil);
+      }];
+}
+
+- (void)topShows:(void (^)(NSArray *))success {
+    [self GET:@"top_shows"
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
+              NSError *err;
+              IGShow *y = [[IGShow alloc] initWithDictionary:item
+                                                       error:&err];
+              
+              if(err) {
+                  [self failure: err];
+                  dbug(@"json err: %@", err);
+              }
+              else {
+                  for(IGTrack *t in y.tracks) {
+                      t.show = y;
+                  }
+              }
+              
+              return y;
+          }];
+          
+          success(r);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          [self failure:error];
+          
+          success(nil);
+      }];
+}
+
 - (void)showsOn:(NSString *)displayDate success:(void (^)(NSArray *))success {
-    [self GET:[@"years/" stringByAppendingFormat:@"%@/shows/%@", [displayDate substringToIndex:5], displayDate]
+    [self GET:[@"years/" stringByAppendingFormat:@"%@/shows/%@", [displayDate substringToIndex:4], displayDate]
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
+              NSError *err;
+              IGShow *y = [[IGShow alloc] initWithDictionary:item
+                                                       error:&err];
+              
+              if(err) {
+                  [self failure: err];
+                  dbug(@"json err: %@", err);
+              }
+              else {
+                  for(IGTrack *t in y.tracks) {
+                      t.show = y;
+                  }
+              }
+              
+              return y;
+          }];
+          
+          success(r);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          [self failure:error];
+          
+          success(nil);
+      }];
+}
+
+- (void)randomShow:(void (^)(NSArray *))success {
+    [self GET:@"random_show"
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {

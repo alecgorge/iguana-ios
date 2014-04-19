@@ -14,8 +14,8 @@
 - (void)navigationController:(UINavigationController *)navigationController
        didShowViewController:(UIViewController *)viewController
 					animated:(BOOL)animated {
-    if([navigationController.view viewWithTag:AGNowPlayingViewController.sharedNowPlayingBar.view.tag] == nil) {
-        UIView *v = AGNowPlayingViewController.sharedNowPlayingBar.view;
+    if([navigationController.view viewWithTag:AGNowPlayingViewController.sharedInstance.view.tag] == nil) {
+        UIView *v = AGNowPlayingViewController.sharedInstance.view;
         [v removeFromSuperview];
         
         CGRect r = v.bounds;
@@ -23,7 +23,7 @@
         r.origin.y = navigationController.view.bounds.size.height;
         r.size.width = navigationController.view.bounds.size.width;
         
-        if (AGNowPlayingViewController.sharedNowPlayingBar.shouldShowBar) {
+        if (AGNowPlayingViewController.sharedInstance.shouldShowBar) {
             r.origin.y = navigationController.view.bounds.size.height - r.size.height;
         }
         
@@ -35,11 +35,21 @@
     
     self.lastViewController = viewController;
     
-    if(!AGNowPlayingViewController.sharedNowPlayingBar.shouldShowBar) {
-        return;
+    AGNowPlayingViewController.sharedInstance.navigationContainer = navigationController;
+    
+    if (AGNowPlayingViewController.sharedInstance.shouldShowBar) {
+        CGRect r = AGNowPlayingViewController.sharedInstance.view.frame;
+        r.origin.y = navigationController.view.bounds.size.height - r.size.height;
+        AGNowPlayingViewController.sharedInstance.view.frame = r;
+        
+        [self fixForViewController:viewController];
+    }
+    else {
+        CGRect r = AGNowPlayingViewController.sharedInstance.view.frame;
+        r.origin.y = navigationController.view.bounds.size.height;
+        AGNowPlayingViewController.sharedInstance.view.frame = r;
     }
     
-    [self fixForViewController:viewController];
 }
 
 - (void)fixForViewController:(UIViewController *)viewController {
@@ -47,22 +57,22 @@
 		UITableView *t = [(UITableViewController*)viewController tableView];
         
 		UIEdgeInsets edges = t.contentInset;
-		edges.bottom += AGNowPlayingViewController.sharedNowPlayingBar.view.bounds.size.height;
+		edges.bottom += AGNowPlayingViewController.sharedInstance.view.bounds.size.height;
 		t.contentInset = edges;
         
 		edges = t.scrollIndicatorInsets;
-		edges.bottom += AGNowPlayingViewController.sharedNowPlayingBar.view.bounds.size.height;
+		edges.bottom += AGNowPlayingViewController.sharedInstance.view.bounds.size.height;
 		t.scrollIndicatorInsets = edges;
 	}
 	else if ([viewController.view isKindOfClass:[UIScrollView class]]) {
 		UIScrollView *t = (UIScrollView*)viewController.view;
         
 		UIEdgeInsets edges = t.contentInset;
-		edges.bottom += AGNowPlayingViewController.sharedNowPlayingBar.view.bounds.size.height;
+		edges.bottom += AGNowPlayingViewController.sharedInstance.view.bounds.size.height;
 		t.contentInset = edges;
         
 		edges = t.scrollIndicatorInsets;
-		edges.bottom += AGNowPlayingViewController.sharedNowPlayingBar.view.bounds.size.height;
+		edges.bottom += AGNowPlayingViewController.sharedInstance.view.bounds.size.height;
 		t.scrollIndicatorInsets = edges;
 	}
 }

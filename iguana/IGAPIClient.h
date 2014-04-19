@@ -10,6 +10,7 @@
 
 #import "IGYear.h"
 #import "IGShow.h"
+#import "IGVenue.h"
 
 @interface IGAPIClient : AFHTTPSessionManager
 
@@ -23,7 +24,13 @@
 // an array of IGShow's
 - (void)showsOn:(NSString *)displayDate success:(void (^)(NSArray *))success;
 
+- (void)randomShow:(void (^)(NSArray *))success;
+
 // venues
 - (void)venues:(void (^)(NSArray *))success;
+
+- (void)venue:(IGVenue *)venue success:(void (^)(IGVenue *))success;
+
+- (void)topShows:(void (^)(NSArray *))success;
 
 @end

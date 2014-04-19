@@ -12,6 +12,7 @@
 
 #import "IGReviewsTableViewController.h"
 #import "IGLongTextTableViewController.h"
+#import "IGShowsViewController.h"
 #import "IGAppDelegate.h"
 #import "IGTrackCell.h"
 #import "IGMediaItem.h"
@@ -72,6 +73,10 @@ NS_ENUM(NSInteger, IGShowRows) {
     }
     
     return self.show.tracks.count;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -197,6 +202,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 			[self.navigationController pushViewController:vc
 												 animated:YES];
 		}
+		else if(row == IGShowRowVenue) {
+			IGShowsViewController *vc = [[IGShowsViewController alloc] initWithVenue:self.show.venue];
+			
+			[self.navigationController pushViewController:vc
+												 animated:YES];
+		}
 		
 		return;
 	}
@@ -212,7 +223,18 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [AGMediaPlayerViewController.sharedInstance replaceQueueWithItems:trks
                                                            startIndex:row];
     
-    [[IGAppDelegate sharedInstance] presentMusicPlayer];
+    [IGAppDelegate.sharedInstance presentMusicPlayer];
+    
+    // hide the navigation bar while showing the player
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.navigationController.navigationBar.alpha = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                             self.navigationController.navigationBar.alpha = 1;
+                         });
+                     }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

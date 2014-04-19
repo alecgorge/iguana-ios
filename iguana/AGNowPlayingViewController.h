@@ -10,8 +10,9 @@
 
 @interface AGNowPlayingViewController : UIViewController<UIGestureRecognizerDelegate>
 
-+ (instancetype)sharedNowPlayingBar;
++ (instancetype)sharedInstance;
 
-@property (readonly) BOOL shouldShowBar;
+@property UINavigationController *navigationContainer;
+@property BOOL shouldShowBar;
 
 @end
