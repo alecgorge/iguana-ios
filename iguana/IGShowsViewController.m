@@ -52,6 +52,8 @@
         self.title = @(self.year.year).stringValue;
 	else if(self.venue)
 		self.title = self.venue.name;
+	else
+		self.title = @"Top Shows";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"IGShowCell"
                                                bundle:nil]
@@ -137,8 +139,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	IGShow *show = [self showForIndexPath:indexPath];
     IGSourcesViewController *vc = [[IGSourcesViewController alloc] initWithDisplayDate:show.displayDate];
-    [self.navigationController pushViewController:vc
-                                         animated:YES];
+    push_vc(self, vc, NO);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

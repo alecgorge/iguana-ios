@@ -15,16 +15,37 @@
 #import <JBKenBurnsView/JBKenBurnsView.h>
 #import <ColorUtils/ColorUtils.h>
 
+#import <FRLayeredNavigationController/FRLayeredNavigationController.h>
+#import <FRLayeredNavigationController/FRLayeredNavigationItem.h>
+#import <FRLayeredNavigationController/UIViewController+FRLayeredNavigationController.h>
+
 #import "IGThirdPartyKeys.h"
 #import "IGEchoNestImages.h"
-#import "IGNowPlayingAutoShrinker.h"
 
 #import "IGHomeViewController.h"
 
+void push_vc(UIViewController *obj, UIViewController *vc, BOOL maximumWidth) {
+    if(IS_IPAD()) {
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];		
+        [obj.layeredNavigationController pushViewController: nav
+                                                  inFrontOf: obj
+                                               maximumWidth: maximumWidth
+                                                   animated: YES
+                                              configuration:^(FRLayeredNavigationItem *item) {
+                                                  item.hasBorder = NO;
+                                                  item.hasChrome = NO;
+                                              }];
+    }
+    else {
+        [obj.navigationController pushViewController: vc
+                                            animated: YES];
+    }
+}
+
+
 @interface IGAppDelegate ()
 
-@property (nonatomic) UINavigationController *navigationController;
-@property (nonatomic) IGNowPlayingAutoShrinker *autoshrinker;
+@property (nonatomic) UIViewController *navigationController;
 
 @end
 
@@ -46,10 +67,23 @@ static IGAppDelegate *shared;
     [self setupAppearance];
     
     IGHomeViewController *vc = [[IGHomeViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     
     self.autoshrinker = [[IGNowPlayingAutoShrinker alloc] init];
-    self.navigationController.delegate = self.autoshrinker;
+    
+    if(IS_IPAD()) {
+        FRLayeredNavigationController *nav = [[FRLayeredNavigationController alloc] initWithRootViewController:vc configuration:^(FRLayeredNavigationItem *item) {
+            item.hasChrome = NO;
+            item.hasBorder = NO;
+        }];
+        nav.dropLayersWhenPulledRight = YES;
+		nav.delegate = self.autoshrinker;
+        self.navigationController = nav;
+    }
+    else {
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        nav.delegate = self.autoshrinker;
+        self.navigationController = nav;
+    }
     
     self.window.rootViewController = self.navigationController;
     
@@ -86,29 +120,93 @@ static IGAppDelegate *shared;
 }
 
 - (void)setupSlideshow {
-    UIView *container = [[UIView alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIView *container = [[UIView alloc] initWithFrame:[self screenRotatedRect]];
     UIView *colorOverlay = [[UIView alloc] initWithFrame:container.bounds];
-    self.kenBurnsView = [[JBKenBurnsView alloc] initWithFrame:container.bounds];
-    self.kenBurnsView.backgroundColor = UIColor.blackColor;
     container.backgroundColor = UIColor.blackColor;
     
     colorOverlay.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:IG_SLIDESHOW_OVERLAY_ALPHA];
-    
-    [container addSubview:self.kenBurnsView];
-    [container addSubview:colorOverlay];
-    
     self.colorOverlay = colorOverlay;
-    
-    [IGEchoNestImages.sharedInstance images:^(NSArray *images) {
-        [self.kenBurnsView stopAnimation];
-        [self.kenBurnsView animateWithImages:images
-                          transitionDuration:IG_SLIDESHOW_DURATION
-                                        loop:YES
-                                 isLandscape:YES];
-    }];
-    
-    [self.window addSubview:container];
-    [self.window sendSubviewToBack:container];
+	
+//	container.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+	self.randomImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+	self.container = container;
+
+	if(!IS_IPAD()) {
+		self.kenBurnsView = [[JBKenBurnsView alloc] initWithFrame:container.bounds];
+		self.kenBurnsView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+		self.kenBurnsView.backgroundColor = UIColor.blackColor;
+		[container addSubview:self.kenBurnsView];
+		[container addSubview:colorOverlay];
+
+		[IGEchoNestImages.sharedInstance images:^(NSArray *images) {
+			[self.kenBurnsView stopAnimation];
+			[self.kenBurnsView animateWithImages:images
+							  transitionDuration:IG_SLIDESHOW_DURATION
+											loop:YES
+									 isLandscape:YES];
+		}];
+
+	    [self.window addSubview:container];
+        [self.window sendSubviewToBack:container];
+    }
+	else {
+		self.randomImageView = [[UIImageView alloc] initWithFrame:container.bounds];
+		self.randomImageView.backgroundColor = UIColor.blackColor;
+		self.randomImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+		self.randomImageView.contentMode = UIViewContentModeScaleAspectFill;
+		
+		[container addSubview:self.randomImageView];
+
+		__block BOOL called = NO;
+		[IGEchoNestImages.sharedInstance images:^(NSArray *images) {
+			self.randomImages = images;
+			
+			if(!called) {
+				[self displayRandomImage];
+				called = YES;
+			}
+		}];
+
+        [self.window.rootViewController.view addSubview:container];
+        [self.window.rootViewController.view sendSubviewToBack:container];
+	}
+}
+
+- (CGRect)screenRotatedRect {
+	return [self screenRotatedRectForOrientation:UIApplication.sharedApplication.statusBarOrientation];
+}
+
+- (CGRect)screenRotatedRectForOrientation:(UIInterfaceOrientation)orientation {
+	CGRect bounds = UIScreen.mainScreen.bounds; // portrait bounds
+	if (UIInterfaceOrientationIsLandscape(orientation)) {
+		bounds.size = CGSizeMake(bounds.size.height, bounds.size.width);
+	}
+	return bounds;
+}
+
+- (void)application:(UIApplication *)application
+willChangeStatusBarOrientation:(UIInterfaceOrientation)newStatusBarOrientation
+		   duration:(NSTimeInterval)duration {
+	[UIView animateWithDuration:duration
+					 animations:^{
+						 self.container.frame = [self screenRotatedRectForOrientation:newStatusBarOrientation];
+					 }];
+}
+
+- (void)displayRandomImage {
+	self.randomImageView.image = self.randomImages[arc4random_uniform((unsigned int)self.randomImages.count)];
+	
+	[self performSelector:@selector(displayRandomImage)
+			   withObject:nil
+			   afterDelay:IG_SLIDESHOW_DURATION];
+}
+
+- (UIImage*)currentImage {
+	if(self.kenBurnsView) {
+		return self.kenBurnsView.currentImage;
+	}
+	
+	return self.randomImageView.image;
 }
 
 - (void)setupAppearance {
@@ -147,33 +245,6 @@ static IGAppDelegate *shared;
     [self.navigationController presentViewController:nav
                                             animated:YES
                                           completion:NULL];
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 @end

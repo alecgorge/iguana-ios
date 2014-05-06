@@ -137,32 +137,24 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
     
+    UIViewController *vc;
     if(row == IGHomeRowYears) {
-        IGYearsViewController *vc = [[IGYearsViewController alloc] init];
-        [self.navigationController pushViewController:vc
-                                             animated:YES];
+        vc = [[IGYearsViewController alloc] init];
     }
     else if(row == IGHomeRowVenues) {
-        IGVenuesViewController *vc = [[IGVenuesViewController alloc] init];
-        [self.navigationController pushViewController:vc
-                                             animated:YES];
+        vc = [[IGVenuesViewController alloc] init];
     }
     else if(row == IGHomeRowTopRatedShows) {
-        IGShowsViewController *vc = [[IGShowsViewController alloc] initWithTopShows];
-		[self.navigationController pushViewController:vc
-											 animated:YES];
+        vc = [[IGShowsViewController alloc] initWithTopShows];
     }
     else if(row == IGHomeRowRandomShow) {
-        IGSourcesViewController *vc = [[IGSourcesViewController alloc] initWithRandomDate];
-		[self.navigationController pushViewController:vc
-											 animated:YES];
+        vc = [[IGSourcesViewController alloc] initWithRandomDate];
     }
     else if(row == IGHomeRowAbout) {
-        IGAboutViewController *vc = [[IGAboutViewController alloc] init];
-        [self.navigationController pushViewController:vc
-                                             animated:YES];
-        
+        vc = [[IGAboutViewController alloc] init];
     }
+    
+    push_vc(self, vc, NO);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

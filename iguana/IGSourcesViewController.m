@@ -192,8 +192,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     else if (row == IGSourcesSelectRow) {
         IGShowViewController *vc = [[IGShowViewController alloc] initWithShow:show];
-        [self.navigationController pushViewController:vc
-                                             animated:YES];
+        push_vc(self, vc, NO);
     }
 }
 

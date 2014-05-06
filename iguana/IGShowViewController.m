@@ -9,6 +9,9 @@
 #import "IGShowViewController.h"
 
 #import <AXRatingView/AXRatingView.h>
+#import <CSNNotificationObserver/CSNNotificationObserver.h>
+
+#import "AGNowPlayingViewController.h"
 
 #import "IGReviewsTableViewController.h"
 #import "IGLongTextTableViewController.h"
@@ -35,6 +38,7 @@ NS_ENUM(NSInteger, IGShowRows) {
 @interface IGShowViewController ()
 
 @property (nonatomic, strong) IGShow *show;
+@property (nonatomic, strong) CSNNotificationObserver *trackChangedEvent;
 
 @end
 
@@ -56,6 +60,16 @@ NS_ENUM(NSInteger, IGShowRows) {
     [self.tableView registerNib:[UINib nibWithNibName:@"IGTrackCell"
                                                bundle:nil]
          forCellReuseIdentifier:@"track"];
+    
+    self.trackChangedEvent = [[CSNNotificationObserver alloc] initWithName:@"AGMediaItemStateChanged"
+                                                                    object:nil queue:NSOperationQueue.mainQueue
+                                                                usingBlock:^(NSNotification *notification) {
+                                                                    [self.tableView reloadData];
+                                                                }];
+}
+
+- (void)dealloc {
+    
 }
 
 - (void)refresh:(UIRefreshControl *)sender {
@@ -77,6 +91,13 @@ NS_ENUM(NSInteger, IGShowRows) {
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:YES];
+	[self.navigationController.delegate navigationController:self.navigationController
+									   didShowViewController:self
+													animated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -186,27 +207,23 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if(indexPath.section == IGShowSectionInfo) {
 		if(row == IGShowRowReviews) {
 			IGReviewsTableViewController *vc = [[IGReviewsTableViewController alloc] initWithShow:self.show];
-			[self.navigationController pushViewController:vc
-												 animated:YES];
+            push_vc(self, vc, YES);
 		}
 		else if(row == IGShowRowDescription) {
 			IGLongTextTableViewController *vc = [[IGLongTextTableViewController alloc] initWithText:self.show.description];
 			vc.title = @"Description";
-			[self.navigationController pushViewController:vc
-												 animated:YES];
+            push_vc(self, vc, YES);
 		}
 		else if(row == IGShowRowSource) {
 			IGLongTextTableViewController *vc = [[IGLongTextTableViewController alloc] initWithText:self.show.source];
 			vc.title = @"Source";
 			
-			[self.navigationController pushViewController:vc
-												 animated:YES];
+            push_vc(self, vc, YES);
 		}
 		else if(row == IGShowRowVenue) {
 			IGShowsViewController *vc = [[IGShowsViewController alloc] initWithVenue:self.show.venue];
 			
-			[self.navigationController pushViewController:vc
-												 animated:YES];
+            push_vc(self, vc, NO);
 		}
 		
 		return;
@@ -220,21 +237,29 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                              show:self.show];
     }];
     
+	// after calling replaceQueueWithItems:startIndex:, shouldShowBar will always be true.
+	BOOL shouldShowBar = AGNowPlayingViewController.sharedInstance.shouldShowBar;
+	
     [AGMediaPlayerViewController.sharedInstance replaceQueueWithItems:trks
                                                            startIndex:row];
     
-    [IGAppDelegate.sharedInstance presentMusicPlayer];
-    
-    // hide the navigation bar while showing the player
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         self.navigationController.navigationBar.alpha = 0;
-                     }
-                     completion:^(BOOL finished) {
-                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                             self.navigationController.navigationBar.alpha = 1;
-                         });
-                     }];
+	if(!shouldShowBar) {
+		[IGAppDelegate.sharedInstance presentMusicPlayer];
+		
+		// hide the navigation bar while showing the player
+		[UIView animateWithDuration:0.3
+						 animations:^{
+							 self.navigationController.navigationBar.alpha = 0;
+						 }
+						 completion:^(BOOL finished) {
+							 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+								 self.navigationController.navigationBar.alpha = 1;
+								 
+								 [IGAppDelegate.sharedInstance.autoshrinker addBarToViewController:self];
+								 [IGAppDelegate.sharedInstance.autoshrinker fixForViewController:self];
+							 });
+						 }];
+	}
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

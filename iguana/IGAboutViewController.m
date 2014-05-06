@@ -58,9 +58,6 @@ NS_ENUM(NSInteger, IGAboutAcknowledgementsRows) {
     
     self.title = @"About";
     
-    self.tableView.backgroundColor = IG_COLOR_TABLE_BG;
-    self.tableView.separatorColor = IG_COLOR_TABLE_SEP;
-    
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"cell"];
 }
@@ -107,7 +104,7 @@ NS_ENUM(NSInteger, IGAboutAcknowledgementsRows) {
             cell.textLabel.text = [NSString stringWithFormat:@"@%@ on Twitter", IGIguanaAppConfig.twitterHandle];
         }
         else if (row == IGAboutAppInfoRowLeaveReview) {
-            cell.textLabel.text = @"Rate on the App Store";
+            cell.textLabel.text = @"Rate .on the App Store";
         }
         else if (row == IGAboutAppInfoRowReportBug) {
             cell.textLabel.text = @"Report a bug";
@@ -216,8 +213,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         }
     }
     
-    [self.navigationController pushViewController:vc
-                                         animated:YES];
+    push_vc(self, vc, YES);
 }
 
 

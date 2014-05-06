@@ -41,6 +41,8 @@
                                                                                       action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleFingerTap];
     
+	self.view.backgroundColor = IG_COLOR_PLAYER_BG;
+	
     [self startUpdates];
 }
 
@@ -57,11 +59,11 @@
     
     [UIView animateWithDuration:0.3
                      animations:^{
-                         self.navigationContainer.navigationBar.alpha = 0;
+                         self.navigationContainer.navigationController.navigationBar.alpha = 0;
                      }
                      completion:^(BOOL finished) {
                          dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                             self.navigationContainer.navigationBar.alpha = 1;
+                             self.navigationContainer.navigationController.navigationBar.alpha = 1;
                          });
                      }];
 
@@ -86,7 +88,7 @@
     self.uiPlayButton.hidden = media.playing || media.buffering;
     
     self.uiBackwardsButton.enabled = media.currentIndex != 0;
-    self.uiForwardButton.enabled = media.currentIndex >= media.playbackQueue.count - 1;
+    self.uiForwardButton.enabled = media.currentIndex < media.playbackQueue.count;
     
     self.uiTimeElapsedLabel.text = [IGDurationHelper formattedTimeWithInterval:media.audioPlayer.progress];
     self.uiTimeLeftLabel.text = [IGDurationHelper formattedTimeWithInterval:media.audioPlayer.duration];

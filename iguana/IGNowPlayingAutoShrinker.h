@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FRLayeredNavigationController/FRLayeredNavigationController.h>
 
-@interface IGNowPlayingAutoShrinker : NSObject<UINavigationControllerDelegate>
+@interface IGNowPlayingAutoShrinker : NSObject<UINavigationControllerDelegate, FRLayeredNavigationControllerDelegate>
 
 @property (nonatomic) UIViewController *lastViewController;
 
+- (void)addBarToViewController:(UIViewController*)vc;
 - (void)fixForViewController:(UIViewController*)vc;
 
 @end

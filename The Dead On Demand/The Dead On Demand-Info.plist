@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Listen To The Dead</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>2.0.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -54,7 +54,7 @@
 		<key>band_name</key>
 		<string>The Grateful Dead</string>
 		<key>iguana_api_base</key>
-		<string>http://localhost:9000/api/artists/gd</string>
+		<string>http://thedeadondemand.alecgorge.com/api/artists/gd</string>
 		<key>iguana_artist_slug</key>
 		<string>gd</string>
 		<key>itunes_app_id</key>
@@ -62,7 +62,7 @@
 		<key>mbid</key>
 		<string>6faa7ca7-0d99-4a5e-bfa6-1fd5037520c6</string>
 		<key>site_base</key>
-		<string>http://thedeadondemand.alecgorge.com</string>
+		<string>https://listentothedead.com/</string>
 		<key>twitter_handle</key>
 		<string>gratefuldeadod</string>
 	</dict>

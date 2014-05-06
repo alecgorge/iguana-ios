@@ -74,8 +74,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                              animated:YES];
     
     IGShowsViewController *vc = [[IGShowsViewController alloc] initWithYear:self.years[row]];
-    [self.navigationController pushViewController:vc
-                                         animated:YES];
+    push_vc(self, vc, NO);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

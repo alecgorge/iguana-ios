@@ -119,6 +119,8 @@
     [self setupBar];
     [self maskPlaybackQueue];
     [self updateStatusBar];
+	
+	self.view.backgroundColor = IG_COLOR_PLAYER_FULL_BG;
     
     self.uiTopBar.backgroundColor = IG_COLOR_PLAYER_BG;
     self.uiBottomBar.backgroundColor = IG_COLOR_PLAYER_BG;
@@ -169,6 +171,11 @@
                                                                            green:20.0f/255.0f
                                                                             blue:20.0f/255.0f
                                                                            alpha:1.0];
+	
+	if(IS_IPAD()) {
+		self.navigationController.navigationBar.translucent = NO;
+		self.navigationController.navigationBar.barTintColor = IG_COLOR_PLAYER_FULL_BG;
+	}
     
     self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
 
@@ -242,6 +249,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         
         self.doneAppearance = YES;
     }
+	
+	if(IS_IPAD()){
+		self.navigationController.navigationBar.translucent = NO;
+		self.navigationController.navigationBar.barTintColor = IG_COLOR_PLAYER_FULL_BG;
+	}
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -409,6 +421,11 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 - (void)replaceQueueWithItems:(NSArray *)queue startIndex:(NSUInteger)index {
     self.playbackQueue = [queue mutableCopy];
     self.currentIndex = index;
+	
+	[self.uiPlaybackQueueTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:index
+																		 inSection:0]
+									 atScrollPosition:UITableViewScrollPositionMiddle
+											 animated:NO];
 }
 
 #pragma mark - Tableview Stuff
@@ -534,7 +551,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.uiPlayButton.hidden = self.playing || self.buffering;
     
     self.uiBackwardButton.enabled = self.currentIndex != 0;
-    self.uiForwardButton.enabled = self.currentIndex >= self.playbackQueue.count - 1;
+    self.uiForwardButton.enabled = self.currentIndex < self.playbackQueue.count;
     
     self.uiTimeElapsedLabel.text = [IGDurationHelper formattedTimeWithInterval:self.audioPlayer.progress];
     self.uiTimeLeftLabel.text = [IGDurationHelper formattedTimeWithInterval:self.audioPlayer.duration];
@@ -548,7 +565,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         MPMediaItemPropertyArtist					: self.currentItem.artist,
         MPMediaItemPropertyAssetURL					: self.currentItem.file,
         MPMediaItemPropertyPlaybackDuration			: @(self.audioPlayer.duration),
-        MPMediaItemPropertyArtwork                  : [[MPMediaItemArtwork alloc] initWithImage:IGAppDelegate.sharedInstance.kenBurnsView.currentImage],
+        MPMediaItemPropertyArtwork                  : [[MPMediaItemArtwork alloc] initWithImage:IGAppDelegate.sharedInstance.currentImage],
         MPNowPlayingInfoPropertyPlaybackQueueCount	: @(self.playbackQueue.count),
         MPNowPlayingInfoPropertyPlaybackQueueIndex	: @(self.currentIndex),
         MPNowPlayingInfoPropertyPlaybackRate		: @(self.playing ? 1.0 : 0),
@@ -573,8 +590,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
               withParameters:@{@"track_id": @(i.track.id),
                                @"year": @(i.track.show.year),
                                @"duration": @(i.duration),
-                               @"song_name": i.track.title,
-                               @"show_date": i.track.show.displayDate,
+                               @"song_name": i.track.title ? i.track.title : @"",
+                               @"show_date": i.track.show.displayDate ? i.track.show.displayDate : @"",
                                @"show_id": @(i.track.show.id)
                                } ];
         }
@@ -644,7 +661,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 -(void) audioPlayer:(STKAudioPlayer*)audioPlayer stateChanged:(STKAudioPlayerState)state previousState:(STKAudioPlayerState)previousState {
     dbug(@"[audioPlayer] stateChanged: %@ previousState: %@", [self stringForStatus:state], [self stringForStatus:previousState]);
     [self updateStatusBar];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AGMediaItemStateChanged"
+                                                        object:self];
+    
     [self.uiPlaybackQueueTable reloadData];
+    
     [self setupBar];
 }
 

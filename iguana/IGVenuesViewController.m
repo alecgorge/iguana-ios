@@ -168,8 +168,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	}
 	
 	IGShowsViewController *vc = [[IGShowsViewController alloc] initWithVenue:venue];
-	[self.navigationController pushViewController:vc
-										 animated:YES];
+    push_vc(self, vc, NO);
 }
 
 - (void)tableView:(UITableView *)tableView

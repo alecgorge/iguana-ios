@@ -1,7 +1,8 @@
 platform :ios, '7.0'
 
-link_with 'iguana', 'The Dead On Demand', 'LotusOD'
+link_with 'iguana', 'Listen to the Dead', 'LotusOD'
 
+pod 'FRLayeredNavigationController', :git => "https://github.com/alecgorge/FRLayeredNavigationController.git"
 pod 'JSONModel'
 pod 'VTAcknowledgementsViewController'
 pod 'DOUAudioStreamer'
@@ -10,8 +11,7 @@ pod 'AFNetworking'
 pod 'MKFoundationKit'
 pod 'AXRatingView'
 pod 'CRToast'
-# pod 'KVOController'
-pod 'JBKenBurnsView', :git => 'https://github.com/alecgorge/JBKenBurns.git'
+pod 'JBKenBurnsView', :git => "https://github.com/alecgorge/JBKenBurns.git"
 pod 'SDWebImage'
 pod 'ColorUtils'
 pod 'SVWebViewController', :head
@@ -20,3 +20,4 @@ pod 'FlurrySDK'
 pod 'TDBadgedCell'
 pod 'LastFm'
 pod 'CrashlyticsFramework'
+pod 'CSNNotificationObserver', '~> 0.9.2'

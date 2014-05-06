@@ -15,25 +15,23 @@
     #import <Foundation/Foundation.h>
 #endif
 
-#ifdef UI_USER_INTERFACE_IDIOM()
 #define IS_IPAD() (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-#else
-#define IS_IPAD() (false)
-#endif
 
-//#ifdef DEBUG
+#import <Crashlytics/Crashlytics.h>
+
+#ifdef DEBUG
 #define dbug( s, ... ) NSLog( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
-#define MARK() NSLog( @"MARKED: <%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, nil)
-//#else
-//#define dbug( s, ... ) CLS_LOG( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
-//#define MARK()
-//#endif
+#else
+#define dbug( s, ... ) CLS_LOG( @"<%p %@:(%d)> %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#endif
 
 #import <ColorUtils/ColorUtils.h>
 #import "IGColors.h"
 
 #import <MKFoundationKit/MKFoundationKit.h>
 #import <FlurrySDK/Flurry.h>
+
+#import <FRLayeredNavigationController/UIViewController+FRLayeredNavigationController.h>
 
 #import "IGIguanaAppConfig.h"
 #import "IGAPIClient.h"

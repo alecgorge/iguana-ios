@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Alec Gorge. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "IGTableViewController.h"
 
-@interface IGAboutViewController : UITableViewController
+@interface IGAboutViewController : IGTableViewController
 
 @end

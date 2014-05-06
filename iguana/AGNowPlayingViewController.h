@@ -12,7 +12,7 @@
 
 + (instancetype)sharedInstance;
 
-@property UINavigationController *navigationContainer;
+@property UIViewController *navigationContainer;
 @property BOOL shouldShowBar;
 
 @end
