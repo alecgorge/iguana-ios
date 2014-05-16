@@ -11,12 +11,20 @@
 #import <ColorUtils/ColorUtils.h>
 #import <SVWebViewController/SVWebViewController.h>
 #import <VTAcknowledgementsViewController/VTAcknowledgementsViewController.h>
+#import <LastFm/LastFm.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 NS_ENUM(NSInteger, IGAboutSections) {
+    IGAboutSectionLastFM,
     IGAboutSectionAppInfo,
     IGAboutSectionDeveloperInfo,
     IGAboutSectionAcknowledgements,
     IGAboutSectionCount,
+};
+
+NS_ENUM(NSInteger, IGAboutLastFM) {
+    IGAboutLastFMSignInOut,
+    IGAboutLastFMRowCount
 };
 
 NS_ENUM(NSInteger, IGAboutAppInfoRows) {
@@ -60,6 +68,16 @@ NS_ENUM(NSInteger, IGAboutAcknowledgementsRows) {
     
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"cell"];
+    
+    [[LastFm sharedInstance] getSessionInfoWithSuccessHandler:^(NSDictionary *result) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    } failureHandler:^(NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,6 +98,9 @@ NS_ENUM(NSInteger, IGAboutAcknowledgementsRows) {
  numberOfRowsInSection:(NSInteger)section {
     if (section == IGAboutSectionAppInfo) {
         return IGAboutAppInfoRowCount;
+    }
+    else if (section == IGAboutSectionLastFM) {
+        return IGAboutLastFMRowCount;
     }
     else if (section == IGAboutSectionDeveloperInfo) {
         return IGAboutDeveloperInfoRowCount;
@@ -104,7 +125,7 @@ NS_ENUM(NSInteger, IGAboutAcknowledgementsRows) {
             cell.textLabel.text = [NSString stringWithFormat:@"@%@ on Twitter", IGIguanaAppConfig.twitterHandle];
         }
         else if (row == IGAboutAppInfoRowLeaveReview) {
-            cell.textLabel.text = @"Rate .on the App Store";
+            cell.textLabel.text = [NSString stringWithFormat:@"Rate %@ on the App Store", IGIguanaAppConfig.appName];
         }
         else if (row == IGAboutAppInfoRowReportBug) {
             cell.textLabel.text = @"Report a bug";
@@ -130,6 +151,17 @@ NS_ENUM(NSInteger, IGAboutAcknowledgementsRows) {
     else if (section == IGAboutSectionAcknowledgements) {
         if (row == IGAboutAcknowledgementsRowAcknowledgements) {
             cell.textLabel.text = @"3rd party acknowledgements";
+        }
+    }
+    else if (section == IGAboutSectionLastFM) {
+        if (row == IGAboutLastFMSignInOut) {
+            if ([LastFm sharedInstance].username) {
+                NSString *username = [LastFm sharedInstance].username;
+                cell.textLabel.text = [NSString stringWithFormat:@"Sign out of %@", username];
+            }
+            else {
+                cell.textLabel.text = @"Scrobble with Last.fm";
+            }
         }
     }
     
@@ -212,8 +244,62 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             vc = [VTAcknowledgementsViewController acknowledgementsViewController];
         }
     }
+    else if (section == IGAboutSectionLastFM) {
+        if (row == IGAboutLastFMSignInOut) {
+            UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"Sign into Last.FM"
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"Sign Out"
+                                              otherButtonTitles:@"Sign In", nil];
+            a.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+            [a show];
+        }
+    }
     
     push_vc(self, vc, YES);
+}
+
+- (void)alertView:(UIAlertView *)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:@"Sign In"]) {
+        UITextField *username = [alertView textFieldAtIndex:0];
+        UITextField *password = [alertView textFieldAtIndex:1];
+        [SVProgressHUD show];
+        [[LastFm sharedInstance] getSessionForUser:username.text
+                                          password:password.text
+                                    successHandler:^(NSDictionary *result) {
+                                        [SVProgressHUD dismiss];
+                                        // Save the session into NSUserDefaults. It is loaded on app start up in AppDelegate.
+                                        [[NSUserDefaults standardUserDefaults] setObject:result[@"key"] forKey:@"lastfm_session_key"];
+                                        [[NSUserDefaults standardUserDefaults] setObject:result[@"name"] forKey:@"lastfm_username_key"];
+                                        [[NSUserDefaults standardUserDefaults] synchronize];
+                                        
+                                        // Also set the session of the LastFm object
+                                        [LastFm sharedInstance].session = result[@"key"];
+                                        [LastFm sharedInstance].username = result[@"name"];
+                                        
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            [self.tableView reloadData];
+                                        });
+                                    }
+                                    failureHandler:^(NSError *error) {
+                                        UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                    message:[error localizedDescription]
+                                                                                   delegate:nil
+                                                                          cancelButtonTitle:@"OK"
+                                                                          otherButtonTitles:nil];
+                                        [a show];
+                                        
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            [self.tableView reloadData];
+                                        });
+                                    }];
+    }
+    else if([title isEqualToString:@"Sign Out"]) {
+        [[LastFm sharedInstance] logout];
+        [self.tableView reloadData];
+    }
 }
 
 

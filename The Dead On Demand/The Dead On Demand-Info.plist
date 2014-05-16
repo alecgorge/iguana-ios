@@ -13,15 +13,15 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Grateful Dead</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.0</string>
+	<string>2.1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.0.0</string>
+	<string>2.1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -62,7 +62,7 @@
 		<key>mbid</key>
 		<string>6faa7ca7-0d99-4a5e-bfa6-1fd5037520c6</string>
 		<key>site_base</key>
-		<string>https://listentothedead.com/</string>
+		<string>https://listentothedead.com</string>
 		<key>twitter_handle</key>
 		<string>gratefuldeadod</string>
 	</dict>

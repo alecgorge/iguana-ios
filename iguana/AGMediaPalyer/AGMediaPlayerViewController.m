@@ -365,6 +365,13 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     self.currentTrackHasBeenScrobbled = NO;
     
+    [[LastFm sharedInstance] sendNowPlayingTrack:self.currentItem.title
+                                       byArtist:self.currentItem.artist
+                                        onAlbum:self.currentItem.album
+                                   withDuration:self.audioPlayer.duration
+                                 successHandler:nil
+                                 failureHandler:nil];
+    
     [self.uiPlaybackQueueTable reloadData];
     [self redrawUI];
 }

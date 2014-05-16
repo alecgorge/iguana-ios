@@ -21,3 +21,5 @@ pod 'TDBadgedCell'
 pod 'LastFm'
 pod 'CrashlyticsFramework'
 pod 'CSNNotificationObserver', '~> 0.9.2'
+pod 'SVProgressHUD', :head
+

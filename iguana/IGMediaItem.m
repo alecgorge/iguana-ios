@@ -16,7 +16,7 @@
         
         self.title = track.title;
         self.album = [NSString stringWithFormat:@"%@ — %@ — %@", show.displayDate, show.venue.name, show.venue.city];
-        self.artist = [IGIguanaAppConfig bandName];
+        self.artist = IGIguanaAppConfig.bandName;
         self.file = track.mp3;
         
         self.duration = track.length;
@@ -34,6 +34,10 @@
 
 - (NSURL *)shareURLWithTime:(NSTimeInterval)seconds {
     return [self.track shareURLWithPlayedTime:seconds];
+}
+
+- (NSString *)shareText {
+    return [NSString stringWithFormat:@"#nowplaying %@ — %@ — %@ via @%@", self.title, self.track.show.displayDate, self.artist, IGIguanaAppConfig.twitterHandle];
 }
 
 @end

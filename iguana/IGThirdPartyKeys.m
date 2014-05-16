@@ -27,7 +27,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        self.config = [NSDictionary.alloc initWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"API Keys"
+        self.config = [NSDictionary.alloc initWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"API keys"
                                                                                                ofType:@"plist"]];
     }
     return self;
