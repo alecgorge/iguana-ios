@@ -21,6 +21,57 @@
 		7C2CA0E218DB228D0071E240 /* IGVenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CA0E118DB228D0071E240 /* IGVenuesViewController.m */; };
 		7C2CA0E318DB228D0071E240 /* IGVenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CA0E118DB228D0071E240 /* IGVenuesViewController.m */; };
 		7C2CA0E418DB228D0071E240 /* IGVenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2CA0E118DB228D0071E240 /* IGVenuesViewController.m */; };
+		7C3D553B1926B8AC00DE2B40 /* IGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15C6918C29D5900D52DCC /* IGAppDelegate.m */; };
+		7C3D553C1926B8AC00DE2B40 /* AGMediaPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93439D18C50A6B0076889E /* AGMediaPlayerViewController.m */; };
+		7C3D553D1926B8AC00DE2B40 /* AGMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9343E218C513610076889E /* AGMediaItem.m */; };
+		7C3D553E1926B8AC00DE2B40 /* AGNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9343F418C55CA10076889E /* AGNowPlayingViewController.m */; };
+		7C3D553F1926B8AC00DE2B40 /* IGDurationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CBF18C3B20300D52DCC /* IGDurationHelper.m */; };
+		7C3D55401926B8AC00DE2B40 /* IGSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CD118C3F24600D52DCC /* IGSourcesViewController.m */; };
+		7C3D55411926B8AC00DE2B40 /* IGShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93439118C4EB9A0076889E /* IGShowViewController.m */; };
+		7C3D55421926B8AC00DE2B40 /* IGMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9343E718C514770076889E /* IGMediaItem.m */; };
+		7C3D55431926B8AC00DE2B40 /* IGYearCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CB618C3B02B00D52DCC /* IGYearCell.m */; };
+		7C3D55441926B8AC00DE2B40 /* IGNibProxyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CBA18C3B06A00D52DCC /* IGNibProxyCell.m */; };
+		7C3D55451926B8AC00DE2B40 /* IGShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CCD18C3C63500D52DCC /* IGShowCell.m */; };
+		7C3D55461926B8AC00DE2B40 /* IGSourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CD518C3F41100D52DCC /* IGSourceCell.m */; };
+		7C3D55471926B8AC00DE2B40 /* IGTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93439518C4ED650076889E /* IGTrackCell.m */; };
+		7C3D55481926B8AC00DE2B40 /* IGRefreshableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CA518C3AA8F00D52DCC /* IGRefreshableTableViewController.m */; };
+		7C3D55491926B8AC00DE2B40 /* IGNowPlayingAutoShrinker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9343F018C55C470076889E /* IGNowPlayingAutoShrinker.m */; };
+		7C3D554A1926B8AC00DE2B40 /* IGHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CAA18C3AAEA00D52DCC /* IGHomeViewController.m */; };
+		7C3D554B1926B8AC00DE2B40 /* IGYearsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CAE18C3AC6400D52DCC /* IGYearsViewController.m */; };
+		7C3D554C1926B8AC00DE2B40 /* IGShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CC618C3C3E900D52DCC /* IGShowsViewController.m */; };
+		7C3D554D1926B8AC00DE2B40 /* IGYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15C8C18C39D6500D52DCC /* IGYear.m */; };
+		7C3D554E1926B8AC00DE2B40 /* IGShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15C9418C3A26F00D52DCC /* IGShow.m */; };
+		7C3D554F1926B8AC00DE2B40 /* IGVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15C9C18C3A69100D52DCC /* IGVenue.m */; };
+		7C3D55501926B8AC00DE2B40 /* IGShowReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15C9818C3A50000D52DCC /* IGShowReview.m */; };
+		7C3D55511926B8AC00DE2B40 /* IGTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CA018C3A6BF00D52DCC /* IGTrack.m */; };
+		7C3D55521926B8AC00DE2B40 /* IGAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15C9018C39EDC00D52DCC /* IGAPIClient.m */; };
+		7C3D55531926B8AC00DE2B40 /* IGIguanaAppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15C8718C29E1C00D52DCC /* IGIguanaAppConfig.m */; };
+		7C3D55541926B98800DE2B40 /* AGMediaPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C93439E18C50A6B0076889E /* AGMediaPlayerViewController.xib */; };
+		7C3D55551926B99400DE2B40 /* AGNowPlayingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343F518C55CA10076889E /* AGNowPlayingViewController.xib */; };
+		7C3D55561926B99400DE2B40 /* IGYearCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD15CB218C3AEBA00D52DCC /* IGYearCell.xib */; };
+		7C3D55571926B99400DE2B40 /* IGShowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD15CC918C3C49400D52DCC /* IGShowCell.xib */; };
+		7C3D55581926B99400DE2B40 /* IGSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CD15CD918C3F42900D52DCC /* IGSourceCell.xib */; };
+		7C3D55591926B99400DE2B40 /* IGTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C93439818C4ED7D0076889E /* IGTrackCell.xib */; };
+		7C3D555A1926B9AD00DE2B40 /* 03-loopback.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B118C50D4D0076889E /* 03-loopback.png */; };
+		7C3D555B1926B9AD00DE2B40 /* 03-loopback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B218C50D4D0076889E /* 03-loopback@2x.png */; };
+		7C3D555C1926B9AD00DE2B40 /* glyphicons_083_random.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B318C50D4D0076889E /* glyphicons_083_random.png */; };
+		7C3D555D1926B9AD00DE2B40 /* glyphicons_083_random@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B418C50D4D0076889E /* glyphicons_083_random@2x.png */; };
+		7C3D555E1926B9AD00DE2B40 /* glyphicons_172_rewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B518C50D4D0076889E /* glyphicons_172_rewind.png */; };
+		7C3D555F1926B9AD00DE2B40 /* glyphicons_172_rewind@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B618C50D4D0076889E /* glyphicons_172_rewind@2x.png */; };
+		7C3D55601926B9AD00DE2B40 /* glyphicons_173_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B718C50D4D0076889E /* glyphicons_173_play.png */; };
+		7C3D55611926B9AD00DE2B40 /* glyphicons_173_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B818C50D4D0076889E /* glyphicons_173_play@2x.png */; };
+		7C3D55621926B9AD00DE2B40 /* glyphicons_174_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B918C50D4D0076889E /* glyphicons_174_pause.png */; };
+		7C3D55631926B9AD00DE2B40 /* glyphicons_174_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343BA18C50D4D0076889E /* glyphicons_174_pause@2x.png */; };
+		7C3D55641926B9AD00DE2B40 /* glyphicons_175_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343BB18C50D4D0076889E /* glyphicons_175_stop.png */; };
+		7C3D55651926B9AD00DE2B40 /* glyphicons_175_stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343BC18C50D4D0076889E /* glyphicons_175_stop@2x.png */; };
+		7C3D55661926B9AD00DE2B40 /* glyphicons_176_forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343BD18C50D4D0076889E /* glyphicons_176_forward.png */; };
+		7C3D55671926B9AD00DE2B40 /* glyphicons_176_forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343BE18C50D4D0076889E /* glyphicons_176_forward@2x.png */; };
+		7C3D55681926B9AD00DE2B40 /* glyphicons_184_volume_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343BF18C50D4D0076889E /* glyphicons_184_volume_up.png */; };
+		7C3D55691926B9AD00DE2B40 /* glyphicons_184_volume_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343C018C50D4D0076889E /* glyphicons_184_volume_up@2x.png */; };
+		7C3D556A1926B9AD00DE2B40 /* glyphicons_halflings_113_chevron-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343A318C50AD70076889E /* glyphicons_halflings_113_chevron-down.png */; };
+		7C3D556B1926B9AD00DE2B40 /* glyphicons_halflings_113_chevron-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343A418C50AD70076889E /* glyphicons_halflings_113_chevron-down@2x.png */; };
+		7C3D556C1926B9AD00DE2B40 /* glyphicons_076_headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438A18C461C70076889E /* glyphicons_076_headphones.png */; };
+		7C3D556D1926B9AD00DE2B40 /* glyphicons_076_headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438B18C461C70076889E /* glyphicons_076_headphones@2x.png */; };
 		7C74ADA018C904D50001B9A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2818C29CCD00D52DCC /* Foundation.framework */; };
 		7C74ADA118C904D50001B9A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2A18C29CCD00D52DCC /* CoreGraphics.framework */; };
 		7C74ADA218C904D50001B9A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2C18C29CCD00D52DCC /* UIKit.framework */; };
@@ -989,7 +1040,33 @@
 				7C74ADA818C904D50001B9A4 /* InfoPlist.strings in Resources */,
 				7C74ADB018C904D50001B9A4 /* Images.xcassets in Resources */,
 				7CFBFA1818E72B350072C8EC /* API keys.plist in Resources */,
+				7C3D55541926B98800DE2B40 /* AGMediaPlayerViewController.xib in Resources */,
+				7C3D55551926B99400DE2B40 /* AGNowPlayingViewController.xib in Resources */,
+				7C3D55561926B99400DE2B40 /* IGYearCell.xib in Resources */,
 				7CACCAF818E51BBE009458D2 /* IGReviewerCell.xib in Resources */,
+				7C3D55571926B99400DE2B40 /* IGShowCell.xib in Resources */,
+				7C3D55581926B99400DE2B40 /* IGSourceCell.xib in Resources */,
+				7C3D55591926B99400DE2B40 /* IGTrackCell.xib in Resources */,
+				7C3D555A1926B9AD00DE2B40 /* 03-loopback.png in Resources */,
+				7C3D555B1926B9AD00DE2B40 /* 03-loopback@2x.png in Resources */,
+				7C3D555C1926B9AD00DE2B40 /* glyphicons_083_random.png in Resources */,
+				7C3D555D1926B9AD00DE2B40 /* glyphicons_083_random@2x.png in Resources */,
+				7C3D555E1926B9AD00DE2B40 /* glyphicons_172_rewind.png in Resources */,
+				7C3D555F1926B9AD00DE2B40 /* glyphicons_172_rewind@2x.png in Resources */,
+				7C3D55601926B9AD00DE2B40 /* glyphicons_173_play.png in Resources */,
+				7C3D55611926B9AD00DE2B40 /* glyphicons_173_play@2x.png in Resources */,
+				7C3D55621926B9AD00DE2B40 /* glyphicons_174_pause.png in Resources */,
+				7C3D55631926B9AD00DE2B40 /* glyphicons_174_pause@2x.png in Resources */,
+				7C3D55641926B9AD00DE2B40 /* glyphicons_175_stop.png in Resources */,
+				7C3D55651926B9AD00DE2B40 /* glyphicons_175_stop@2x.png in Resources */,
+				7C3D55661926B9AD00DE2B40 /* glyphicons_176_forward.png in Resources */,
+				7C3D55671926B9AD00DE2B40 /* glyphicons_176_forward@2x.png in Resources */,
+				7C3D55681926B9AD00DE2B40 /* glyphicons_184_volume_up.png in Resources */,
+				7C3D55691926B9AD00DE2B40 /* glyphicons_184_volume_up@2x.png in Resources */,
+				7C3D556A1926B9AD00DE2B40 /* glyphicons_halflings_113_chevron-down.png in Resources */,
+				7C3D556B1926B9AD00DE2B40 /* glyphicons_halflings_113_chevron-down@2x.png in Resources */,
+				7C3D556C1926B9AD00DE2B40 /* glyphicons_076_headphones.png in Resources */,
+				7C3D556D1926B9AD00DE2B40 /* glyphicons_076_headphones@2x.png in Resources */,
 				7C80E79C18E61B2200535A75 /* Pods-acknowledgements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1194,16 +1271,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C0AB4DE18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
-				7C0AB4E318E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
-				7CACCAF418E51BA8009458D2 /* IGReviewerCell.m in Sources */,
-				7C80E7AC18E6332400535A75 /* IGTableViewController.m in Sources */,
-				7C2CA0E418DB228D0071E240 /* IGVenuesViewController.m in Sources */,
-				7C80E7A318E61B7200535A75 /* IGAboutViewController.m in Sources */,
 				7C2CA0DD18DB21630071E240 /* main.m in Sources */,
+				7C3D553B1926B8AC00DE2B40 /* IGAppDelegate.m in Sources */,
+				7C0AB4DE18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
+				7C3D553C1926B8AC00DE2B40 /* AGMediaPlayerViewController.m in Sources */,
+				7C3D553D1926B8AC00DE2B40 /* AGMediaItem.m in Sources */,
+				7C3D553E1926B8AC00DE2B40 /* AGNowPlayingViewController.m in Sources */,
+				7C3D553F1926B8AC00DE2B40 /* IGDurationHelper.m in Sources */,
+				7C80E7A318E61B7200535A75 /* IGAboutViewController.m in Sources */,
 				7CACCAEF18E519A6009458D2 /* IGReviewsTableViewController.m in Sources */,
-				7CFBFA1D18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */,
+				7C3D55401926B8AC00DE2B40 /* IGSourcesViewController.m in Sources */,
+				7C3D55411926B8AC00DE2B40 /* IGShowViewController.m in Sources */,
+				7C2CA0E418DB228D0071E240 /* IGVenuesViewController.m in Sources */,
+				7C3D55421926B8AC00DE2B40 /* IGMediaItem.m in Sources */,
+				7C3D55431926B8AC00DE2B40 /* IGYearCell.m in Sources */,
+				7CACCAF418E51BA8009458D2 /* IGReviewerCell.m in Sources */,
+				7C3D55441926B8AC00DE2B40 /* IGNibProxyCell.m in Sources */,
+				7C3D55451926B8AC00DE2B40 /* IGShowCell.m in Sources */,
+				7C3D55461926B8AC00DE2B40 /* IGSourceCell.m in Sources */,
+				7C3D55471926B8AC00DE2B40 /* IGTrackCell.m in Sources */,
+				7C3D55481926B8AC00DE2B40 /* IGRefreshableTableViewController.m in Sources */,
+				7C3D55491926B8AC00DE2B40 /* IGNowPlayingAutoShrinker.m in Sources */,
 				7CACCAFD18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */,
+				7C0AB4E318E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
+				7C80E7AC18E6332400535A75 /* IGTableViewController.m in Sources */,
+				7C3D554A1926B8AC00DE2B40 /* IGHomeViewController.m in Sources */,
+				7C3D554B1926B8AC00DE2B40 /* IGYearsViewController.m in Sources */,
+				7C3D554C1926B8AC00DE2B40 /* IGShowsViewController.m in Sources */,
+				7C3D554D1926B8AC00DE2B40 /* IGYear.m in Sources */,
+				7C3D554E1926B8AC00DE2B40 /* IGShow.m in Sources */,
+				7C3D554F1926B8AC00DE2B40 /* IGVenue.m in Sources */,
+				7C3D55501926B8AC00DE2B40 /* IGShowReview.m in Sources */,
+				7C3D55511926B8AC00DE2B40 /* IGTrack.m in Sources */,
+				7C3D55521926B8AC00DE2B40 /* IGAPIClient.m in Sources */,
+				7CFBFA1D18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */,
+				7C3D55531926B8AC00DE2B40 /* IGIguanaAppConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

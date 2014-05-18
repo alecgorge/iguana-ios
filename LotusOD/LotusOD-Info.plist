@@ -17,13 +17,17 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>2.1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -41,5 +45,26 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>iguana</key>
+	<dict>
+		<key>app_name</key>
+		<string>LotusOD</string>
+		<key>band_name</key>
+		<string>Lotus</string>
+		<key>iguana_api_base</key>
+		<string>http://lotusod.com/api/artists/lotus</string>
+		<key>iguana_artist_slug</key>
+		<string>lotus</string>
+		<key>itunes_app_id</key>
+		<string>1</string>
+		<key>mbid</key>
+		<string>b4681cdc-4002-4521-8458-ac812f1b6d28</string>
+		<key>site_base</key>
+		<string>https://lotusod.com</string>
+		<key>twitter_handle</key>
+		<string>lotusod</string>
+	</dict>
 </dict>
 </plist>

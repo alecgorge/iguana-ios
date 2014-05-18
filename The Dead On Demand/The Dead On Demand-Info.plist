@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Listen To The Dead</string>
+	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
@@ -58,11 +58,11 @@
 		<key>iguana_artist_slug</key>
 		<string>gd</string>
 		<key>itunes_app_id</key>
-		<string>1</string>
+		<string>715886886</string>
 		<key>mbid</key>
 		<string>6faa7ca7-0d99-4a5e-bfa6-1fd5037520c6</string>
 		<key>site_base</key>
-		<string>https://listentothedead.com</string>
+		<string>https://thedeadondemand.alecgorge.com</string>
 		<key>twitter_handle</key>
 		<string>gratefuldeadod</string>
 	</dict>
