@@ -57,6 +57,8 @@ static IGAppDelegate *shared;
     return shared;
 }
 
+extern CFNotificationCenterRef CFNotificationCenterGetDistributedCenter(void);
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     shared = self;
     
@@ -96,7 +98,7 @@ static IGAppDelegate *shared;
 }
 
 - (void)setupLibs {
-    if(IGThirdPartyKeys.sharedInstance.isFlurryEnabled) {
+    if(NO && IGThirdPartyKeys.sharedInstance.isFlurryEnabled) {
         [Flurry setCrashReportingEnabled:NO];
         [Flurry startSession:IGThirdPartyKeys.sharedInstance.flurryApiKey];
     }
