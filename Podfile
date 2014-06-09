@@ -5,9 +5,8 @@ inhibit_all_warnings!
 link_with 'iguana', 'Listen to the Dead', 'LotusOD'
 
 pod 'FRLayeredNavigationController', :git => "https://github.com/alecgorge/FRLayeredNavigationController.git"
-pod 'JSONModel'
+pod 'JSONModel', :head
 pod 'VTAcknowledgementsViewController'
-pod 'DOUAudioStreamer'
 pod 'NAKPlaybackIndicatorView'
 pod 'AFNetworking'
 pod 'MKFoundationKit'

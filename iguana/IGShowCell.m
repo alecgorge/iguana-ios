@@ -51,7 +51,7 @@
 
     self.venueLabel.text = [NSString stringWithFormat:@"%@\n%@", show.venueName, show.venueCity];
     self.durationLabel.text = [IGDurationHelper formattedTimeWithInterval:show.duration];
-    self.recordingCountLabel.text = [NSString stringWithFormat:@"%@ recordings", show.recordingCount ? show.recordingCount : @(0)];
+    self.recordingCountLabel.text = [NSString stringWithFormat:@"%d recordings", show.recordingCount];
     
     self.cell.backgroundColor = IG_COLOR_CELL_BG;
     self.dateLabel.textColor = IG_COLOR_CELL_TEXT;

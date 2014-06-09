@@ -197,7 +197,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Source %ld of %lu", section + 1, (unsigned long)self.sources.count];
+    return [NSString stringWithFormat:@"Source %ld of %lu", (long)section + 1, (unsigned long)self.sources.count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

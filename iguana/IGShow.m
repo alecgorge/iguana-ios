@@ -14,4 +14,12 @@
     return [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];
 }
 
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+    if([propertyName isEqualToString:@"recordingCount"]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 @end

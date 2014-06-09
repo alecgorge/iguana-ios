@@ -17,7 +17,7 @@
 
 @interface IGShow : JSONModel
 
-@property (nonatomic, assign) NSNumber<Optional> *recordingCount;
+@property (nonatomic, assign) NSInteger recordingCount;
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSDate *date;

@@ -18,7 +18,7 @@
 
 - (NSString *)shareURLWithPlayedTime:(NSTimeInterval)elapsed {
 	NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%ld",
-                     IGIguanaAppConfig.siteBase, self.show.displayDate, self.slug, self.id];
+                     IGIguanaAppConfig.siteBase, self.show.displayDate, self.slug, (long)self.id];
 	if(elapsed > 0) {
 		url = [url stringByAppendingFormat:@"?t=%dm%ds", (int)floor(elapsed / 60), (int)((elapsed - floor(elapsed)) * 60)];
 	}
