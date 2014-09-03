@@ -8,7 +8,6 @@
 
 #import "IGAppDelegate.h"
 
-#import <FlurrySDK/Flurry.h>
 #import <Crashlytics/Crashlytics.h>
 #import <LastFm/LastFm.h>
 
@@ -99,8 +98,8 @@ extern CFNotificationCenterRef CFNotificationCenterGetDistributedCenter(void);
 
 - (void)setupLibs {
     if(NO && IGThirdPartyKeys.sharedInstance.isFlurryEnabled) {
-        [Flurry setCrashReportingEnabled:NO];
-        [Flurry startSession:IGThirdPartyKeys.sharedInstance.flurryApiKey];
+//        [Flurry setCrashReportingEnabled:NO];
+//        [Flurry startSession:IGThirdPartyKeys.sharedInstance.flurryApiKey];
     }
     
     if(IGThirdPartyKeys.sharedInstance.isLastFmEnabled) {

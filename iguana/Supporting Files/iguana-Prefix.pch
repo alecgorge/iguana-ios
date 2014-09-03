@@ -29,7 +29,6 @@
 #import "IGColors.h"
 
 #import <MKFoundationKit/MKFoundationKit.h>
-#import <FlurrySDK/Flurry.h>
 
 #import <FRLayeredNavigationController/UIViewController+FRLayeredNavigationController.h>
 

@@ -45,6 +45,7 @@ NS_ENUM(NSInteger, IGAboutDeveloperInfoRows) {
 
 NS_ENUM(NSInteger, IGAboutAcknowledgementsRows) {
     IGAboutAcknowledgementsRowAcknowledgements,
+    IGAboutAcknowledgementsRowSpecialThanks,
     IGAboutAcknowledgementsRowCount
 };
 
@@ -152,6 +153,9 @@ NS_ENUM(NSInteger, IGAboutAcknowledgementsRows) {
         if (row == IGAboutAcknowledgementsRowAcknowledgements) {
             cell.textLabel.text = @"3rd party acknowledgements";
         }
+        else if(row == IGAboutAcknowledgementsRowSpecialThanks) {
+            cell.textLabel.text = @"Special thanks to...";
+        }
     }
     else if (section == IGAboutSectionLastFM) {
         if (row == IGAboutLastFMSignInOut) {
@@ -242,6 +246,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     else if (section == IGAboutSectionAcknowledgements) {
         if (row == IGAboutAcknowledgementsRowAcknowledgements) {
             vc = [VTAcknowledgementsViewController acknowledgementsViewController];
+        }
+        else if(row == IGAboutAcknowledgementsRowSpecialThanks) {
+            vc = [[SVWebViewController alloc] initWithAddress:@"http://dead.alecgorge.com/#thanks"];
         }
     }
     else if (section == IGAboutSectionLastFM) {

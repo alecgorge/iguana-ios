@@ -8,6 +8,7 @@
 
 #import "AGMediaPlayerViewController.h"
 
+#import <StreamingKit/STKAudioPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
@@ -16,6 +17,7 @@
 #import <StreamingKit/STKAutoRecoveringHTTPDataSource.h>
 #import <JBKenBurnsView/JBKenBurnsView.h>
 #import <LastFm/LastFm.h>
+#import <>
 
 #import "AGNowPlayingViewController.h"
 
@@ -75,11 +77,7 @@
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         [[AVAudioSession sharedInstance] setActive:YES error:nil];
         
-        self.audioPlayer = [[STKAudioPlayer alloc] initWithOptions:(STKAudioPlayerOptions){
-            .flushQueueOnSeek = YES,
-            .enableVolumeMixer = NO,
-            .equalizerBandFrequencies = {50, 100, 200, 400, 800, 1600, 2600, 16000}
-        }];
+        self.audioPlayer = STKAudioPlayer.alloc.init;
         
         self.audioPlayer.delegate = self;        
     }
@@ -217,8 +215,8 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 		self.shareTime = 0;
 	}
     
-	[Flurry logEvent:@"share"
-	  withParameters:@{@"with_time": @(self.shareTime != 0)}];
+//	[Flurry logEvent:@"share"
+//	  withParameters:@{@"with_time": @(self.shareTime != 0)}];
     
 	NSString *textToShare = self.currentItem.shareText;
 	NSURL *urlToShare = [self.currentItem shareURLWithTime:self.shareTime];
@@ -229,10 +227,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
     
 	activityVC.excludedActivityTypes = [[NSArray alloc] initWithObjects: UIActivityTypePostToWeibo, nil];
     activityVC.completionHandler = ^(NSString *activityType, BOOL completed) {
-        [Flurry logEvent:@"share_complete"
-          withParameters:@{@"with_time": @(self.shareTime != 0),
-                           @"activity_type": activityType,
-                           @"completed": @(completed)}];
+//        [Flurry logEvent:@"share_complete"
+//          withParameters:@{@"with_time": @(self.shareTime != 0),
+//                           @"activity_type": activityType,
+//                           @"completed": @(completed)}];
     };
     
 	[self.navigationController presentViewController:activityVC
@@ -316,6 +314,10 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 }
 
 - (AGMediaItem *)currentItem {
+    if(self.currentIndex >= self.playbackQueue.count) {
+        return nil;
+    }
+    
     return self.playbackQueue[self.currentIndex];
 }
 
@@ -565,19 +567,24 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     self.uiProgressSlider.value = self.progress;
     
-    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:@{
-        MPMediaItemPropertyAlbumTitle				: self.currentItem.album,
-        MPMediaItemPropertyTitle					: self.currentItem.title,
-        MPMediaItemPropertyAlbumTrackCount			: @(self.playbackQueue.count),
-        MPMediaItemPropertyArtist					: self.currentItem.artist,
-        MPMediaItemPropertyAssetURL					: self.currentItem.file,
-        MPMediaItemPropertyPlaybackDuration			: @(self.audioPlayer.duration),
-        MPMediaItemPropertyArtwork                  : [[MPMediaItemArtwork alloc] initWithImage:IGAppDelegate.sharedInstance.currentImage],
-        MPNowPlayingInfoPropertyPlaybackQueueCount	: @(self.playbackQueue.count),
-        MPNowPlayingInfoPropertyPlaybackQueueIndex	: @(self.currentIndex),
-        MPNowPlayingInfoPropertyPlaybackRate		: @(self.playing ? 1.0 : 0),
-        MPNowPlayingInfoPropertyElapsedPlaybackTime	: @(self.audioPlayer.progress)
-    }];
+    NSMutableDictionary *dict = @{
+                                  MPMediaItemPropertyAlbumTitle				: self.currentItem.album,
+                                  MPMediaItemPropertyTitle					: self.currentItem.title,
+                                  MPMediaItemPropertyAlbumTrackCount			: @(self.playbackQueue.count),
+                                  MPMediaItemPropertyArtist					: self.currentItem.artist,
+                                  MPMediaItemPropertyAssetURL					: self.currentItem.file,
+                                  MPMediaItemPropertyPlaybackDuration			: @(self.audioPlayer.duration),
+                                  MPNowPlayingInfoPropertyPlaybackQueueCount	: @(self.playbackQueue.count),
+                                  MPNowPlayingInfoPropertyPlaybackQueueIndex	: @(self.currentIndex),
+                                  MPNowPlayingInfoPropertyPlaybackRate		: @(self.playing ? 1.0 : 0),
+                                  MPNowPlayingInfoPropertyElapsedPlaybackTime	: @(self.audioPlayer.progress)
+                                  }.mutableCopy;
+
+    if(IGAppDelegate.sharedInstance.currentImage) {
+        dict[MPMediaItemPropertyArtwork] = [[MPMediaItemArtwork alloc] initWithImage:IGAppDelegate.sharedInstance.currentImage];
+    }
+    
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
     
 	if(!self.currentTrackHasBeenScrobbled && self.progress > .5) {
 		[[LastFm sharedInstance] sendScrobbledTrack:self.currentItem.title

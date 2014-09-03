@@ -13,11 +13,11 @@ pod 'MKFoundationKit'
 pod 'AXRatingView'
 pod 'CRToast'
 pod 'JBKenBurnsView', :git => "https://github.com/alecgorge/JBKenBurns.git"
-pod 'SDWebImage'
+pod 'SDWebImage', '3.6'
 pod 'ColorUtils'
 pod 'SVWebViewController', :head
 pod 'StreamingKit', :head
-pod 'FlurrySDK'
+#pod 'FlurrySDK'
 pod 'TDBadgedCell'
 pod 'LastFm'
 pod 'CrashlyticsFramework'
