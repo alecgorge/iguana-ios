@@ -52,7 +52,7 @@
 		<key>band_name</key>
 		<string>The Grateful Dead</string>
 		<key>iguana_api_base</key>
-		<string>http://thedeadondemand.alecgorge.com/api/artists/gd</string>
+		<string>http://iguana.app.alecgorge.com/api</string>
 		<key>iguana_artist_slug</key>
 		<string>*</string>
 		<key>itunes_app_id</key>
@@ -60,7 +60,7 @@
 		<key>mbid</key>
 		<string></string>
 		<key>site_base</key>
-		<string>https://thedeadondemand.alecgorge.com</string>
+		<string>http://relisten.net</string>
 		<key>twitter_handle</key>
 		<string>relistenapp</string>
 	</dict>
