@@ -17,7 +17,7 @@
 #import <StreamingKit/STKAutoRecoveringHTTPDataSource.h>
 #import <JBKenBurnsView/JBKenBurnsView.h>
 #import <LastFm/LastFm.h>
-#import <>
+#import <FlurrySDK/Flurry.h>
 
 #import "AGNowPlayingViewController.h"
 
