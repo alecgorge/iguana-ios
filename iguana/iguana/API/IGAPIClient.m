@@ -33,7 +33,7 @@
 
 - (instancetype)initWithArtist:(IGArtist *)artist
 {
-    if(self = [super init])
+    if(self = [super initWithBaseURL:IGIguanaAppConfig.apiBase])
     {
         self.artist = artist;
     }

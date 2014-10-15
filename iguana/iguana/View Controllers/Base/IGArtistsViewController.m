@@ -23,10 +23,9 @@
     self.artists = @[];
     self.title = @"Artists";
     
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"artist"];
-    
-    self.tableView.backgroundColor = IG_COLOR_TABLE_BG;
-    self.tableView.separatorColor = IG_COLOR_TABLE_SEP;
+    //[self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"artist"];
+    //self.tableView.backgroundColor = IG_COLOR_TABLE_BG;
+    //self.tableView.separatorColor = IG_COLOR_TABLE_SEP;
 }
 
 - (void)refresh:(UIRefreshControl *)sender {
@@ -51,15 +50,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"artist";
+    //static NSString *CellIdentifier = @"artist";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
-                                                            forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"artist"];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
     //IGYearCell *c = [[IGYearCell alloc] initWithCell:cell];
     //[c updateCellWithYear:self.artists[indexPath.row]];
+    
+    // TODO - conform to standard color schemes
+    cell.backgroundColor = [UIColor blackColor];
     IGArtist *artist = self.artists[indexPath.row];
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
+    [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
     cell.textLabel.text = artist.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld recordings", (long)artist.recordingCount];
     
     return cell;
 }
