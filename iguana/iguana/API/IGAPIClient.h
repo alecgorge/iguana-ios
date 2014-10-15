@@ -11,13 +11,18 @@
 #import "IGYear.h"
 #import "IGShow.h"
 #import "IGVenue.h"
+#import "IGArtist.h"
 
 @interface IGAPIClient : AFHTTPSessionManager
 
 + (instancetype)sharedInstance;
 
+- (instancetype)initWithArtist:(IGArtist *)artist;
+
 // an array of IGYear's
 - (void)years:(void (^)(NSArray *))success;
+
+- (void)artists:(void (^)(NSArray *))success;
 
 - (void)year:(NSUInteger)year success:(void (^)(IGYear *))success;
 

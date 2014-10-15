@@ -22,6 +22,8 @@
 #import "IGEchoNestImages.h"
 
 #import "IGHomeViewController.h"
+#import "IGArtistsViewController.h"
+#import "AFNetworkActivityLogger.h"
 
 void push_vc(UIViewController *obj, UIViewController *vc, BOOL maximumWidth) {
     if(IS_IPAD()) {
@@ -66,8 +68,9 @@ extern CFNotificationCenterRef CFNotificationCenterGetDistributedCenter(void);
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [self setupAppearance];
+    [AFNetworkActivityLogger.sharedLogger startLogging];
     
-    IGHomeViewController *vc = [[IGHomeViewController alloc] init];
+    IGArtistsViewController *vc = [[IGArtistsViewController alloc] init];
     
     self.autoshrinker = [[IGNowPlayingAutoShrinker alloc] init];
     

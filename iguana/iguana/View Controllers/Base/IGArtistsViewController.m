@@ -1,53 +1,38 @@
 //
-//  IGYearsViewController.m
+//  IGArtistsViewController.m
 //  iguana
 //
-//  Created by Alec Gorge on 3/2/14.
+//  Created by Manik Kalra on 10/14/14.
 //  Copyright (c) 2014 Alec Gorge. All rights reserved.
 //
 
-#import "IGYearsViewController.h"
-
-#import "IGShowsViewController.h"
+#import "IGArtistsViewController.h"
 #import "IGYearCell.h"
 
-@interface IGYearsViewController ()
+@interface IGArtistsViewController ()
 
-@property (nonatomic) NSArray *years;
-@property(nonatomic, strong) IGArtist *artist;
+@property (nonatomic) NSArray *artists;
 
 @end
 
-@implementation IGYearsViewController
-
-- (instancetype)initWithArtist:(IGArtist *)artist;
-{
-    if(self = [super init]) {
-        self.artist = artist;
-    }
-    
-    return self;
-}
+@implementation IGArtistsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.years = @[];
-    self.title = @"Years";
+    self.artists = @[];
+    self.title = @"Artists";
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"IGYearCell"
-                                               bundle:nil]
-         forCellReuseIdentifier:@"year"];
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"artist"];
     
     self.tableView.backgroundColor = IG_COLOR_TABLE_BG;
     self.tableView.separatorColor = IG_COLOR_TABLE_SEP;
 }
 
 - (void)refresh:(UIRefreshControl *)sender {
-    IGAPIClient *api = [[IGAPIClient alloc] initWithArtist:self.artist];
-    [api years:^(NSArray *arr) {
+    [[IGAPIClient sharedInstance] artists:^(NSArray *arr) {
         if(arr) {
-            self.years = arr;
+            self.artists = arr;
             [self.tableView reloadData];
         }
         
@@ -61,18 +46,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return self.years.count;
+    return self.artists.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"year";
+    static NSString *CellIdentifier = @"artist";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                             forIndexPath:indexPath];
     
-    IGYearCell *c = [[IGYearCell alloc] initWithCell:cell];
-    [c updateCellWithYear:self.years[indexPath.row]];
+    //IGYearCell *c = [[IGYearCell alloc] initWithCell:cell];
+    //[c updateCellWithYear:self.artists[indexPath.row]];
+    IGArtist *artist = self.artists[indexPath.row];
+    cell.textLabel.text = artist.name;
     
     return cell;
 }
@@ -84,12 +71,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
     
-    IGShowsViewController *vc = [[IGShowsViewController alloc] initWithYear:self.years[row]];
+    IGYearsViewController *vc = [[IGYearsViewController alloc] initWithArtist:self.artists[row]];
     push_vc(self, vc, NO);
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [IGYearCell height];
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return [IGYearCell height];
+//}
+
 
 @end

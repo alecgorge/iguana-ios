@@ -7,7 +7,10 @@
 //
 
 #import "IGRefreshableTableViewController.h"
+#import "IGArtist.h"
 
 @interface IGYearsViewController : IGRefreshableTableViewController
+
+- (instancetype)initWithArtist:(IGArtist *)artist;
 
 @end

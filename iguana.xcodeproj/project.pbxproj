@@ -306,6 +306,15 @@
 		7CFBFA1C18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */; };
 		7CFBFA1D18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */; };
 		B28A4D52A2BB47968CD71AF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C76755E0C90A4456BE73CBB5 /* libPods.a */; };
+		C12AA2DC19EDD70B0097AA46 /* IGArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DB19EDD70B0097AA46 /* IGArtist.m */; };
+		C12AA2DD19EDDBD50097AA46 /* IGArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DB19EDD70B0097AA46 /* IGArtist.m */; };
+		C12AA2E019EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
+		C12AA2E119EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
+		C12AA2E219EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
+		C12AA2E319EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
+		C12AA2E419EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
+		C12AA2E519EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
+		C12AA2E619EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +342,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4183DFD2B677EC1C8AF5AB9D /* Pods.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.adhoc.xcconfig; path = "Pods/Target Support Files/Pods/Pods.adhoc.xcconfig"; sourceTree = "<group>"; };
 		7C0AB4DA18E5E9E200E2E975 /* IGEchoNestImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGEchoNestImages.h; sourceTree = "<group>"; };
 		7C0AB4DB18E5E9E200E2E975 /* IGEchoNestImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGEchoNestImages.m; sourceTree = "<group>"; };
 		7C0AB4DF18E5FEFD00E2E975 /* NSMutableArray+IGShuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+IGShuffling.h"; sourceTree = "<group>"; };
@@ -467,7 +477,12 @@
 		7CFBFA1518E72B350072C8EC /* API keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "API keys.plist"; sourceTree = "<group>"; };
 		7CFBFA1918E72BCB0072C8EC /* IGThirdPartyKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGThirdPartyKeys.h; sourceTree = "<group>"; };
 		7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGThirdPartyKeys.m; sourceTree = "<group>"; };
-		998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		7E3C68475B65A446224EA924 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		873D3961D8652F58F787D318 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C12AA2DA19EDD70B0097AA46 /* IGArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGArtist.h; sourceTree = "<group>"; };
+		C12AA2DB19EDD70B0097AA46 /* IGArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGArtist.m; sourceTree = "<group>"; };
+		C12AA2DE19EDDCA10097AA46 /* IGArtistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGArtistsViewController.h; path = Base/IGArtistsViewController.h; sourceTree = "<group>"; };
+		C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGArtistsViewController.m; path = Base/IGArtistsViewController.m; sourceTree = "<group>"; };
 		C76755E0C90A4456BE73CBB5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -716,8 +731,8 @@
 				7C74ADBB18C904D50001B9A4 /* LotusODTests */,
 				7CD15C2718C29CCD00D52DCC /* Frameworks */,
 				7CD15C2618C29CCD00D52DCC /* Products */,
-				998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */,
 				7CF82B5019EDB72C002671ED /* Listen to the Dead copy-Info.plist */,
+				F6D017C54DFDB653A755EAB4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -860,6 +875,8 @@
 		7CD15C8A18C39D2400D52DCC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C12AA2DA19EDD70B0097AA46 /* IGArtist.h */,
+				C12AA2DB19EDD70B0097AA46 /* IGArtist.m */,
 				7CD15C8B18C39D6500D52DCC /* IGYear.h */,
 				7CD15C8C18C39D6500D52DCC /* IGYear.m */,
 				7CD15C9318C3A26F00D52DCC /* IGShow.h */,
@@ -883,6 +900,8 @@
 				7C9343E518C514620076889E /* Playback */,
 				7CD15CB118C3AD5000D52DCC /* Cells */,
 				7CD15CA818C3AAD200D52DCC /* Base */,
+				C12AA2DE19EDDCA10097AA46 /* IGArtistsViewController.h */,
+				C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */,
 				7CD15CA918C3AAEA00D52DCC /* IGHomeViewController.h */,
 				7CD15CAA18C3AAEA00D52DCC /* IGHomeViewController.m */,
 				7CD15CAD18C3AC6400D52DCC /* IGYearsViewController.h */,
@@ -941,6 +960,16 @@
 				7CD15CBF18C3B20300D52DCC /* IGDurationHelper.m */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F6D017C54DFDB653A755EAB4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				873D3961D8652F58F787D318 /* Pods.debug.xcconfig */,
+				7E3C68475B65A446224EA924 /* Pods.release.xcconfig */,
+				4183DFD2B677EC1C8AF5AB9D /* Pods.adhoc.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1348,7 +1377,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7C79EB7A1984BD0F0064C177 /* ShellScript */ = {
@@ -1391,7 +1420,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7CF82B4A19EDB72C002671ED /* ShellScript */ = {
@@ -1405,7 +1434,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Pods/CrashlyticsFramework/Crashlytics.framework/run bbdd6a4df81e6b1498130a0f1fbf72d14e334fb4 6f395bff041601bfd84d45d401450dfb7addb425c9c245ae6a0b3df6e0022cc4";
+			shellScript = "#./Pods/CrashlyticsFramework/Crashlytics.framework/run bbdd6a4df81e6b1498130a0f1fbf72d14e334fb4 6f395bff041601bfd84d45d401450dfb7addb425c9c245ae6a0b3df6e0022cc4";
 		};
 		A63BA30E665E4855B3FBD036 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1419,7 +1448,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B0DE70D7EF48497A8ABF7E31 /* Check Pods Manifest.lock */ = {
@@ -1464,7 +1493,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1495,6 +1524,7 @@
 				7C3D55471926B8AC00DE2B40 /* IGTrackCell.m in Sources */,
 				7C3D55481926B8AC00DE2B40 /* IGRefreshableTableViewController.m in Sources */,
 				7C3D55491926B8AC00DE2B40 /* IGNowPlayingAutoShrinker.m in Sources */,
+				C12AA2E419EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
 				7CACCAFD18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */,
 				7C0AB4E318E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
 				7C80E7AC18E6332400535A75 /* IGTableViewController.m in Sources */,
@@ -1517,6 +1547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C74ADC218C904D50001B9A4 /* LotusODTests.m in Sources */,
+				C12AA2E519EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,6 +1583,8 @@
 				7CD15CC018C3B20300D52DCC /* IGDurationHelper.m in Sources */,
 				7CD15CBB18C3B06A00D52DCC /* IGNibProxyCell.m in Sources */,
 				7CD15CAF18C3AC6400D52DCC /* IGYearsViewController.m in Sources */,
+				C12AA2DC19EDD70B0097AA46 /* IGArtist.m in Sources */,
+				C12AA2E019EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
 				7CFBFA1B18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */,
 				7C80E7A118E61B7200535A75 /* IGAboutViewController.m in Sources */,
 				7CD15C9118C39EDC00D52DCC /* IGAPIClient.m in Sources */,
@@ -1567,6 +1600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CD15C4E18C29CCD00D52DCC /* iguanaTests.m in Sources */,
+				C12AA2E119EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1595,6 +1629,7 @@
 				7CD15CAC18C3AAEA00D52DCC /* IGHomeViewController.m in Sources */,
 				7CD15C9A18C3A50000D52DCC /* IGShowReview.m in Sources */,
 				7C93439718C4ED650076889E /* IGTrackCell.m in Sources */,
+				C12AA2E219EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
 				7CD15CD318C3F24600D52DCC /* IGSourcesViewController.m in Sources */,
 				7C9343E418C513610076889E /* AGMediaItem.m in Sources */,
 				7CD15CD718C3F41100D52DCC /* IGSourceCell.m in Sources */,
@@ -1617,6 +1652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CD15C7E18C29D5900D52DCC /* The_Dead_On_DemandTests.m in Sources */,
+				C12AA2E319EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1642,6 +1678,7 @@
 				7CF82B0F19EDB72C002671ED /* IGReviewsTableViewController.m in Sources */,
 				7CF82B1019EDB72C002671ED /* IGLongTextTableViewController.m in Sources */,
 				7CF82B1119EDB72C002671ED /* IGReviewerCell.m in Sources */,
+				C12AA2DD19EDDBD50097AA46 /* IGArtist.m in Sources */,
 				7CF82B1219EDB72C002671ED /* IGHomeViewController.m in Sources */,
 				7CF82B1319EDB72C002671ED /* IGShowReview.m in Sources */,
 				7CF82B1419EDB72C002671ED /* IGTrackCell.m in Sources */,
@@ -1652,6 +1689,7 @@
 				7CF82B1919EDB72C002671ED /* IGYearCell.m in Sources */,
 				7CF82B1A19EDB72C002671ED /* IGYearsViewController.m in Sources */,
 				7CF82B1B19EDB72C002671ED /* IGShow.m in Sources */,
+				C12AA2E619EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
 				7CF82B1C19EDB72C002671ED /* IGThirdPartyKeys.m in Sources */,
 				7CF82B1D19EDB72C002671ED /* IGAboutViewController.m in Sources */,
 				7CF82B1E19EDB72C002671ED /* IGNibProxyCell.m in Sources */,
@@ -1736,7 +1774,7 @@
 /* Begin XCBuildConfiguration section */
 		7C74ADC318C904D50001B9A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 873D3961D8652F58F787D318 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1758,7 +1796,7 @@
 		};
 		7C74ADC418C904D50001B9A4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 7E3C68475B65A446224EA924 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1776,6 +1814,7 @@
 		};
 		7C74ADC518C904D50001B9A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 873D3961D8652F58F787D318 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iguana.app/iguana";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1798,6 +1837,7 @@
 		};
 		7C74ADC618C904D50001B9A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E3C68475B65A446224EA924 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iguana.app/iguana";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1898,7 +1938,7 @@
 		};
 		7CD15C5218C29CCD00D52DCC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 873D3961D8652F58F787D318 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1913,7 +1953,7 @@
 		};
 		7CD15C5318C29CCD00D52DCC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 7E3C68475B65A446224EA924 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1928,6 +1968,7 @@
 		};
 		7CD15C5518C29CCD00D52DCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 873D3961D8652F58F787D318 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iguana.app/iguana";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1950,6 +1991,7 @@
 		};
 		7CD15C5618C29CCD00D52DCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E3C68475B65A446224EA924 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iguana.app/iguana";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1968,7 +2010,7 @@
 		};
 		7CD15C8018C29D5900D52DCC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 873D3961D8652F58F787D318 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1992,7 +2034,7 @@
 		};
 		7CD15C8118C29D5900D52DCC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 7E3C68475B65A446224EA924 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2012,6 +2054,7 @@
 		};
 		7CD15C8318C29D5900D52DCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 873D3961D8652F58F787D318 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iguana.app/iguana";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2034,6 +2077,7 @@
 		};
 		7CD15C8418C29D5900D52DCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E3C68475B65A446224EA924 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iguana.app/iguana";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2090,7 +2134,7 @@
 		};
 		7CF087A819427DFD001D46E8 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 4183DFD2B677EC1C8AF5AB9D /* Pods.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2105,6 +2149,7 @@
 		};
 		7CF087A919427DFD001D46E8 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4183DFD2B677EC1C8AF5AB9D /* Pods.adhoc.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iguana.app/iguana";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2123,7 +2168,7 @@
 		};
 		7CF087AA19427DFD001D46E8 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 4183DFD2B677EC1C8AF5AB9D /* Pods.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2143,6 +2188,7 @@
 		};
 		7CF087AB19427DFD001D46E8 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4183DFD2B677EC1C8AF5AB9D /* Pods.adhoc.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iguana.app/iguana";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2161,7 +2207,7 @@
 		};
 		7CF087AC19427DFD001D46E8 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 4183DFD2B677EC1C8AF5AB9D /* Pods.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2179,6 +2225,7 @@
 		};
 		7CF087AD19427DFD001D46E8 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4183DFD2B677EC1C8AF5AB9D /* Pods.adhoc.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iguana.app/iguana";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2197,7 +2244,7 @@
 		};
 		7CF82B4C19EDB72C002671ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 873D3961D8652F58F787D318 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2221,7 +2268,7 @@
 		};
 		7CF82B4D19EDB72C002671ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 7E3C68475B65A446224EA924 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2241,7 +2288,7 @@
 		};
 		7CF82B4E19EDB72C002671ED /* Adhoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 998414FCCB3B4379AFDD7ECB /* Pods.xcconfig */;
+			baseConfigurationReference = 4183DFD2B677EC1C8AF5AB9D /* Pods.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

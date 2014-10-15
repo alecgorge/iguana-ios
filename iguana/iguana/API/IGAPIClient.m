@@ -13,6 +13,12 @@
 
 #import "IGIguanaAppConfig.h"
 
+@interface IGAPIClient ()
+
+@property (nonatomic, strong) IGArtist *artist;
+
+@end
+
 @implementation IGAPIClient
 
 + (instancetype)sharedInstance {
@@ -23,6 +29,16 @@
         sharedInstance = [[self alloc] initWithBaseURL:IGIguanaAppConfig.apiBase];
     });
     return sharedInstance;
+}
+
+- (instancetype)initWithArtist:(IGArtist *)artist
+{
+    if(self = [super init])
+    {
+        self.artist = artist;
+    }
+    
+    return self;
 }
 
 - (void)failure:(NSError *)error {
@@ -39,8 +55,42 @@
                                 }];
 }
 
+- (void)artists:(void (^)(NSArray *))success {
+    [self GET:@"artists"
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
+              NSError *err;
+              IGArtist *a = [[IGArtist alloc] initWithDictionary:item
+                                                       error:&err];
+              
+              if(err) {
+                  [self failure: err];
+                  dbug(@"json err: %@", err);
+              }
+              
+              return a;
+          }];
+          
+          success(r);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          [self failure:error];
+          
+          success(nil);
+      }];
+}
+
+- (NSString *)routeForArtist:(NSString *)route {
+    if(self.artist == nil) {
+        return [NSString stringWithFormat:@"artists/%@/%@", IGIguanaAppConfig.artistSlug, route];
+    }
+    
+    return [NSString stringWithFormat:@"artists/%@/%@", self.artist.slug, route];
+}
+
 - (void)years:(void (^)(NSArray *))success {
-    [self GET:@"years"
+    [self GET:[self routeForArtist:@"years"]
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
