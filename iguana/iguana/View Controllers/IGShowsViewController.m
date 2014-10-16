@@ -150,7 +150,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                              animated:YES];
     
 	IGShow *show = [self showForIndexPath:indexPath];
-    IGSourcesViewController *vc = [[IGSourcesViewController alloc] initWithDisplayDate:show.displayDate];
+    IGSourcesViewController *vc = [[IGSourcesViewController alloc] initWithArtist:self.artist
+                                                                   andDisplayDate:show.displayDate];
     push_vc(self, vc, NO);
 }
 

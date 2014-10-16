@@ -230,7 +230,8 @@
 }
 
 - (void)showsOn:(NSString *)displayDate success:(void (^)(NSArray *))success {
-    [self GET:[@"years/" stringByAppendingFormat:@"%@/shows/%@", [displayDate substringToIndex:4], displayDate]
+    [self GET:[[NSString stringWithFormat:@"artists/%@/years/", self.artist.slug]
+               stringByAppendingFormat:@"%@/shows/%@", [displayDate substringToIndex:4], displayDate]
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {

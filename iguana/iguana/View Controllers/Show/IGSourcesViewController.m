@@ -25,6 +25,7 @@ NS_ENUM(NSInteger, IGSourcesRows) {
 
 @property (nonatomic, strong) NSString *displayDate;
 @property (nonatomic, strong) NSArray *sources;
+@property (nonatomic, strong) IGArtist *artist;
 
 @property (nonatomic, strong) UITableViewCell *prototypeCell;
 
@@ -34,6 +35,17 @@ NS_ENUM(NSInteger, IGSourcesRows) {
 
 - (instancetype)initWithDisplayDate:(NSString *)displayDate {
     if(self = [super initWithStyle:UITableViewStyleGrouped]) {
+        self.displayDate = displayDate;
+        self.sources = @[];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithArtist:(IGArtist *)artist andDisplayDate:(NSString *)displayDate
+{
+    if(self = [super initWithStyle:UITableViewStyleGrouped]) {
+        self.artist = artist;
         self.displayDate = displayDate;
         self.sources = @[];
     }
@@ -61,7 +73,8 @@ NS_ENUM(NSInteger, IGSourcesRows) {
 
 - (void)refresh:(UIRefreshControl *)sender {
 	if(self.displayDate) {
-		[IGAPIClient.sharedInstance showsOn:self.displayDate
+        IGAPIClient *api = [[IGAPIClient alloc] initWithArtist:self.artist];
+		[api showsOn:self.displayDate
 									success:^(NSArray *sources) {
 										if(sources) {
 											self.sources = sources;

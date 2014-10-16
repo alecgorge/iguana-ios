@@ -11,6 +11,7 @@
 @interface IGSourcesViewController : IGRefreshableTableViewController
 
 - (instancetype)initWithDisplayDate:(NSString *)displayDate;
+- (instancetype)initWithArtist:(IGArtist *)artist andDisplayDate:(NSString *)displayDate;
 - (instancetype)initWithRandomDate;
 
 @end
