@@ -11,6 +11,7 @@
 @interface IGShowsViewController : IGRefreshableTableViewController
 
 - (instancetype)initWithYear:(IGYear *)year;
+- (instancetype)initWithArtist:(IGArtist *)artist andYear:(IGYear *)year;
 - (instancetype)initWithVenue:(IGVenue *)venue;
 - (instancetype)initWithTopShows;
 

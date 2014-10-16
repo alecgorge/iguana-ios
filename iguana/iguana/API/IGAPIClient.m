@@ -16,6 +16,7 @@
 @interface IGAPIClient ()
 
 @property (nonatomic, strong) IGArtist *artist;
+@property (nonatomic, strong) IGYear *year;
 
 @end
 
@@ -40,6 +41,17 @@
     
     return self;
 }
+
+- (instancetype)initWithArtist:(IGArtist *)artist andYear:(IGYear *)year
+{
+    if(self = [super initWithBaseURL:IGIguanaAppConfig.apiBase]) {
+        self.year = year;
+        self.artist = artist;
+    }
+    
+    return self;
+}
+
 
 - (void)failure:(NSError *)error {
     [CRToastManager showNotificationWithOptions:@{
@@ -142,7 +154,8 @@
 }
 
 - (void)year:(NSUInteger)year success:(void (^)(IGYear *))success {
-    [self GET:[@"years/" stringByAppendingFormat:@"%lu", (unsigned long)year]
+    [self GET:[[NSString stringWithFormat:@"artists/%@/years/", self.artist.slug]
+               stringByAppendingFormat:@"%lu", (unsigned long)year]
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSError *err;

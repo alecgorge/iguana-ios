@@ -14,6 +14,7 @@
 @interface IGShowsViewController ()
 
 @property (nonatomic, strong) IGYear *year;
+@property (nonatomic, strong) IGArtist *artist;
 @property (nonatomic, strong) IGVenue *venue;
 @property (nonatomic, strong) NSArray *shows;
 
@@ -24,6 +25,16 @@
 - (instancetype)initWithYear:(IGYear *)year {
     if(self = [super init]) {
         self.year = year;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithArtist:(IGArtist *)artist andYear:(IGYear *)year
+{
+    if(self = [super init]) {
+        self.year = year;
+        self.artist = artist;
     }
     
     return self;
@@ -62,7 +73,8 @@
 
 - (void)refresh:(UIRefreshControl *)sender {
     if(self.year) {
-        [[IGAPIClient sharedInstance] year:self.year.year success:^(IGYear *year) {
+        IGAPIClient *api = [[IGAPIClient alloc] initWithArtist:self.artist andYear:self.year];
+        [api year:self.year.year success:^(IGYear *year) {
             if(year) {
                 self.year = year;
                 [self.tableView reloadData];

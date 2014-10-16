@@ -18,6 +18,7 @@
 + (instancetype)sharedInstance;
 
 - (instancetype)initWithArtist:(IGArtist *)artist;
+- (instancetype)initWithArtist:(IGArtist *)artist andYear:(IGYear *)year;
 
 // an array of IGYear's
 - (void)years:(void (^)(NSArray *))success;

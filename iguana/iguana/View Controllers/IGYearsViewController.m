@@ -84,7 +84,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
     
-    IGShowsViewController *vc = [[IGShowsViewController alloc] initWithYear:self.years[row]];
+    IGShowsViewController *vc = [[IGShowsViewController alloc] initWithArtist:self.artist andYear:self.years[row]];
     push_vc(self, vc, NO);
 }
 
