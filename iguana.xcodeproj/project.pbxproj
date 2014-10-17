@@ -1145,6 +1145,9 @@
 					7CD15C7018C29D5900D52DCC = {
 						TestTargetID = 7CD15C2418C29CCD00D52DCC;
 					};
+					7CF82AFD19EDB72C002671ED = {
+						DevelopmentTeam = W685T434Q5;
+					};
 				};
 			};
 			buildConfigurationList = 7CD15C2018C29CCD00D52DCC /* Build configuration list for PBXProject "iguana" */;
@@ -2250,6 +2253,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_ID = com.alecgorge.ios.Relisten;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Dead On Demand/Supporting Files/The Dead On Demand-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2274,12 +2278,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_ID = com.alecgorge.ios.Relisten;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Dead On Demand/Supporting Files/The Dead On Demand-Prefix.pch";
 				INFOPLIST_FILE = "Listen to the Dead copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Listen to the Dead copy";
-				PROVISIONING_PROFILE = "DCE140C5-677F-4983-895B-DC0653D7DE79";
+				PROVISIONING_PROFILE = "";
 				SPRINGBOARD_DISPLAY_NAME = Relisten;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -2294,12 +2299,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				BUNDLE_ID = "com.alecgorge.ios.Relisten-Beta";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "The Dead On Demand/Supporting Files/The Dead On Demand-Prefix.pch";
 				INFOPLIST_FILE = "Listen to the Dead copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "Listen to the Dead copy";
-				PROVISIONING_PROFILE = "42444D13-603A-4648-A821-9222C45DA60B";
+				PROVISIONING_PROFILE = "";
 				SPRINGBOARD_DISPLAY_NAME = "Relisten β";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

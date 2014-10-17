@@ -11,5 +11,6 @@
 @interface IGShowViewController : IGRefreshableTableViewController
 
 - (instancetype)initWithShow:(IGShow *)show;
+- (instancetype)initWithArtist:(IGArtist *)artist andShow:(IGShow *)show;
 
 @end

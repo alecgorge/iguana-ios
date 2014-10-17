@@ -48,6 +48,16 @@
     return self;
 }
 
+-(instancetype)initWithArtist:(IGArtist *)artist andVenue:(IGVenue *)venue
+{
+    if(self = [super init]) {
+        self.venue = venue;
+        self.artist = artist;
+    }
+    
+    return self;
+}
+
 -(instancetype)initWithTopShows {
 	if(self = [super init]) {
 		self.shows = @[];
@@ -84,7 +94,8 @@
         }];
     }
 	else if (self.venue) {
-        [[IGAPIClient sharedInstance] venue:self.venue success:^(IGVenue *venue) {
+        IGAPIClient *api = [[IGAPIClient alloc] initWithArtist:self.artist andYear:self.year];
+        [api venue:self.venue success:^(IGVenue *venue) {
             if(venue) {
                 self.venue = venue;
                 [self.tableView reloadData];

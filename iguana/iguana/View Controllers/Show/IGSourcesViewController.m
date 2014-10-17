@@ -204,7 +204,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         // push reviews VC
     }
     else if (row == IGSourcesSelectRow) {
-        IGShowViewController *vc = [[IGShowViewController alloc] initWithShow:show];
+        IGShowViewController *vc = [[IGShowViewController alloc] initWithArtist:self.artist andShow:show];
         push_vc(self, vc, NO);
     }
 }

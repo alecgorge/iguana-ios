@@ -39,6 +39,7 @@ NS_ENUM(NSInteger, IGShowRows) {
 
 @property (nonatomic, strong) IGShow *show;
 @property (nonatomic, strong) CSNNotificationObserver *trackChangedEvent;
+@property (nonatomic, strong) IGArtist *artist;
 
 @end
 
@@ -47,6 +48,16 @@ NS_ENUM(NSInteger, IGShowRows) {
 - (instancetype)initWithShow:(IGShow *)show {
     if(self = [super initWithStyle:UITableViewStylePlain]) {
         self.show = show;
+    }
+    
+    return self;
+}
+
+-(instancetype)initWithArtist:(IGArtist *)artist andShow:(IGShow *)show
+{
+    if(self = [super initWithStyle:UITableViewStylePlain]) {
+        self.show = show;
+        self.artist = artist;
     }
     
     return self;
@@ -221,7 +232,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             push_vc(self, vc, YES);
 		}
 		else if(row == IGShowRowVenue) {
-			IGShowsViewController *vc = [[IGShowsViewController alloc] initWithVenue:self.show.venue];
+            IGShowsViewController *vc = [[IGShowsViewController alloc] initWithArtist:self.artist andVenue:self.show.venue];
 			
             push_vc(self, vc, NO);
 		}

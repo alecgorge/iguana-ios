@@ -177,7 +177,7 @@
 }
 
 - (void)venue:(IGVenue *)venue success:(void (^)(IGVenue *))success {
-    [self GET:[@"venues/" stringByAppendingFormat:@"%lu", (unsigned long)venue.id]
+    [self GET:[[NSString stringWithFormat:@"artists/%@/venues/", self.artist.slug] stringByAppendingFormat:@"%lu", (unsigned long)venue.id]
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSError *err;
