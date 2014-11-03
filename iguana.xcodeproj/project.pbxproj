@@ -166,6 +166,14 @@
 		7CACCAFB18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CACCAFA18E53A12009458D2 /* IGLongTextTableViewController.m */; };
 		7CACCAFC18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CACCAFA18E53A12009458D2 /* IGLongTextTableViewController.m */; };
 		7CACCAFD18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CACCAFA18E53A12009458D2 /* IGLongTextTableViewController.m */; };
+		7CAE936F1A07277300B66F20 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE936E1A07277300B66F20 /* IGPlaylist.m */; };
+		7CAE93701A07277300B66F20 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE936E1A07277300B66F20 /* IGPlaylist.m */; };
+		7CAE93711A07277300B66F20 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE936E1A07277300B66F20 /* IGPlaylist.m */; };
+		7CAE93721A07277300B66F20 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE936E1A07277300B66F20 /* IGPlaylist.m */; };
+		7CAE93751A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
+		7CAE93761A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
+		7CAE93771A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
+		7CAE93781A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
 		7CD15C2918C29CCD00D52DCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2818C29CCD00D52DCC /* Foundation.framework */; };
 		7CD15C2B18C29CCD00D52DCC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2A18C29CCD00D52DCC /* CoreGraphics.framework */; };
 		7CD15C2D18C29CCD00D52DCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2C18C29CCD00D52DCC /* UIKit.framework */; };
@@ -409,6 +417,10 @@
 		7CACCAF518E51BBE009458D2 /* IGReviewerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IGReviewerCell.xib; sourceTree = "<group>"; };
 		7CACCAF918E53A12009458D2 /* IGLongTextTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLongTextTableViewController.h; sourceTree = "<group>"; };
 		7CACCAFA18E53A12009458D2 /* IGLongTextTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLongTextTableViewController.m; sourceTree = "<group>"; };
+		7CAE936D1A07277300B66F20 /* IGPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGPlaylist.h; sourceTree = "<group>"; };
+		7CAE936E1A07277300B66F20 /* IGPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGPlaylist.m; sourceTree = "<group>"; };
+		7CAE93731A07277E00B66F20 /* IGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUser.h; sourceTree = "<group>"; };
+		7CAE93741A07277E00B66F20 /* IGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGUser.m; sourceTree = "<group>"; };
 		7CD15C2518C29CCD00D52DCC /* iguana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iguana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CD15C2818C29CCD00D52DCC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7CD15C2A18C29CCD00D52DCC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -887,6 +899,10 @@
 				7CD15C9818C3A50000D52DCC /* IGShowReview.m */,
 				7CD15C9F18C3A6BF00D52DCC /* IGTrack.h */,
 				7CD15CA018C3A6BF00D52DCC /* IGTrack.m */,
+				7CAE936D1A07277300B66F20 /* IGPlaylist.h */,
+				7CAE936E1A07277300B66F20 /* IGPlaylist.m */,
+				7CAE93731A07277E00B66F20 /* IGUser.h */,
+				7CAE93741A07277E00B66F20 /* IGUser.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1509,6 +1525,7 @@
 				7C2CA0DD18DB21630071E240 /* main.m in Sources */,
 				7C3D553B1926B8AC00DE2B40 /* IGAppDelegate.m in Sources */,
 				7C0AB4DE18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
+				7CAE93711A07277300B66F20 /* IGPlaylist.m in Sources */,
 				7C3D553C1926B8AC00DE2B40 /* AGMediaPlayerViewController.m in Sources */,
 				7C3D553D1926B8AC00DE2B40 /* AGMediaItem.m in Sources */,
 				7C3D553E1926B8AC00DE2B40 /* AGNowPlayingViewController.m in Sources */,
@@ -1533,6 +1550,7 @@
 				7C80E7AC18E6332400535A75 /* IGTableViewController.m in Sources */,
 				7C3D554A1926B8AC00DE2B40 /* IGHomeViewController.m in Sources */,
 				7C3D554B1926B8AC00DE2B40 /* IGYearsViewController.m in Sources */,
+				7CAE93771A07277E00B66F20 /* IGUser.m in Sources */,
 				7C3D554C1926B8AC00DE2B40 /* IGShowsViewController.m in Sources */,
 				7C3D554D1926B8AC00DE2B40 /* IGYear.m in Sources */,
 				7C3D554E1926B8AC00DE2B40 /* IGShow.m in Sources */,
@@ -1585,9 +1603,11 @@
 				7CD15C3518C29CCD00D52DCC /* main.m in Sources */,
 				7CD15CC018C3B20300D52DCC /* IGDurationHelper.m in Sources */,
 				7CD15CBB18C3B06A00D52DCC /* IGNibProxyCell.m in Sources */,
+				7CAE936F1A07277300B66F20 /* IGPlaylist.m in Sources */,
 				7CD15CAF18C3AC6400D52DCC /* IGYearsViewController.m in Sources */,
 				C12AA2DC19EDD70B0097AA46 /* IGArtist.m in Sources */,
 				C12AA2E019EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
+				7CAE93751A07277E00B66F20 /* IGUser.m in Sources */,
 				7CFBFA1B18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */,
 				7C80E7A118E61B7200535A75 /* IGAboutViewController.m in Sources */,
 				7CD15C9118C39EDC00D52DCC /* IGAPIClient.m in Sources */,
@@ -1614,6 +1634,7 @@
 				7CD15CC418C3B64200D52DCC /* IGIguanaAppConfig.m in Sources */,
 				7C93439318C4EB9A0076889E /* IGShowViewController.m in Sources */,
 				7C0AB4E218E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
+				7CAE93701A07277300B66F20 /* IGPlaylist.m in Sources */,
 				7C9343F218C55C470076889E /* IGNowPlayingAutoShrinker.m in Sources */,
 				7CD15CC818C3C3E900D52DCC /* IGShowsViewController.m in Sources */,
 				7C0AB4DD18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
@@ -1638,6 +1659,7 @@
 				7CD15CD718C3F41100D52DCC /* IGSourceCell.m in Sources */,
 				7CD15C6A18C29D5900D52DCC /* IGAppDelegate.m in Sources */,
 				7CD15CB818C3B02B00D52DCC /* IGYearCell.m in Sources */,
+				7CAE93761A07277E00B66F20 /* IGUser.m in Sources */,
 				7CD15CB018C3AC6400D52DCC /* IGYearsViewController.m in Sources */,
 				7CD15C9618C3A26F00D52DCC /* IGShow.m in Sources */,
 				7CFBFA1C18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */,
@@ -1690,9 +1712,11 @@
 				7CF82B1719EDB72C002671ED /* IGSourceCell.m in Sources */,
 				7CF82B1819EDB72C002671ED /* IGAppDelegate.m in Sources */,
 				7CF82B1919EDB72C002671ED /* IGYearCell.m in Sources */,
+				7CAE93721A07277300B66F20 /* IGPlaylist.m in Sources */,
 				7CF82B1A19EDB72C002671ED /* IGYearsViewController.m in Sources */,
 				7CF82B1B19EDB72C002671ED /* IGShow.m in Sources */,
 				C12AA2E619EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
+				7CAE93781A07277E00B66F20 /* IGUser.m in Sources */,
 				7CF82B1C19EDB72C002671ED /* IGThirdPartyKeys.m in Sources */,
 				7CF82B1D19EDB72C002671ED /* IGAboutViewController.m in Sources */,
 				7CF82B1E19EDB72C002671ED /* IGNibProxyCell.m in Sources */,

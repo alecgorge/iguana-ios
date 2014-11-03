@@ -292,4 +292,84 @@
       }];
 }
 
+#pragma mark - New methods
+
+- (void)validateUsername:(NSString *)username
+			withPassword:(NSString *)password
+				 success:(void(^)(BOOL validCombination))success {
+	[self POST:@"users/validate"
+	parameters:@{@"username": username, @"password": password}
+	   success:^(NSURLSessionDataTask *task, id responseObject) {
+		   success(YES);
+	   }
+	   failure:^(NSURLSessionDataTask *task, NSError *error) {
+		   [self failure:error];
+		   
+		   success(NO);
+	   }];
+}
+
+- (void)userProfile:(NSString *)username
+			success:(void(^)(IGUser *user))success {
+	[self GET:[@"users/" stringByAppendingString:username]
+   parameters:nil
+	  success:^(NSURLSessionDataTask *task, id responseObject) {
+		  NSError *err;
+		  IGUser *y = [IGUser.alloc initWithDictionary:responseObject[@"data"]
+												 error:&err];
+		  
+		  if(err) {
+			  [self failure: err];
+			  dbug(@"json err: %@", err);
+		  }
+		  
+		  success(y);
+	  }
+	  failure:^(NSURLSessionDataTask *task, NSError *error) {
+		  success(nil);
+	  }];
+}
+
+- (void)playlist:(NSString *)slug
+		 success:(void (^)(IGPlaylist *playlist))success {
+	[self GET:[@"playlists/by-slug/" stringByAppendingString:slug]
+   parameters:nil
+	  success:^(NSURLSessionDataTask *task, id responseObject) {
+		  NSError *err;
+		  IGPlaylist *y = [IGPlaylist.alloc initWithDictionary:responseObject[@"data"]
+														 error:&err];
+		  
+		  if(err) {
+			  [self failure: err];
+			  dbug(@"json err: %@", err);
+		  }
+		  
+		  success(y);
+	  }
+	  failure:^(NSURLSessionDataTask *task, NSError *error) {
+		  success(nil);
+	  }];
+}
+
+- (void)playlistFromId:(NSUInteger)playlist_id
+			   success:(void (^)(IGPlaylist *playlist))success {
+	[self GET:[@"playlists/by-id/" stringByAppendingString:@(playlist_id).stringValue]
+   parameters:nil
+	  success:^(NSURLSessionDataTask *task, id responseObject) {
+		  NSError *err;
+		  IGPlaylist *y = [IGPlaylist.alloc initWithDictionary:responseObject[@"data"]
+														 error:&err];
+		  
+		  if(err) {
+			  [self failure: err];
+			  dbug(@"json err: %@", err);
+		  }
+		  
+		  success(y);
+	  }
+	  failure:^(NSURLSessionDataTask *task, NSError *error) {
+		  success(nil);
+	  }];
+}
+
 @end

@@ -12,6 +12,8 @@
 #import "IGShow.h"
 #import "IGVenue.h"
 #import "IGArtist.h"
+#import "IGUser.h"
+#import "IGPlaylist.h"
 
 @interface IGAPIClient : AFHTTPSessionManager
 
@@ -38,5 +40,19 @@
 - (void)venue:(IGVenue *)venue success:(void (^)(IGVenue *))success;
 
 - (void)topShows:(void (^)(NSArray *))success;
+
+// authenticated methods
+- (void)validateUsername:(NSString *)username
+			withPassword:(NSString *)password
+				 success:(void(^)(BOOL validCombination))success;
+
+- (void)userProfile:(NSString *)username
+			success:(void(^)(IGUser *user))success;
+
+- (void)playlist:(NSString *)slug
+		 success:(void (^)(IGPlaylist *playlist))success;
+
+- (void)playlistFromId:(NSUInteger)playlist_id
+			   success:(void (^)(IGPlaylist *playlist))success;
 
 @end
