@@ -72,6 +72,18 @@
 		7C3D556B1926B9AD00DE2B40 /* glyphicons_halflings_113_chevron-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343A418C50AD70076889E /* glyphicons_halflings_113_chevron-down@2x.png */; };
 		7C3D556C1926B9AD00DE2B40 /* glyphicons_076_headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438A18C461C70076889E /* glyphicons_076_headphones.png */; };
 		7C3D556D1926B9AD00DE2B40 /* glyphicons_076_headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438B18C461C70076889E /* glyphicons_076_headphones@2x.png */; };
+		7C6DB4BC1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4BB1A07EE7E00CC7BD8 /* IGAuthManager.m */; };
+		7C6DB4BD1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4BB1A07EE7E00CC7BD8 /* IGAuthManager.m */; };
+		7C6DB4BE1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4BB1A07EE7E00CC7BD8 /* IGAuthManager.m */; };
+		7C6DB4BF1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4BB1A07EE7E00CC7BD8 /* IGAuthManager.m */; };
+		7C6DB4C31A07F08900CC7BD8 /* IGSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4C21A07F08900CC7BD8 /* IGSignInViewController.m */; };
+		7C6DB4C41A07F08900CC7BD8 /* IGSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4C21A07F08900CC7BD8 /* IGSignInViewController.m */; };
+		7C6DB4C51A07F08900CC7BD8 /* IGSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4C21A07F08900CC7BD8 /* IGSignInViewController.m */; };
+		7C6DB4C61A07F08900CC7BD8 /* IGSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4C21A07F08900CC7BD8 /* IGSignInViewController.m */; };
+		7C6DB4C91A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4C81A07F0B300CC7BD8 /* IGSignUpViewController.m */; };
+		7C6DB4CA1A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4C81A07F0B300CC7BD8 /* IGSignUpViewController.m */; };
+		7C6DB4CB1A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4C81A07F0B300CC7BD8 /* IGSignUpViewController.m */; };
+		7C6DB4CC1A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DB4C81A07F0B300CC7BD8 /* IGSignUpViewController.m */; };
 		7C74ADA018C904D50001B9A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2818C29CCD00D52DCC /* Foundation.framework */; };
 		7C74ADA118C904D50001B9A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2A18C29CCD00D52DCC /* CoreGraphics.framework */; };
 		7C74ADA218C904D50001B9A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2C18C29CCD00D52DCC /* UIKit.framework */; };
@@ -357,6 +369,12 @@
 		7C0AB4E018E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+IGShuffling.m"; sourceTree = "<group>"; };
 		7C2CA0E018DB228D0071E240 /* IGVenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGVenuesViewController.h; sourceTree = "<group>"; };
 		7C2CA0E118DB228D0071E240 /* IGVenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGVenuesViewController.m; sourceTree = "<group>"; };
+		7C6DB4BA1A07EE7E00CC7BD8 /* IGAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGAuthManager.h; sourceTree = "<group>"; };
+		7C6DB4BB1A07EE7E00CC7BD8 /* IGAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGAuthManager.m; sourceTree = "<group>"; };
+		7C6DB4C11A07F08900CC7BD8 /* IGSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGSignInViewController.h; sourceTree = "<group>"; };
+		7C6DB4C21A07F08900CC7BD8 /* IGSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGSignInViewController.m; sourceTree = "<group>"; };
+		7C6DB4C71A07F0B300CC7BD8 /* IGSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGSignUpViewController.h; sourceTree = "<group>"; };
+		7C6DB4C81A07F0B300CC7BD8 /* IGSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGSignUpViewController.m; sourceTree = "<group>"; };
 		7C74AD9F18C904D50001B9A4 /* LotusOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotusOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C74ADA518C904D50001B9A4 /* LotusOD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LotusOD-Info.plist"; sourceTree = "<group>"; };
 		7C74ADA718C904D50001B9A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -596,6 +614,17 @@
 				7C2CA0E118DB228D0071E240 /* IGVenuesViewController.m */,
 			);
 			path = Venues;
+			sourceTree = "<group>";
+		};
+		7C6DB4C01A07F07F00CC7BD8 /* Sign In */ = {
+			isa = PBXGroup;
+			children = (
+				7C6DB4C71A07F0B300CC7BD8 /* IGSignUpViewController.h */,
+				7C6DB4C81A07F0B300CC7BD8 /* IGSignUpViewController.m */,
+				7C6DB4C11A07F08900CC7BD8 /* IGSignInViewController.h */,
+				7C6DB4C21A07F08900CC7BD8 /* IGSignInViewController.m */,
+			);
+			name = "Sign In";
 			sourceTree = "<group>";
 		};
 		7C74ADA318C904D50001B9A4 /* LotusOD */ = {
@@ -880,6 +909,8 @@
 				7CD15C9018C39EDC00D52DCC /* IGAPIClient.m */,
 				7CFBFA1918E72BCB0072C8EC /* IGThirdPartyKeys.h */,
 				7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */,
+				7C6DB4BA1A07EE7E00CC7BD8 /* IGAuthManager.h */,
+				7C6DB4BB1A07EE7E00CC7BD8 /* IGAuthManager.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -910,6 +941,7 @@
 		7CD15CA318C3AA4000D52DCC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C6DB4C01A07F07F00CC7BD8 /* Sign In */,
 				7C80E79D18E61B5400535A75 /* About */,
 				7CACCAE918E51966009458D2 /* Show */,
 				7C2CA0DF18DB22700071E240 /* Venues */,
@@ -1525,7 +1557,9 @@
 				7C2CA0DD18DB21630071E240 /* main.m in Sources */,
 				7C3D553B1926B8AC00DE2B40 /* IGAppDelegate.m in Sources */,
 				7C0AB4DE18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
+				7C6DB4CB1A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */,
 				7CAE93711A07277300B66F20 /* IGPlaylist.m in Sources */,
+				7C6DB4BE1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */,
 				7C3D553C1926B8AC00DE2B40 /* AGMediaPlayerViewController.m in Sources */,
 				7C3D553D1926B8AC00DE2B40 /* AGMediaItem.m in Sources */,
 				7C3D553E1926B8AC00DE2B40 /* AGNowPlayingViewController.m in Sources */,
@@ -1548,6 +1582,7 @@
 				7CACCAFD18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */,
 				7C0AB4E318E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
 				7C80E7AC18E6332400535A75 /* IGTableViewController.m in Sources */,
+				7C6DB4C51A07F08900CC7BD8 /* IGSignInViewController.m in Sources */,
 				7C3D554A1926B8AC00DE2B40 /* IGHomeViewController.m in Sources */,
 				7C3D554B1926B8AC00DE2B40 /* IGYearsViewController.m in Sources */,
 				7CAE93771A07277E00B66F20 /* IGUser.m in Sources */,
@@ -1577,8 +1612,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CD15C9518C3A26F00D52DCC /* IGShow.m in Sources */,
+				7C6DB4C91A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */,
 				7C93439218C4EB9A0076889E /* IGShowViewController.m in Sources */,
 				7C0AB4E118E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
+				7C6DB4C31A07F08900CC7BD8 /* IGSignInViewController.m in Sources */,
 				7C9343F118C55C470076889E /* IGNowPlayingAutoShrinker.m in Sources */,
 				7CD15CC718C3C3E900D52DCC /* IGShowsViewController.m in Sources */,
 				7C0AB4DC18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
@@ -1599,6 +1636,7 @@
 				7C93439618C4ED650076889E /* IGTrackCell.m in Sources */,
 				7CD15CD218C3F24600D52DCC /* IGSourcesViewController.m in Sources */,
 				7C9343E318C513610076889E /* AGMediaItem.m in Sources */,
+				7C6DB4BC1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */,
 				7CD15CD618C3F41100D52DCC /* IGSourceCell.m in Sources */,
 				7CD15C3518C29CCD00D52DCC /* main.m in Sources */,
 				7CD15CC018C3B20300D52DCC /* IGDurationHelper.m in Sources */,
@@ -1634,7 +1672,9 @@
 				7CD15CC418C3B64200D52DCC /* IGIguanaAppConfig.m in Sources */,
 				7C93439318C4EB9A0076889E /* IGShowViewController.m in Sources */,
 				7C0AB4E218E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
+				7C6DB4CA1A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */,
 				7CAE93701A07277300B66F20 /* IGPlaylist.m in Sources */,
+				7C6DB4BD1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */,
 				7C9343F218C55C470076889E /* IGNowPlayingAutoShrinker.m in Sources */,
 				7CD15CC818C3C3E900D52DCC /* IGShowsViewController.m in Sources */,
 				7C0AB4DD18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
@@ -1657,6 +1697,7 @@
 				7CD15CD318C3F24600D52DCC /* IGSourcesViewController.m in Sources */,
 				7C9343E418C513610076889E /* AGMediaItem.m in Sources */,
 				7CD15CD718C3F41100D52DCC /* IGSourceCell.m in Sources */,
+				7C6DB4C41A07F08900CC7BD8 /* IGSignInViewController.m in Sources */,
 				7CD15C6A18C29D5900D52DCC /* IGAppDelegate.m in Sources */,
 				7CD15CB818C3B02B00D52DCC /* IGYearCell.m in Sources */,
 				7CAE93761A07277E00B66F20 /* IGUser.m in Sources */,
@@ -1686,8 +1727,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF82B0019EDB72C002671ED /* IGIguanaAppConfig.m in Sources */,
+				7C6DB4CC1A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */,
 				7CF82B0119EDB72C002671ED /* IGShowViewController.m in Sources */,
 				7CF82B0219EDB72C002671ED /* NSMutableArray+IGShuffling.m in Sources */,
+				7C6DB4C61A07F08900CC7BD8 /* IGSignInViewController.m in Sources */,
 				7CF82B0319EDB72C002671ED /* IGNowPlayingAutoShrinker.m in Sources */,
 				7CF82B0419EDB72C002671ED /* IGShowsViewController.m in Sources */,
 				7CF82B0519EDB72C002671ED /* IGEchoNestImages.m in Sources */,
@@ -1708,6 +1751,7 @@
 				7CF82B1319EDB72C002671ED /* IGShowReview.m in Sources */,
 				7CF82B1419EDB72C002671ED /* IGTrackCell.m in Sources */,
 				7CF82B1519EDB72C002671ED /* IGSourcesViewController.m in Sources */,
+				7C6DB4BF1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */,
 				7CF82B1619EDB72C002671ED /* AGMediaItem.m in Sources */,
 				7CF82B1719EDB72C002671ED /* IGSourceCell.m in Sources */,
 				7CF82B1819EDB72C002671ED /* IGAppDelegate.m in Sources */,

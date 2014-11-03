@@ -25,3 +25,5 @@ pod 'CrashlyticsFramework'
 pod 'CSNNotificationObserver', '~> 0.9.2'
 pod 'SVProgressHUD', :head
 pod 'AFNetworkActivityLogger', '~> 2.0'
+pod 'FXKeychain'
+
