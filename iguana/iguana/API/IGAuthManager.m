@@ -12,11 +12,12 @@
 #import "IGAPIClient.h"
 #import "IGAuthManager.h"
 #import "IGSignInViewController.h"
+#import "IGSignUpViewController.h"
 
 static NSString *kRelistenNetUsernameKeychainKey = @"relisten_u";
 static NSString *kRelistenNetPasswordKeychainKey = @"relisten_p";
 
-@interface IGAuthManager () <IGSignInDelegate>
+@interface IGAuthManager () <IGSignInDelegate, IGSignUpDelegate>
 
 @property (nonatomic, copy) void (^signInBlock)(void);
 
@@ -81,6 +82,26 @@ static NSString *kRelistenNetPasswordKeychainKey = @"relisten_p";
 								   completion:NULL];
 }
 
+- (void)signUpFrom:(UIViewController *)baseViewController
+                   success:(void (^)(void))success {
+    if(self.hasCredentials) {
+        success();
+        return;
+    }
+    
+    self.signInBlock = success;
+    
+    IGSignUpViewController *vc = IGSignUpViewController.alloc.init;
+    vc.delegate = self;
+    
+    UINavigationController *nav = [UINavigationController.alloc initWithRootViewController:vc];
+    
+    [baseViewController presentViewController:nav
+                                     animated:YES
+                                   completion:NULL];
+}
+
+
 - (void)signInViewController:(IGSignInViewController *)vc
 	tappedSignInWithUsername:(NSString *)username
 				 andPassword:(NSString *)password {
@@ -117,6 +138,45 @@ static NSString *kRelistenNetPasswordKeychainKey = @"relisten_p";
 	
 	self.signInBlock = nil;
 }
+
+- (void)signUpViewController:(IGSignUpViewController *)vc
+    tappedSignUpWithUsername:(NSString *)username
+                 andPassword:(NSString *)password {
+    [SVProgressHUD showWithStatus:@"Contacting Relisten.net"
+                         maskType:SVProgressHUDMaskTypeBlack];
+    
+    [self validateUsername:username
+              withPassword:password
+                      save:YES
+                    result:^(BOOL valid) {
+                        [SVProgressHUD dismiss];
+                        
+                        if(valid) {
+                            [vc.presentingViewController dismissViewControllerAnimated:YES
+                                                                            completion:NULL];
+                            
+                            self.signInBlock();
+                        }
+                        else {
+                            UIAlertView *a = [UIAlertView.alloc initWithTitle:@"Relisten.net username or Password Incorrect"
+                                                                      message:@"It would seem that your email or password is incorrect. You need to use the email and password you use on Relisten.net."
+                                                                     delegate:nil
+                                                            cancelButtonTitle:@"OK"
+                                                            otherButtonTitles:nil];
+                            
+                            [a show];
+                        }
+                    }];
+
+}
+
+- (void)dismissTappedInSignUpViewController:(IGSignUpViewController *)vc {
+    [vc.presentingViewController dismissViewControllerAnimated:YES
+                                                    completion:NULL];
+    
+    self.signInBlock = nil;
+}
+
 
 - (void)signOut {
 	FXKeychain.defaultKeychain[kRelistenNetUsernameKeychainKey] = nil;

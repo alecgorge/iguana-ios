@@ -27,18 +27,8 @@
     //self.tableView.backgroundColor = IG_COLOR_TABLE_BG;
     //self.tableView.separatorColor = IG_COLOR_TABLE_SEP;
     
-    UIBarButtonItem *signupButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Up"
-                                                                   style:UIBarButtonItemStyleBordered
-                                                                  target:self
-                                                                  action:@selector(signUpButtonPressed)];
-    UIBarButtonItem *loginButton = [[UIBarButtonItem alloc] initWithTitle:@"Login"
-                                                                    style:UIBarButtonItemStyleBordered
-                                                                   target:self
-                                                                   action:@selector(loginButtonPressed)];
-    self.navigationItem.leftBarButtonItem = signupButton;
-    self.navigationItem.rightBarButtonItem = loginButton;
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor yellowColor];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];
+    [self renderLoginButtons];
+    
 }
 
 - (void)refresh:(UIRefreshControl *)sender {
@@ -99,14 +89,57 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)loginButtonPressed
 {
-    IGSignInViewController *vc = [[IGSignInViewController alloc] init];
-    push_vc(self, vc, NO);
+    [[IGAuthManager sharedInstance] ensureSignedInFrom:self
+                                               success:^{
+                                                   [self renderLoginButtons];
+                                               }];
 }
 
 - (void)signUpButtonPressed
 {
-    IGSignUpViewController *vc = [[IGSignUpViewController alloc] init];
-    push_vc(self, vc, NO);
+    [[IGAuthManager sharedInstance] signUpFrom:self
+                                       success:^{
+                                            [self renderLoginButtons];
+                                        }];
+}
+
+-(void)logoutButtonPressed
+{
+    [IGAuthManager.sharedInstance signOut];
+    [self renderLoginButtons];
+}
+
+-(void)renderLoginButtons
+{
+    // User is signed in
+    if(IGAuthManager.sharedInstance.hasCredentials) {
+        UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+                                                                         style:UIBarButtonItemStyleBordered
+                                                                        target:self
+                                                                        action:@selector(loginButtonPressed)];
+        
+        self.navigationItem.rightBarButtonItem = logoutButton;
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+    // User is not signed in
+    else {
+    
+        UIBarButtonItem *signUpButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Up"
+                                                                     style:UIBarButtonItemStyleBordered
+                                                                    target:self
+                                                                    action:@selector(signUpButtonPressed)];
+        UIBarButtonItem *loginButton = [[UIBarButtonItem alloc] initWithTitle:@"Login"
+                                                                    style:UIBarButtonItemStyleBordered
+                                                                    target:self
+                                                                   action:@selector(loginButtonPressed)];
+        
+        self.navigationItem.leftBarButtonItem = signUpButton;
+        self.navigationItem.rightBarButtonItem = loginButton;
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor yellowColor];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];
+
+    }
 }
 
 @end

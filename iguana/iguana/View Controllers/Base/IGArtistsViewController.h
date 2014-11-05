@@ -10,6 +10,7 @@
 #import "IGYearsViewController.h"
 #import "IGSignUpViewController.h"
 #import "IGSignInViewController.h"
+#import "IGAuthManager.h"
 
 @interface IGArtistsViewController : IGRefreshableTableViewController
 
