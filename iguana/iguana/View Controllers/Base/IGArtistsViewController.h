@@ -8,6 +8,8 @@
 
 #import "IGRefreshableTableViewController.h"
 #import "IGYearsViewController.h"
+#import "IGSignUpViewController.h"
+#import "IGSignInViewController.h"
 
 @interface IGArtistsViewController : IGRefreshableTableViewController
 
