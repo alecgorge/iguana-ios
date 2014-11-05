@@ -37,6 +37,8 @@
                                                                    action:@selector(loginButtonPressed)];
     self.navigationItem.leftBarButtonItem = signupButton;
     self.navigationItem.rightBarButtonItem = loginButton;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor yellowColor];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];
 }
 
 - (void)refresh:(UIRefreshControl *)sender {
