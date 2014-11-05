@@ -50,18 +50,25 @@
             atomically:YES];
 }
 
-- (void)images:(void (^)(NSArray *))success {
+- (void)imagesForArtist:(IGArtist *)artist success:(void (^)(NSArray *))success {
     if ([[NSFileManager defaultManager] fileExistsAtPath:self.cacheFilePath]) {
         [self cacheImagesFromURLs:self.cache
                           success:success];
         return;
     }
     
+    NSString *musicBrainzID = @"6faa7ca7-0d99-4a5e-bfa6-1fd5037520c6";
+    if(artist && artist.musicbrainzId) {
+        musicBrainzID = artist.musicbrainzId;
+    }
+        
+        
+    
     [self GET:@"artist/images"
-   parameters:@{
+    parameters:@{
                 @"api_key":@"8RQSIBP0UNAEYNVWV",
                 @"results": @100,
-                @"id": [NSString stringWithFormat:@"musicbrainz:artist:%@", IGIguanaAppConfig.musicBrainzId]
+                @"id": [NSString stringWithFormat:@"musicbrainz:artist:%@", musicBrainzID]
                 }
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *arr = [responseObject[@"response"][@"images"] mk_map:^id(id item) {

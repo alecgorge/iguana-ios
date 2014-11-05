@@ -23,12 +23,7 @@
     self.artists = @[];
     self.title = @"Artists";
     
-    //[self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"artist"];
-    //self.tableView.backgroundColor = IG_COLOR_TABLE_BG;
-    //self.tableView.separatorColor = IG_COLOR_TABLE_SEP;
-    
     [self renderLoginButtons];
-    
 }
 
 - (void)refresh:(UIRefreshControl *)sender {
@@ -62,7 +57,7 @@
     //[c updateCellWithYear:self.artists[indexPath.row]];
     
     // TODO - conform to standard color schemes
-    cell.backgroundColor = [UIColor blackColor];
+    cell.backgroundColor = [UIColor clearColor];
     IGArtist *artist = self.artists[indexPath.row];
     [cell.textLabel setTextColor:[UIColor whiteColor]];
     [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
@@ -78,6 +73,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
+    
+    [[IGAppDelegate sharedInstance] setupSlideshowWithArtist:self.artists[row]];
     
     IGYearsViewController *vc = [[IGYearsViewController alloc] initWithArtist:self.artists[row]];
     push_vc(self, vc, NO);
@@ -116,7 +113,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
                                                                          style:UIBarButtonItemStyleBordered
                                                                         target:self
-                                                                        action:@selector(loginButtonPressed)];
+                                                                        action:@selector(logoutButtonPressed)];
         
         self.navigationItem.rightBarButtonItem = logoutButton;
         self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];

@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *slug;
 @property (nonatomic, assign) NSInteger id;
 @property (nonatomic, assign) NSInteger recordingCount;
+@property (nonatomic, strong) NSString<Optional> *musicbrainzId;
 
 @end

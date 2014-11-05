@@ -13,6 +13,6 @@
 + (instancetype)sharedInstance;
 
 // an array of NSStrings as paths to the files
-- (void)images:(void (^)(NSArray *))success;
+- (void)imagesForArtist:(IGArtist *)artist success:(void (^)(NSArray *))success;
 
 @end

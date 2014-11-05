@@ -32,5 +32,6 @@ void push_vc(UIViewController *obj, UIViewController *vc, BOOL maximumWidth);
 @property (nonatomic, readonly) UIImage *currentImage;
 
 - (void)presentMusicPlayer;
+- (void)setupSlideshowWithArtist:(IGArtist *)artist;
 
 @end

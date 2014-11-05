@@ -91,7 +91,7 @@ extern CFNotificationCenterRef CFNotificationCenterGetDistributedCenter(void);
     
     self.window.rootViewController = self.navigationController;
     
-    [self setupSlideshow];
+    [self setupSlideshowWithArtist:nil];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -123,7 +123,7 @@ extern CFNotificationCenterRef CFNotificationCenterGetDistributedCenter(void);
 //    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation];
 }
 
-- (void)setupSlideshow {
+- (void)setupSlideshowWithArtist:(IGArtist *)artist {
     UIView *container = [[UIView alloc] initWithFrame:[self screenRotatedRect]];
     UIView *colorOverlay = [[UIView alloc] initWithFrame:container.bounds];
     container.backgroundColor = UIColor.blackColor;
@@ -142,7 +142,8 @@ extern CFNotificationCenterRef CFNotificationCenterGetDistributedCenter(void);
 		[container addSubview:self.kenBurnsView];
 		[container addSubview:colorOverlay];
 
-		[IGEchoNestImages.sharedInstance images:^(NSArray *images) {
+		[IGEchoNestImages.sharedInstance imagesForArtist:artist
+                                                 success:^(NSArray *images) {
 			[self.kenBurnsView stopAnimation];
 			[self.kenBurnsView animateWithImages:images
 							  transitionDuration:IG_SLIDESHOW_DURATION
@@ -162,7 +163,7 @@ extern CFNotificationCenterRef CFNotificationCenterGetDistributedCenter(void);
 		[container addSubview:self.randomImageView];
 
 		__block BOOL called = NO;
-		[IGEchoNestImages.sharedInstance images:^(NSArray *images) {
+		[IGEchoNestImages.sharedInstance imagesForArtist:artist success:^(NSArray *images) {
 			self.randomImages = images;
 			
 			if(!called) {
