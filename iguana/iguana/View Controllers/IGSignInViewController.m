@@ -46,6 +46,8 @@
 {
     [super viewDidAppear:YES];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [self.uiUsername becomeFirstResponder];
 }
 
 - (void)dismiss {
