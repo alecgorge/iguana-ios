@@ -42,6 +42,12 @@
     self.tableView.separatorColor = IG_COLOR_TABLE_SEP;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 - (void)dismiss {
     [self.delegate dismissTappedInSignInViewController:self];
 }
@@ -86,7 +92,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"
                                                             forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.textColor = [UIColor yellowColor];
+    cell.textLabel.textColor = [UIColor whiteColor];
     
     if (indexPath.section == 0) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -130,6 +136,7 @@
     else {
         cell.textLabel.text = @"Sign In";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.backgroundColor = IG_COLOR_TABLE_BUTTON_BG;
     }
     
     return cell;

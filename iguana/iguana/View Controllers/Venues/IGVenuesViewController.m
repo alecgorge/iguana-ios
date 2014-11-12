@@ -178,7 +178,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 		venue = [self filterForSection:indexPath.section][indexPath.row];;
 	}
 	
-	IGShowsViewController *vc = [[IGShowsViewController alloc] initWithVenue:venue];
+	IGShowsViewController *vc = [[IGShowsViewController alloc] initWithArtist:self.artist andVenue:venue];
     push_vc(self, vc, NO);
 }
 
