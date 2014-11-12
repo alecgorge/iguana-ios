@@ -32,15 +32,14 @@
 // an array of IGShow's
 - (void)showsOn:(NSString *)displayDate success:(void (^)(NSArray *))success;
 
-- (void)randomShow:(void (^)(NSArray *))success;
+- (void)randomShowForArtist:(void (^)(NSArray *))success;
 
 // venues
-- (void)venues:(void (^)(NSArray *))success;
+- (void)venuesForArtist:(void (^)(NSArray *))success;
 
 - (void)venue:(IGVenue *)venue success:(void (^)(IGVenue *))success;
 
-- (void)topShows:(void (^)(NSArray *))success;
-
+- (void)topShowsForArtist:(void (^)(NSArray *))success;
 // authenticated methods
 - (void)validateUsername:(NSString *)username
 			withPassword:(NSString *)password

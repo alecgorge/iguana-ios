@@ -127,8 +127,8 @@
       }];
 }
 
-- (void)venues:(void (^)(NSArray *))success {
-    [self GET:@"venues"
+- (void)venuesForArtist:(void (^)(NSArray *))success {
+    [self GET:[NSString stringWithFormat:@"artists/%@/venues/", self.artist.slug]
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
@@ -198,8 +198,8 @@
       }];
 }
 
-- (void)topShows:(void (^)(NSArray *))success {
-    [self GET:@"top_shows"
+- (void)topShowsForArtist:(void (^)(NSArray *))success {
+    [self GET:[NSString stringWithFormat:@"artists/%@/top_shows/", self.artist.slug]
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
@@ -261,8 +261,8 @@
       }];
 }
 
-- (void)randomShow:(void (^)(NSArray *))success {
-    [self GET:@"random_show"
+- (void)randomShowForArtist:(void (^)(NSArray *))success {
+    [self GET:[NSString stringWithFormat:@"artists/%@/random_show/", self.artist.slug]
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {

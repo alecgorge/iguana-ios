@@ -18,12 +18,22 @@
 @property (nonatomic) NSArray *venues;
 @property (nonatomic) NSArray *indicies;
 @property (nonatomic) NSArray *results;
+@property (nonatomic, strong) IGArtist *artist;
 
 @property (nonatomic) UISearchDisplayController *con;
 
 @end
 
 @implementation IGVenuesViewController
+
+-(instancetype)initWithArtist:(IGArtist *)artist
+{
+    if(self = [super init]) {
+        self.artist = artist;
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +42,8 @@
 }
 
 - (void)refresh:(UIRefreshControl *)sender {
-    [[IGAPIClient sharedInstance] venues:^(NSArray *arr) {
+    IGAPIClient *api = [[IGAPIClient alloc] initWithArtist:self.artist];
+    [api venuesForArtist:^(NSArray *arr) {
         if(arr) {
             self.venues = [arr sortedArrayUsingComparator:^NSComparisonResult(IGVenue *obj1, IGVenue *obj2) {
 				return [obj1.name caseInsensitiveCompare:obj2.name];

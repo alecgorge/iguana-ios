@@ -58,9 +58,10 @@
     return self;
 }
 
--(instancetype)initWithTopShows {
+-(instancetype)initWithTopShowsOfArtist:(IGArtist *)artist {
 	if(self = [super init]) {
 		self.shows = @[];
+        self.artist = artist;
 	}
 	
 	return self;
@@ -106,7 +107,8 @@
 		
 	}
     else {
-        [[IGAPIClient sharedInstance] topShows:^(NSArray *shows) {
+        IGAPIClient *api = [[IGAPIClient alloc] initWithArtist:self.artist];
+        [api topShowsForArtist:^(NSArray *shows) {
             if(shows) {
                 self.shows = shows;
                 [self.tableView reloadData];

@@ -8,6 +8,7 @@
 
 #import "IGArtistsViewController.h"
 #import "IGYearCell.h"
+#import "IGHomeViewController.h"
 
 @interface IGArtistsViewController ()
 
@@ -76,7 +77,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [[IGAppDelegate sharedInstance] setupSlideshowWithArtist:self.artists[row]];
     
-    IGYearsViewController *vc = [[IGYearsViewController alloc] initWithArtist:self.artists[row]];
+    IGHomeViewController *vc = [[IGHomeViewController alloc] initWithArtist:self.artists[row]];
     push_vc(self, vc, NO);
 }
 

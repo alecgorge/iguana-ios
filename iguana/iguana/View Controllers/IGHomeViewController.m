@@ -19,6 +19,7 @@
 #import "IGAboutViewController.h"
 #import "IGShowsViewController.h"
 #import "IGSourcesViewController.h"
+#import "IGArtist.h"
 
 NS_ENUM(NSUInteger, IGHomeRows) {
     IGHomeRowBandName,
@@ -32,10 +33,19 @@ NS_ENUM(NSUInteger, IGHomeRows) {
 
 @interface IGHomeViewController ()
 
+@property(nonatomic, retain) IGArtist *artist;
+
 @end
 
 @implementation IGHomeViewController
 
+-(instancetype)initWithArtist:(IGArtist *)artist {
+    if(self = [super initWithStyle:UITableViewStylePlain]) {
+        self.artist = artist;
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -63,15 +73,11 @@ NS_ENUM(NSUInteger, IGHomeRows) {
                          
                          self.tableView.alpha = 1;
                      }];
-    
-    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 //    UIApplication.sharedApplication.statusBarStyle = UIStatusBarStyleDefault;
     
-    self.navigationController.navigationBar.hidden = NO;
-
     [UIView animateWithDuration:0.3
                      animations:^{
                          IGAppDelegate.sharedInstance.colorOverlay.alpha = IG_SLIDESHOW_OVERLAY_ALPHA;
@@ -111,7 +117,7 @@ NS_ENUM(NSUInteger, IGHomeRows) {
     if(row == IGHomeRowYears)
         cell.textLabel.text = @"Years";
     else if(row == IGHomeRowBandName) {
-        cell.textLabel.text = IGIguanaAppConfig.bandName;
+        cell.textLabel.text = self.artist.name;
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.textLabel.font = [UIFont fontWithDescriptor:cell.textLabel.font.fontDescriptor
                                                     size:24.0];
@@ -139,16 +145,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UIViewController *vc;
     if(row == IGHomeRowYears) {
-        vc = [[IGYearsViewController alloc] init];
+        vc = [[IGYearsViewController alloc] initWithArtist:self.artist];
     }
     else if(row == IGHomeRowVenues) {
-        vc = [[IGVenuesViewController alloc] init];
+        vc = [[IGVenuesViewController alloc] initWithArtist:self.artist];
     }
     else if(row == IGHomeRowTopRatedShows) {
-        vc = [[IGShowsViewController alloc] initWithTopShows];
+        vc = [[IGShowsViewController alloc] initWithTopShowsOfArtist:self.artist];
     }
     else if(row == IGHomeRowRandomShow) {
-        vc = [[IGSourcesViewController alloc] initWithRandomDate];
+        vc = [[IGSourcesViewController alloc] initWithRandomDateForArtist:self.artist];
     }
     else if(row == IGHomeRowAbout) {
         vc = [[IGAboutViewController alloc] init];
@@ -158,7 +164,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return tableView.rowHeight * 2.0;
+    return 88.0f;
 }
 
 @end

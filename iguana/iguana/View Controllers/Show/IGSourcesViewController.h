@@ -12,6 +12,6 @@
 
 - (instancetype)initWithDisplayDate:(NSString *)displayDate;
 - (instancetype)initWithArtist:(IGArtist *)artist andDisplayDate:(NSString *)displayDate;
-- (instancetype)initWithRandomDate;
+- (instancetype)initWithRandomDateForArtist:(IGArtist *)artist;
 
 @end

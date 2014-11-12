@@ -14,6 +14,6 @@
 - (instancetype)initWithArtist:(IGArtist *)artist andYear:(IGYear *)year;
 - (instancetype)initWithVenue:(IGVenue *)venue;
 - (instancetype)initWithArtist:(IGArtist *)artist andVenue:(IGVenue *)venue;
-- (instancetype)initWithTopShows;
+- (instancetype)initWithTopShowsOfArtist:(IGArtist *)artist;
 
 @end

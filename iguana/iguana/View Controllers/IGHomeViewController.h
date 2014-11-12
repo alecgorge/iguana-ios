@@ -10,4 +10,6 @@
 
 @interface IGHomeViewController : UITableViewController
 
+-(instancetype)initWithArtist:(IGArtist *)artist;
+
 @end
