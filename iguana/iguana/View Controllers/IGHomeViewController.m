@@ -66,6 +66,8 @@ NS_ENUM(NSUInteger, IGHomeRows) {
 
 - (void)viewWillAppear:(BOOL)animated {
     UIApplication.sharedApplication.statusBarStyle = UIStatusBarStyleLightContent;
+    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.alpha = 1.0f;
     
     [UIView animateWithDuration:0.3
                      animations:^{
@@ -164,7 +166,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 88.0f;
+    return 72.0f;
 }
 
 @end
