@@ -37,6 +37,9 @@
                                                                            target:self
                                                                            action:@selector(dismiss)];
     self.navigationItem.leftBarButtonItem = dismiss;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor yellowColor];
+    self.tableView.backgroundColor = IG_COLOR_TABLE_BG;
+    self.tableView.separatorColor = IG_COLOR_TABLE_SEP;
 }
 
 - (void)dismiss {
@@ -82,7 +85,8 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"
                                                             forIndexPath:indexPath];
-    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = [UIColor yellowColor];
     
     if (indexPath.section == 0) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -92,13 +96,16 @@
             
             self.uiUsername = [UITextField.alloc initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width / 1.75, 30.f)];
             
-            self.uiUsername.placeholder = @"trey@phish.com";
+            self.uiUsername.placeholder = @"me@example.com";
+            self.uiUsername.tintColor = [UIColor whiteColor];
+            self.uiUsername.textColor = [UIColor whiteColor];
             self.uiUsername.keyboardType = UIKeyboardTypeDefault;
             self.uiUsername.autocorrectionType = UITextAutocorrectionTypeNo;
             self.uiUsername.autocapitalizationType = UITextAutocapitalizationTypeNone;
             self.uiUsername.returnKeyType = UIReturnKeyNext;
             self.uiUsername.delegate = self;
-            
+            [self.uiUsername setValue:[UIColor colorWithRed:0.525 green:0.546 blue:0.598 alpha:0.590]
+                           forKeyPath:@"_placeholderLabel.textColor"];
             cell.accessoryView = self.uiUsername;
         }
         else if(indexPath.row == 1) {
@@ -107,13 +114,16 @@
             self.uiPassword = [UITextField.alloc initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width / 1.75, 30.f)];
             
             self.uiPassword.placeholder = @"••••••••••";
+            self.uiPassword.tintColor = [UIColor whiteColor];
+            self.uiPassword.textColor = [UIColor whiteColor];
             self.uiPassword.keyboardType = UIKeyboardTypeEmailAddress;
             self.uiPassword.autocorrectionType = UITextAutocorrectionTypeNo;
             self.uiPassword.autocapitalizationType = UITextAutocapitalizationTypeNone;
             self.uiPassword.secureTextEntry = YES;
             self.uiPassword.returnKeyType = UIReturnKeyDone;
             self.uiPassword.delegate = self;
-            
+            [self.uiPassword setValue:[UIColor colorWithRed:0.525 green:0.546 blue:0.598 alpha:0.590]
+                           forKeyPath:@"_placeholderLabel.textColor"];
             cell.accessoryView = self.uiPassword;
         }
     }
