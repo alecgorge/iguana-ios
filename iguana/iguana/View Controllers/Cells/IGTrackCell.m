@@ -71,7 +71,7 @@
     CGSize constraintSize = CGSizeMake(tableView.bounds.size.width - leftMargin - rightMargin, MAXFLOAT);
     CGRect labelSize = [track.title boundingRectWithSize:constraintSize
                                                  options:NSStringDrawingUsesLineFragmentOrigin
-                                              attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0]}
+                                              attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:21.0]}
                                                  context:nil];
     
     return MAX(tableView.rowHeight, labelSize.size.height + 12);
