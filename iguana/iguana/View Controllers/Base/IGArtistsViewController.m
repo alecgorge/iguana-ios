@@ -85,32 +85,33 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    return [IGYearCell height];
 //}
 
-- (void)loginButtonPressed
-{
+- (void)loginButtonPressed {
     [[IGAuthManager sharedInstance] ensureSignedInFrom:self
                                                success:^{
                                                    [self renderLoginButtons];
                                                }];
 }
 
-- (void)signUpButtonPressed
-{
+- (void)signUpButtonPressed {
     [[IGAuthManager sharedInstance] signUpFrom:self
                                        success:^{
                                             [self renderLoginButtons];
                                         }];
 }
 
--(void)logoutButtonPressed
-{
+-(void)logoutButtonPressed {
     [IGAuthManager.sharedInstance signOut];
     [self renderLoginButtons];
 }
 
--(void)renderLoginButtons
-{
+-(void)playlistButtonPressed {
+    IGPlaylistsViewController *playlists = [[IGPlaylistsViewController alloc] init];
+    push_vc(self, playlists, NO);
+}
+
+-(void)renderLoginButtons {
     // User is signed in
-    if(IGAuthManager.sharedInstance.hasCredentials) {
+    if(!IGAuthManager.sharedInstance.hasCredentials) {
         UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
                                                                          style:UIBarButtonItemStyleBordered
                                                                         target:self
@@ -118,7 +119,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         self.navigationItem.rightBarButtonItem = logoutButton;
         self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];
-        self.navigationItem.leftBarButtonItem = nil;
+        
+        UIBarButtonItem *playlistButton = [[UIBarButtonItem alloc] initWithTitle:@"Playlists"
+                                                                         style:UIBarButtonItemStyleBordered
+                                                                        target:self
+                                                                        action:@selector(playlistButtonPressed)];
+        
+        self.navigationItem.leftBarButtonItem = playlistButton;
+        self.navigationItem.leftBarButtonItem.tintColor = [UIColor yellowColor];
     }
     // User is not signed in
     else {

@@ -2,7 +2,7 @@
 //  IGPlaylist.m
 //  iguana
 //
-//  Created by Alec Gorge on 11/2/14.
+//  Created by Manik Kalra on 11/30/14.
 //  Copyright (c) 2014 Alec Gorge. All rights reserved.
 //
 

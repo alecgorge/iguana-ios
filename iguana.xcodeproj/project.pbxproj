@@ -178,10 +178,6 @@
 		7CACCAFB18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CACCAFA18E53A12009458D2 /* IGLongTextTableViewController.m */; };
 		7CACCAFC18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CACCAFA18E53A12009458D2 /* IGLongTextTableViewController.m */; };
 		7CACCAFD18E53A12009458D2 /* IGLongTextTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CACCAFA18E53A12009458D2 /* IGLongTextTableViewController.m */; };
-		7CAE936F1A07277300B66F20 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE936E1A07277300B66F20 /* IGPlaylist.m */; };
-		7CAE93701A07277300B66F20 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE936E1A07277300B66F20 /* IGPlaylist.m */; };
-		7CAE93711A07277300B66F20 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE936E1A07277300B66F20 /* IGPlaylist.m */; };
-		7CAE93721A07277300B66F20 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE936E1A07277300B66F20 /* IGPlaylist.m */; };
 		7CAE93751A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
 		7CAE93761A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
 		7CAE93771A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
@@ -326,6 +322,12 @@
 		7CFBFA1C18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */; };
 		7CFBFA1D18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */; };
 		B28A4D52A2BB47968CD71AF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C76755E0C90A4456BE73CBB5 /* libPods.a */; };
+		C105ED871A2B021B008ED3F7 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = C105ED841A2AF4FE008ED3F7 /* IGPlaylist.m */; };
+		C105ED8A1A2B0269008ED3F7 /* IGPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF4D5C1A2A939B00C70856 /* IGPlaylistsViewController.m */; };
+		C105ED8B1A2B0269008ED3F7 /* IGPlaylistTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF4D5F1A2A953300C70856 /* IGPlaylistTracksViewController.m */; };
+		C105ED8C1A2B02A9008ED3F7 /* IGPlaylistTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF4D5F1A2A953300C70856 /* IGPlaylistTracksViewController.m */; };
+		C105ED8D1A2B02B1008ED3F7 /* IGPlaylistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1BF4D5C1A2A939B00C70856 /* IGPlaylistsViewController.m */; };
+		C105ED8E1A2B02C0008ED3F7 /* IGPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = C105ED841A2AF4FE008ED3F7 /* IGPlaylist.m */; };
 		C12AA2DC19EDD70B0097AA46 /* IGArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DB19EDD70B0097AA46 /* IGArtist.m */; };
 		C12AA2DD19EDDBD50097AA46 /* IGArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DB19EDD70B0097AA46 /* IGArtist.m */; };
 		C12AA2E019EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
@@ -435,8 +437,6 @@
 		7CACCAF518E51BBE009458D2 /* IGReviewerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IGReviewerCell.xib; sourceTree = "<group>"; };
 		7CACCAF918E53A12009458D2 /* IGLongTextTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLongTextTableViewController.h; sourceTree = "<group>"; };
 		7CACCAFA18E53A12009458D2 /* IGLongTextTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLongTextTableViewController.m; sourceTree = "<group>"; };
-		7CAE936D1A07277300B66F20 /* IGPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGPlaylist.h; sourceTree = "<group>"; };
-		7CAE936E1A07277300B66F20 /* IGPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGPlaylist.m; sourceTree = "<group>"; };
 		7CAE93731A07277E00B66F20 /* IGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUser.h; sourceTree = "<group>"; };
 		7CAE93741A07277E00B66F20 /* IGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGUser.m; sourceTree = "<group>"; };
 		7CD15C2518C29CCD00D52DCC /* iguana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iguana.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -509,10 +509,16 @@
 		7CFBFA1A18E72BCB0072C8EC /* IGThirdPartyKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGThirdPartyKeys.m; sourceTree = "<group>"; };
 		7E3C68475B65A446224EA924 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		873D3961D8652F58F787D318 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C105ED831A2AF4FE008ED3F7 /* IGPlaylist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGPlaylist.h; sourceTree = "<group>"; };
+		C105ED841A2AF4FE008ED3F7 /* IGPlaylist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGPlaylist.m; sourceTree = "<group>"; };
 		C12AA2DA19EDD70B0097AA46 /* IGArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGArtist.h; sourceTree = "<group>"; };
 		C12AA2DB19EDD70B0097AA46 /* IGArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGArtist.m; sourceTree = "<group>"; };
 		C12AA2DE19EDDCA10097AA46 /* IGArtistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGArtistsViewController.h; path = Base/IGArtistsViewController.h; sourceTree = "<group>"; };
 		C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGArtistsViewController.m; path = Base/IGArtistsViewController.m; sourceTree = "<group>"; };
+		C1BF4D5B1A2A939B00C70856 /* IGPlaylistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGPlaylistsViewController.h; sourceTree = "<group>"; };
+		C1BF4D5C1A2A939B00C70856 /* IGPlaylistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGPlaylistsViewController.m; sourceTree = "<group>"; };
+		C1BF4D5E1A2A953300C70856 /* IGPlaylistTracksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGPlaylistTracksViewController.h; sourceTree = "<group>"; };
+		C1BF4D5F1A2A953300C70856 /* IGPlaylistTracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGPlaylistTracksViewController.m; sourceTree = "<group>"; };
 		C76755E0C90A4456BE73CBB5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -930,10 +936,10 @@
 				7CD15C9818C3A50000D52DCC /* IGShowReview.m */,
 				7CD15C9F18C3A6BF00D52DCC /* IGTrack.h */,
 				7CD15CA018C3A6BF00D52DCC /* IGTrack.m */,
-				7CAE936D1A07277300B66F20 /* IGPlaylist.h */,
-				7CAE936E1A07277300B66F20 /* IGPlaylist.m */,
 				7CAE93731A07277E00B66F20 /* IGUser.h */,
 				7CAE93741A07277E00B66F20 /* IGUser.m */,
+				C105ED831A2AF4FE008ED3F7 /* IGPlaylist.h */,
+				C105ED841A2AF4FE008ED3F7 /* IGPlaylist.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -956,6 +962,10 @@
 				7CD15CAE18C3AC6400D52DCC /* IGYearsViewController.m */,
 				7CD15CC518C3C3E900D52DCC /* IGShowsViewController.h */,
 				7CD15CC618C3C3E900D52DCC /* IGShowsViewController.m */,
+				C1BF4D5B1A2A939B00C70856 /* IGPlaylistsViewController.h */,
+				C1BF4D5C1A2A939B00C70856 /* IGPlaylistsViewController.m */,
+				C1BF4D5E1A2A953300C70856 /* IGPlaylistTracksViewController.h */,
+				C1BF4D5F1A2A953300C70856 /* IGPlaylistTracksViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -1558,7 +1568,6 @@
 				7C3D553B1926B8AC00DE2B40 /* IGAppDelegate.m in Sources */,
 				7C0AB4DE18E5E9E200E2E975 /* IGEchoNestImages.m in Sources */,
 				7C6DB4CB1A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */,
-				7CAE93711A07277300B66F20 /* IGPlaylist.m in Sources */,
 				7C6DB4BE1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */,
 				7C3D553C1926B8AC00DE2B40 /* AGMediaPlayerViewController.m in Sources */,
 				7C3D553D1926B8AC00DE2B40 /* AGMediaItem.m in Sources */,
@@ -1611,6 +1620,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C105ED8A1A2B0269008ED3F7 /* IGPlaylistsViewController.m in Sources */,
+				C105ED8B1A2B0269008ED3F7 /* IGPlaylistTracksViewController.m in Sources */,
 				7CD15C9518C3A26F00D52DCC /* IGShow.m in Sources */,
 				7C6DB4C91A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */,
 				7C93439218C4EB9A0076889E /* IGShowViewController.m in Sources */,
@@ -1641,9 +1652,9 @@
 				7CD15C3518C29CCD00D52DCC /* main.m in Sources */,
 				7CD15CC018C3B20300D52DCC /* IGDurationHelper.m in Sources */,
 				7CD15CBB18C3B06A00D52DCC /* IGNibProxyCell.m in Sources */,
-				7CAE936F1A07277300B66F20 /* IGPlaylist.m in Sources */,
 				7CD15CAF18C3AC6400D52DCC /* IGYearsViewController.m in Sources */,
 				C12AA2DC19EDD70B0097AA46 /* IGArtist.m in Sources */,
+				C105ED871A2B021B008ED3F7 /* IGPlaylist.m in Sources */,
 				C12AA2E019EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
 				7CAE93751A07277E00B66F20 /* IGUser.m in Sources */,
 				7CFBFA1B18E72BCB0072C8EC /* IGThirdPartyKeys.m in Sources */,
@@ -1673,7 +1684,6 @@
 				7C93439318C4EB9A0076889E /* IGShowViewController.m in Sources */,
 				7C0AB4E218E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
 				7C6DB4CA1A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */,
-				7CAE93701A07277300B66F20 /* IGPlaylist.m in Sources */,
 				7C6DB4BD1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */,
 				7C9343F218C55C470076889E /* IGNowPlayingAutoShrinker.m in Sources */,
 				7CD15CC818C3C3E900D52DCC /* IGShowsViewController.m in Sources */,
@@ -1731,6 +1741,7 @@
 				7CF82B0119EDB72C002671ED /* IGShowViewController.m in Sources */,
 				7CF82B0219EDB72C002671ED /* NSMutableArray+IGShuffling.m in Sources */,
 				7C6DB4C61A07F08900CC7BD8 /* IGSignInViewController.m in Sources */,
+				C105ED8D1A2B02B1008ED3F7 /* IGPlaylistsViewController.m in Sources */,
 				7CF82B0319EDB72C002671ED /* IGNowPlayingAutoShrinker.m in Sources */,
 				7CF82B0419EDB72C002671ED /* IGShowsViewController.m in Sources */,
 				7CF82B0519EDB72C002671ED /* IGEchoNestImages.m in Sources */,
@@ -1740,6 +1751,7 @@
 				7CF82B0919EDB72C002671ED /* IGShowCell.m in Sources */,
 				7CF82B0A19EDB72C002671ED /* IGVenuesViewController.m in Sources */,
 				7CF82B0B19EDB72C002671ED /* IGAPIClient.m in Sources */,
+				C105ED8C1A2B02A9008ED3F7 /* IGPlaylistTracksViewController.m in Sources */,
 				7CF82B0C19EDB72C002671ED /* IGRefreshableTableViewController.m in Sources */,
 				7CF82B0D19EDB72C002671ED /* IGDurationHelper.m in Sources */,
 				7CF82B0E19EDB72C002671ED /* AGMediaPlayerViewController.m in Sources */,
@@ -1756,8 +1768,8 @@
 				7CF82B1719EDB72C002671ED /* IGSourceCell.m in Sources */,
 				7CF82B1819EDB72C002671ED /* IGAppDelegate.m in Sources */,
 				7CF82B1919EDB72C002671ED /* IGYearCell.m in Sources */,
-				7CAE93721A07277300B66F20 /* IGPlaylist.m in Sources */,
 				7CF82B1A19EDB72C002671ED /* IGYearsViewController.m in Sources */,
+				C105ED8E1A2B02C0008ED3F7 /* IGPlaylist.m in Sources */,
 				7CF82B1B19EDB72C002671ED /* IGShow.m in Sources */,
 				C12AA2E619EDDCA10097AA46 /* IGArtistsViewController.m in Sources */,
 				7CAE93781A07277E00B66F20 /* IGUser.m in Sources */,

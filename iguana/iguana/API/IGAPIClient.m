@@ -93,6 +93,32 @@
       }];
 }
 
+-(void)playlists:(void (^)(NSArray *))success {
+    [self GET:@"playlists" // TODO fix API route
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
+              NSError *err;
+              IGPlaylist *p = [[IGPlaylist alloc] initWithDictionary:item
+                                                           error:&err];
+              
+              if(err) {
+                  [self failure: err];
+                  dbug(@"json err: %@", err);
+              }
+              
+              return p;
+          }];
+          
+          success(r);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          [self failure:error];
+          
+          success(nil);
+      }];
+}
+
 - (NSString *)routeForArtist:(NSString *)route {
     if(self.artist == nil) {
         return [NSString stringWithFormat:@"artists/%@/%@", IGIguanaAppConfig.artistSlug, route];

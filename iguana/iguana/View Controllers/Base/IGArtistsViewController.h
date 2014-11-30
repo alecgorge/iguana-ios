@@ -11,6 +11,7 @@
 #import "IGSignUpViewController.h"
 #import "IGSignInViewController.h"
 #import "IGAuthManager.h"
+#import "IGPlaylistsViewController.h"
 
 @interface IGArtistsViewController : IGRefreshableTableViewController
 
