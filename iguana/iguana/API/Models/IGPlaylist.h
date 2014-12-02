@@ -11,8 +11,11 @@
 @interface IGPlaylist : JSONModel
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *slug;
+@property (nonatomic, strong) NSString *owner;
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) NSDate *updatedAt;
 @property (nonatomic) NSInteger *count;
-@property (nonatomic, strong) NSArray<IGTrack> *tracks;
+@property (nonatomic) NSInteger *id;
+
 
 @end

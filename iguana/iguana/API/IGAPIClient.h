@@ -29,6 +29,8 @@
 
 - (void)playlists:(void (^)(NSArray *))success;
 
+-(void)tracksForPlaylists:(IGPlaylist *)playlist success:(void (^)(NSArray *))success;
+
 - (void)year:(NSUInteger)year success:(void (^)(IGYear *))success;
 
 // an array of IGShow's

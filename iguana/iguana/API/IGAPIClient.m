@@ -94,7 +94,7 @@
 }
 
 -(void)playlists:(void (^)(NSArray *))success {
-    [self GET:@"playlists" // TODO fix API route
+    [self GET:@"playlists/all" // TODO fix API route
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
@@ -118,6 +118,33 @@
           success(nil);
       }];
 }
+
+-(void)tracksForPlaylists:(IGPlaylist *)playlist success:(void (^)(NSArray *))success {
+    [self GET:@"playlists" // TODO fix API route
+   parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
+              NSError *err;
+              IGTrack *t = [[IGTrack alloc] initWithDictionary:item
+                                                               error:&err];
+              
+              if(err) {
+                  [self failure: err];
+                  dbug(@"json err: %@", err);
+              }
+              
+              return t;
+          }];
+          
+          success(r);
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          [self failure:error];
+          
+          success(nil);
+      }];
+}
+
 
 - (NSString *)routeForArtist:(NSString *)route {
     if(self.artist == nil) {

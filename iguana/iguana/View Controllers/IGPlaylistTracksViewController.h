@@ -10,4 +10,8 @@
 
 @interface IGPlaylistTracksViewController : IGRefreshableTableViewController
 
+@property (nonatomic, strong) IGPlaylist *playlist;
+
+-(instancetype)initWithPlaylist:(IGPlaylist *)playlist;
+
 @end
