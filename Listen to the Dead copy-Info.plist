@@ -56,7 +56,7 @@
 		<key>band_name</key>
 		<string>The Grateful Dead</string>
 		<key>iguana_api_base</key>
-		<string>http://iguana.app.alecgorge.com/api</string>
+		<string>http://iguana-staging.app.alecgorge.com/api</string>
 		<key>iguana_artist_slug</key>
 		<string>*</string>
 		<key>itunes_app_id</key>

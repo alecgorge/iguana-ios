@@ -94,7 +94,7 @@
 }
 
 -(void)playlists:(void (^)(NSArray *))success {
-    [self GET:@"playlists/all" // TODO fix API route
+    [self GET:@"playlists/all"
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
@@ -120,7 +120,7 @@
 }
 
 -(void)tracksForPlaylists:(IGPlaylist *)playlist success:(void (^)(NSArray *))success {
-    [self GET:@"playlists" // TODO fix API route
+    [self GET:[NSString stringWithFormat:@"playlists/%lu/all", (unsigned long)playlist.id]
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {

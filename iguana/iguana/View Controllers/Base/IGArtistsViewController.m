@@ -111,7 +111,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 -(void)renderLoginButtons {
     // User is signed in
-    if(IGAuthManager.sharedInstance.hasCredentials) {
+    if(!IGAuthManager.sharedInstance.hasCredentials) {
         UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
                                                                          style:UIBarButtonItemStyleBordered
                                                                         target:self

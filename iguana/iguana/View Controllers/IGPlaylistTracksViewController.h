@@ -7,10 +7,15 @@
 //
 
 #import "IGRefreshableTableViewController.h"
+#import "IGTrackCell.h"
+#import "AGNowPlayingViewController.h"
+#import "IGMediaItem.h"
+#import <CSNNotificationObserver.h>
 
 @interface IGPlaylistTracksViewController : IGRefreshableTableViewController
 
 @property (nonatomic, strong) IGPlaylist *playlist;
+@property (nonatomic, strong) NSDateFormatter *formatter;
 
 -(instancetype)initWithPlaylist:(IGPlaylist *)playlist;
 

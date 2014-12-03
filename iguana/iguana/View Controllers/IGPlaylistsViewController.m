@@ -66,7 +66,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath
                              animated:YES];
     
-    IGPlaylistTracksViewController *vc = [[IGPlaylistTracksViewController alloc] init];
+    IGPlaylistTracksViewController *vc = [[IGPlaylistTracksViewController alloc] initWithPlaylist:self.playlists[row]];
     push_vc(self, vc, NO);
 }
 
