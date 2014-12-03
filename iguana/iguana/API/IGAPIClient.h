@@ -29,7 +29,7 @@
 
 - (void)playlists:(void (^)(NSArray *))success;
 
--(void)tracksForPlaylists:(IGPlaylist *)playlist success:(void (^)(NSArray *))success;
+-(void)tracksForPlaylists:(IGPlaylist *)playlist success:(void (^)(IGPlaylist *))success;
 
 - (void)year:(NSUInteger)year success:(void (^)(IGYear *))success;
 

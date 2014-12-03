@@ -10,4 +10,12 @@
 
 @implementation IGPlaylist
 
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+	if ([propertyName isEqualToString:@"count"]) {
+		return YES;
+	}
+	
+	return [super propertyIsOptional:propertyName];
+}
+
 @end

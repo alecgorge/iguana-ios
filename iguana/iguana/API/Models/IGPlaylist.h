@@ -8,6 +8,8 @@
 
 #import "JSONModel.h"
 
+#import "IGTrack.h"
+
 @interface IGPlaylist : JSONModel
 
 @property (nonatomic, strong) NSString *name;
@@ -17,5 +19,6 @@
 @property (nonatomic) NSInteger count;
 @property (nonatomic) NSInteger id;
 
+@property (nonatomic) NSArray<Optional, IGTrack> *tracks;
 
 @end

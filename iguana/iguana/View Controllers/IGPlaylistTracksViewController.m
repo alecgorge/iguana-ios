@@ -25,7 +25,6 @@ NS_ENUM(NSInteger, IGPlaylistInfoRows) {
 
 @interface IGPlaylistTracksViewController ()
 
-@property (nonatomic, strong) NSArray *tracks;
 @property (nonatomic, strong) CSNNotificationObserver *trackChangedEvent;
 
 @end
@@ -67,9 +66,9 @@ NS_ENUM(NSInteger, IGPlaylistInfoRows) {
 
 
 - (void)refresh:(UIRefreshControl *)sender {
-    [[IGAPIClient sharedInstance] tracksForPlaylists:self.playlist success:^(NSArray *arr) {
+    [[IGAPIClient sharedInstance] tracksForPlaylists:self.playlist success:^(IGPlaylist *arr) {
         if(arr) {
-            self.tracks = arr;
+            self.playlist = arr;
             [self.tableView reloadData];
         }
         
@@ -84,7 +83,7 @@ NS_ENUM(NSInteger, IGPlaylistInfoRows) {
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
     if(section == IGPlaylistTracksSection)
-        return self.tracks.count;
+        return self.playlist.tracks.count;
     else if(section == IGPlaylistInfoSection)
         return IGPlaylistRowCount;
     else
@@ -147,7 +146,7 @@ willDisplayHeaderView:(UIView *)view
         }
         else if(row == IGPlaylistRowTrackCount) {
             cell.textLabel.text = @"Tracks";
-            cell.detailTextLabel.text = @(self.playlist.count).stringValue;
+            cell.detailTextLabel.text = @(self.playlist.tracks.count).stringValue;
         }
         
         cell.backgroundColor = IG_COLOR_CELL_BG;
@@ -161,7 +160,7 @@ willDisplayHeaderView:(UIView *)view
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                                 forIndexPath:indexPath];
         IGTrackCell *c = [[IGTrackCell alloc] initWithCell:cell];
-        [c updateCellWithTrack:self.tracks[indexPath.row] inTableView:self.tableView];
+        [c updateCellWithTrack:self.playlist.tracks[indexPath.row] inTableView:self.tableView];
     
         return cell;
     }
@@ -174,7 +173,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if(indexPath.section == IGPlaylistTracksSection)
     {
-        NSArray *trks = [self.tracks mk_map:^id(id item) {
+        NSArray *trks = [self.playlist.tracks mk_map:^id(id item) {
             return [[IGMediaItem alloc] initWithTrack:item
                                              show:nil];
         }];
@@ -213,7 +212,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     {
         IGTrackCell *c = [[IGTrackCell alloc] initWithCell:cell];
     
-        return [c heightForCellWithTrack:self.tracks[indexPath.row]
+        return [c heightForCellWithTrack:self.playlist.tracks[indexPath.row]
                          inTableView:tableView];
     }
 }

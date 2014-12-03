@@ -119,24 +119,20 @@
       }];
 }
 
--(void)tracksForPlaylists:(IGPlaylist *)playlist success:(void (^)(NSArray *))success {
+-(void)tracksForPlaylists:(IGPlaylist *)playlist success:(void (^)(IGPlaylist *))success {
     [self GET:[NSString stringWithFormat:@"playlists/%lu/all", (unsigned long)playlist.id]
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
-          NSArray *r = [responseObject[@"data"] mk_map:^id(id item) {
-              NSError *err;
-              IGTrack *t = [[IGTrack alloc] initWithDictionary:item
-                                                               error:&err];
-              
-              if(err) {
-                  [self failure: err];
-                  dbug(@"json err: %@", err);
-              }
-              
-              return t;
-          }];
-          
-          success(r);
+		  NSError *err;
+		  IGPlaylist *t = [IGPlaylist.alloc initWithDictionary:responseObject[@"data"]
+														 error:&err];
+		  
+		  if(err) {
+			  [self failure: err];
+			  dbug(@"json err: %@", err);
+		  }
+		  
+          success(t);
       }
       failure:^(NSURLSessionDataTask *task, NSError *error) {
           [self failure:error];
