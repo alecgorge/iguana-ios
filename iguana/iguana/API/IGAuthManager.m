@@ -105,7 +105,7 @@ static NSString *kRelistenNetPasswordKeychainKey = @"relisten_p";
 - (void)signInViewController:(IGSignInViewController *)vc
 	tappedSignInWithUsername:(NSString *)username
 				 andPassword:(NSString *)password {
-	[SVProgressHUD showWithStatus:@"Contacting Phish.net"
+	[SVProgressHUD showWithStatus:@"Contacting Relisten.net"
 						 maskType:SVProgressHUDMaskTypeBlack];
 	
 	[self validateUsername:username

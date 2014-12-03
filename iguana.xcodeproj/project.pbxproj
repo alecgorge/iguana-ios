@@ -182,6 +182,7 @@
 		7CAE93761A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
 		7CAE93771A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
 		7CAE93781A07277E00B66F20 /* IGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAE93741A07277E00B66F20 /* IGUser.m */; };
+		7CAFD49F1A2EB7BD0031CF50 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CD15C3A18C29CCD00D52DCC /* Images.xcassets */; };
 		7CD15C2918C29CCD00D52DCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2818C29CCD00D52DCC /* Foundation.framework */; };
 		7CD15C2B18C29CCD00D52DCC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2A18C29CCD00D52DCC /* CoreGraphics.framework */; };
 		7CD15C2D18C29CCD00D52DCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD15C2C18C29CCD00D52DCC /* UIKit.framework */; };
@@ -295,7 +296,6 @@
 		7CF82B3219EDB72C002671ED /* 03-loopback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B218C50D4D0076889E /* 03-loopback@2x.png */; };
 		7CF82B3319EDB72C002671ED /* glyphicons_176_forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343BD18C50D4D0076889E /* glyphicons_176_forward.png */; };
 		7CF82B3419EDB72C002671ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CD15C6218C29D5900D52DCC /* InfoPlist.strings */; };
-		7CF82B3519EDB72C002671ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CD15C6B18C29D5900D52DCC /* Images.xcassets */; };
 		7CF82B3619EDB72C002671ED /* glyphicons_076_headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438B18C461C70076889E /* glyphicons_076_headphones@2x.png */; };
 		7CF82B3719EDB72C002671ED /* glyphicons_083_random.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B318C50D4D0076889E /* glyphicons_083_random.png */; };
 		7CF82B3819EDB72C002671ED /* glyphicons_172_rewind@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9343B618C50D4D0076889E /* glyphicons_172_rewind@2x.png */; };
@@ -1204,7 +1204,7 @@
 						TestTargetID = 7CD15C2418C29CCD00D52DCC;
 					};
 					7CF82AFD19EDB72C002671ED = {
-						DevelopmentTeam = W685T434Q5;
+						DevelopmentTeam = HT7ELV3Q35;
 					};
 				};
 			};
@@ -1375,6 +1375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF82B2A19EDB72C002671ED /* glyphicons_halflings_113_chevron-down@2x.png in Resources */,
+				7CAFD49F1A2EB7BD0031CF50 /* Images.xcassets in Resources */,
 				7CF82B2B19EDB72C002671ED /* 03-loopback.png in Resources */,
 				7CF82B2C19EDB72C002671ED /* IGShowCell.xib in Resources */,
 				7CF82B2D19EDB72C002671ED /* Pods-acknowledgements.plist in Resources */,
@@ -1385,7 +1386,6 @@
 				7CF82B3219EDB72C002671ED /* 03-loopback@2x.png in Resources */,
 				7CF82B3319EDB72C002671ED /* glyphicons_176_forward.png in Resources */,
 				7CF82B3419EDB72C002671ED /* InfoPlist.strings in Resources */,
-				7CF82B3519EDB72C002671ED /* Images.xcassets in Resources */,
 				7CF82B3619EDB72C002671ED /* glyphicons_076_headphones@2x.png in Resources */,
 				7CF82B3719EDB72C002671ED /* glyphicons_083_random.png in Resources */,
 				7CF82B3819EDB72C002671ED /* glyphicons_172_rewind@2x.png in Resources */,
