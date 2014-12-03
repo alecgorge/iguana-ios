@@ -159,6 +159,7 @@ willDisplayHeaderView:(UIView *)view
         static NSString *CellIdentifier = @"track";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                                 forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         IGTrackCell *c = [[IGTrackCell alloc] initWithCell:cell];
         [c updateCellWithTrack:self.playlist.tracks[indexPath.row] inTableView:self.tableView];
     

@@ -27,7 +27,6 @@
 		7C3D553E1926B8AC00DE2B40 /* AGNowPlayingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9343F418C55CA10076889E /* AGNowPlayingViewController.m */; };
 		7C3D553F1926B8AC00DE2B40 /* IGDurationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CBF18C3B20300D52DCC /* IGDurationHelper.m */; };
 		7C3D55401926B8AC00DE2B40 /* IGSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CD118C3F24600D52DCC /* IGSourcesViewController.m */; };
-		7C3D55411926B8AC00DE2B40 /* IGShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93439118C4EB9A0076889E /* IGShowViewController.m */; };
 		7C3D55421926B8AC00DE2B40 /* IGMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9343E718C514770076889E /* IGMediaItem.m */; };
 		7C3D55431926B8AC00DE2B40 /* IGYearCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CB618C3B02B00D52DCC /* IGYearCell.m */; };
 		7C3D55441926B8AC00DE2B40 /* IGNibProxyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD15CBA18C3B06A00D52DCC /* IGNibProxyCell.m */; };
@@ -107,8 +106,6 @@
 		7C93438D18C461C70076889E /* glyphicons_076_headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438A18C461C70076889E /* glyphicons_076_headphones.png */; };
 		7C93438E18C461C70076889E /* glyphicons_076_headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438B18C461C70076889E /* glyphicons_076_headphones@2x.png */; };
 		7C93438F18C461C70076889E /* glyphicons_076_headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C93438B18C461C70076889E /* glyphicons_076_headphones@2x.png */; };
-		7C93439218C4EB9A0076889E /* IGShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93439118C4EB9A0076889E /* IGShowViewController.m */; };
-		7C93439318C4EB9A0076889E /* IGShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93439118C4EB9A0076889E /* IGShowViewController.m */; };
 		7C93439618C4ED650076889E /* IGTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93439518C4ED650076889E /* IGTrackCell.m */; };
 		7C93439718C4ED650076889E /* IGTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93439518C4ED650076889E /* IGTrackCell.m */; };
 		7C93439918C4ED7D0076889E /* IGTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C93439818C4ED7D0076889E /* IGTrackCell.xib */; };
@@ -337,6 +334,7 @@
 		C12AA2E419EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
 		C12AA2E519EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
 		C12AA2E619EDDCA10097AA46 /* IGArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C12AA2DF19EDDCA10097AA46 /* IGArtistsViewController.m */; };
+		C1AAFFA91A2FD41700A38087 /* IGShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C93439118C4EB9A0076889E /* IGShowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1204,7 +1202,7 @@
 						TestTargetID = 7CD15C2418C29CCD00D52DCC;
 					};
 					7CF82AFD19EDB72C002671ED = {
-						DevelopmentTeam = HT7ELV3Q35;
+						DevelopmentTeam = W685T434Q5;
 					};
 				};
 			};
@@ -1576,7 +1574,6 @@
 				7C80E7A318E61B7200535A75 /* IGAboutViewController.m in Sources */,
 				7CACCAEF18E519A6009458D2 /* IGReviewsTableViewController.m in Sources */,
 				7C3D55401926B8AC00DE2B40 /* IGSourcesViewController.m in Sources */,
-				7C3D55411926B8AC00DE2B40 /* IGShowViewController.m in Sources */,
 				7C2CA0E418DB228D0071E240 /* IGVenuesViewController.m in Sources */,
 				7C3D55421926B8AC00DE2B40 /* IGMediaItem.m in Sources */,
 				7C3D55431926B8AC00DE2B40 /* IGYearCell.m in Sources */,
@@ -1624,7 +1621,6 @@
 				C105ED8B1A2B0269008ED3F7 /* IGPlaylistTracksViewController.m in Sources */,
 				7CD15C9518C3A26F00D52DCC /* IGShow.m in Sources */,
 				7C6DB4C91A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */,
-				7C93439218C4EB9A0076889E /* IGShowViewController.m in Sources */,
 				7C0AB4E118E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
 				7C6DB4C31A07F08900CC7BD8 /* IGSignInViewController.m in Sources */,
 				7C9343F118C55C470076889E /* IGNowPlayingAutoShrinker.m in Sources */,
@@ -1662,6 +1658,7 @@
 				7CD15C9118C39EDC00D52DCC /* IGAPIClient.m in Sources */,
 				7CD15C9D18C3A69100D52DCC /* IGVenue.m in Sources */,
 				7C80E7AA18E6332400535A75 /* IGTableViewController.m in Sources */,
+				C1AAFFA91A2FD41700A38087 /* IGShowViewController.m in Sources */,
 				7C9343F618C55CA10076889E /* AGNowPlayingViewController.m in Sources */,
 				7C9343E818C514770076889E /* IGMediaItem.m in Sources */,
 			);
@@ -1681,7 +1678,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CD15CC418C3B64200D52DCC /* IGIguanaAppConfig.m in Sources */,
-				7C93439318C4EB9A0076889E /* IGShowViewController.m in Sources */,
 				7C0AB4E218E5FEFD00E2E975 /* NSMutableArray+IGShuffling.m in Sources */,
 				7C6DB4CA1A07F0B300CC7BD8 /* IGSignUpViewController.m in Sources */,
 				7C6DB4BD1A07EE7E00CC7BD8 /* IGAuthManager.m in Sources */,
