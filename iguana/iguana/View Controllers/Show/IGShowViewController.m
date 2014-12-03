@@ -144,7 +144,7 @@ NS_ENUM(NSInteger, IGShowRows) {
         }
         else if(row == IGShowRowDescription) {
             cell.textLabel.text = @"Description";
-            cell.detailTextLabel.text = self.show.description;
+            cell.detailTextLabel.text = self.show.showDescription;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         }
@@ -221,7 +221,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             push_vc(self, vc, YES);
 		}
 		else if(row == IGShowRowDescription) {
-			IGLongTextTableViewController *vc = [[IGLongTextTableViewController alloc] initWithText:self.show.description];
+			IGLongTextTableViewController *vc = [[IGLongTextTableViewController alloc] initWithText:self.show.showDescription];
 			vc.title = @"Description";
             push_vc(self, vc, YES);
 		}

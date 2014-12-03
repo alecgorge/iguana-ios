@@ -134,7 +134,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CGFloat heightPadding = 20;
 	
 	if(row == IGShowReviewRowMetadata) {
-		return tableView.rowHeight * 1.2;
+		return 44.0f * 1.2;
 	}
 	else if(row == IGShowReviewRowTitle) {
 		CGSize maxSize = CGSizeMake(tableView.frame.size.width - padding * 2, MAXFLOAT);
@@ -155,7 +155,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 		return labelRect.size.height + heightPadding;
 	}
 	
-	return tableView.rowHeight;
+	return 44.0f;
 }
 
 @end

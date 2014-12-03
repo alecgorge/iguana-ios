@@ -38,7 +38,7 @@
 @property (nonatomic, strong) NSString<Optional> *source;
 @property (nonatomic, strong) NSString<Optional> *lineage;
 @property (nonatomic, strong) NSString<Optional> *taper;
-@property (nonatomic, strong) NSString<Optional> *description;
+@property (nonatomic, strong) NSString<Optional> *showDescription;
 
 @property (nonatomic, strong) NSArray<Optional, ConvertOnDemand, IGShowReview> *reviews;
 @property (nonatomic, strong) NSNumber<Optional> *trackCount;

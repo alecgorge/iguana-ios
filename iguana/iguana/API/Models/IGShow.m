@@ -11,7 +11,16 @@
 @implementation IGShow
 
 + (JSONKeyMapper*)keyMapper {
-    return [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];
+	JSONKeyMapper *j = [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];
+	return [JSONKeyMapper.alloc initWithJSONToModelBlock:^NSString *(NSString *keyName) {
+		if ([keyName isEqualToString:@"description"]) {
+			return @"showDescription";
+		}
+		return j.JSONToModelKeyBlock(keyName);
+	}
+										modelToJSONBlock:^NSString *(NSString *keyName) {
+											return j.modelToJSONKeyBlock(keyName);
+										}];
 }
 
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
