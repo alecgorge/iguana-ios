@@ -49,6 +49,10 @@
 			withPassword:(NSString *)password
 				 success:(void(^)(BOOL validCombination))success;
 
+- (void)createAccountWithUsername:(NSString *)username
+					  andPassword:(NSString *)password
+						  success:(void(^)(BOOL validCombination))success;
+
 - (void)userProfile:(NSString *)username
 			success:(void(^)(IGUser *user))success;
 

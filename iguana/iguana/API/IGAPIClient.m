@@ -346,16 +346,20 @@
 - (void)validateUsername:(NSString *)username
 			withPassword:(NSString *)password
 				 success:(void(^)(BOOL validCombination))success {
-	[self POST:@"users/validate"
-	parameters:@{@"username": username, @"password": password}
-	   success:^(NSURLSessionDataTask *task, id responseObject) {
-		   success(YES);
-	   }
-	   failure:^(NSURLSessionDataTask *task, NSError *error) {
-		   [self failure:error];
-		   
-		   success(NO);
-	   }];
+	[self.requestSerializer setAuthorizationHeaderFieldWithUsername:username
+														   password:password];
+	
+	[self GET:@"users/user_validate"
+   parameters:nil
+	  success:^(NSURLSessionDataTask *task, id responseObject) {
+		  success(YES);
+	  }
+	  failure:^(NSURLSessionDataTask *task, NSError *error) {
+		  [self failure:error];
+		  [self.requestSerializer clearAuthorizationHeader];
+		  
+		  success(NO);
+	  }];
 }
 
 - (void)userProfile:(NSString *)username
@@ -377,6 +381,19 @@
 	  failure:^(NSURLSessionDataTask *task, NSError *error) {
 		  success(nil);
 	  }];
+}
+
+- (void)createAccountWithUsername:(NSString *)username
+					  andPassword:(NSString *)password
+						  success:(void (^)(BOOL))success {
+	[self POST:@"users/create"
+	parameters:@{@"username": username, @"password": password, @"password_confirmation": password}
+	   success:^(NSURLSessionDataTask *task, id responseObject) {
+		   success(YES);
+	   }
+	   failure:^(NSURLSessionDataTask *task, NSError *error) {
+		   success(NO);
+	   }];
 }
 
 - (void)playlist:(NSString *)slug
@@ -402,7 +419,7 @@
 
 - (void)playlistFromId:(NSUInteger)playlist_id
 			   success:(void (^)(IGPlaylist *playlist))success {
-	[self GET:[@"playlists/by-id/" stringByAppendingString:@(playlist_id).stringValue]
+	[self GET:[NSString stringWithFormat:@"playlists/%d/all", (int)playlist_id]
    parameters:nil
 	  success:^(NSURLSessionDataTask *task, id responseObject) {
 		  NSError *err;

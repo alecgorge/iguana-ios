@@ -31,6 +31,7 @@
     [[IGAPIClient sharedInstance] artists:^(NSArray *arr) {
         if(arr) {
             self.artists = arr;
+			[self renderLoginButtons];
             [self.tableView reloadData];
         }
         
@@ -116,7 +117,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 -(void)renderLoginButtons {
     // User is signed in
     if(IGAuthManager.sharedInstance.hasCredentials) {
-        UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+        UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out"
                                                                          style:UIBarButtonItemStyleBordered
                                                                         target:self
                                                                         action:@selector(logoutButtonPressed)];
@@ -139,7 +140,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                                                      style:UIBarButtonItemStyleBordered
                                                                     target:self
                                                                     action:@selector(signUpButtonPressed)];
-        UIBarButtonItem *loginButton = [[UIBarButtonItem alloc] initWithTitle:@"Login"
+        UIBarButtonItem *loginButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign In"
                                                                     style:UIBarButtonItemStyleBordered
                                                                     target:self
                                                                    action:@selector(loginButtonPressed)];

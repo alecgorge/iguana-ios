@@ -14,8 +14,8 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *owner;
-@property (nonatomic, strong) NSDate *createdAt;
-@property (nonatomic, strong) NSDate *updatedAt;
+@property (nonatomic, strong) NSString *createdAt;
+@property (nonatomic, strong) NSString *updatedAt;
 @property (nonatomic) NSInteger count;
 @property (nonatomic) NSInteger id;
 

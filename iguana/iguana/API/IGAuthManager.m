@@ -54,12 +54,12 @@ static NSString *kRelistenNetPasswordKeychainKey = @"relisten_p";
 	[IGAPIClient.sharedInstance validateUsername:username
 									withPassword:password
 										 success:^(BOOL validCombination) {
-											 result(validCombination);
-											 
-											 if(shouldSave) {
+											 if(validCombination && shouldSave) {
 												 FXKeychain.defaultKeychain[kRelistenNetUsernameKeychainKey] = username;
 												 FXKeychain.defaultKeychain[kRelistenNetPasswordKeychainKey] = password;
 											 }
+
+											 result(validCombination);
 										 }];
 }
 
@@ -121,6 +121,7 @@ static NSString *kRelistenNetPasswordKeychainKey = @"relisten_p";
 							self.signInBlock();
 						}
 						else {
+							[self signOut];
 							UIAlertView *a = [UIAlertView.alloc initWithTitle:@"Relisten.net username or Password Incorrect"
 																	  message:@"It would seem that your email or password is incorrect. You need to use the email and password you use on Relisten.net."
 																	 delegate:nil
@@ -144,36 +145,37 @@ static NSString *kRelistenNetPasswordKeychainKey = @"relisten_p";
                  andPassword:(NSString *)password {
     [SVProgressHUD showWithStatus:@"Contacting Relisten.net"
                          maskType:SVProgressHUDMaskTypeBlack];
-    
-    [self validateUsername:username
-              withPassword:password
-                      save:YES
-                    result:^(BOOL valid) {
-                        [SVProgressHUD dismiss];
-                        
-                        if(valid) {
-                            [vc.presentingViewController dismissViewControllerAnimated:YES
-                                                                            completion:NULL];
-                            
-                            self.signInBlock();
-                        }
-                        else {
-                            UIAlertView *a = [UIAlertView.alloc initWithTitle:@"Relisten.net username or Password Incorrect"
-                                                                      message:@"It would seem that your email or password is incorrect. You need to use the email and password you use on Relisten.net."
-                                                                     delegate:nil
-                                                            cancelButtonTitle:@"OK"
-                                                            otherButtonTitles:nil];
-                            
-                            [a show];
-                        }
-                    }];
-
+	
+	[IGAPIClient.sharedInstance createAccountWithUsername:username
+											  andPassword:password
+												  success:^(BOOL registered) {
+													  [SVProgressHUD dismiss];
+													  
+													  if(registered) {
+														  [vc.presentingViewController dismissViewControllerAnimated:YES
+																										  completion:NULL];
+														  
+														  FXKeychain.defaultKeychain[kRelistenNetUsernameKeychainKey] = username;
+														  FXKeychain.defaultKeychain[kRelistenNetPasswordKeychainKey] = password;
+														  
+														  self.signInBlock();
+													  }
+													  else {
+														  UIAlertView *a = [UIAlertView.alloc initWithTitle:@"Relisten.net username already in use"
+																									message:@"The username is already in use. "
+																								   delegate:nil
+																						  cancelButtonTitle:@"OK"
+																						  otherButtonTitles:nil];
+														  
+														  [a show];
+													  }
+												  }];
 }
 
 - (void)dismissTappedInSignUpViewController:(IGSignUpViewController *)vc {
     [vc.presentingViewController dismissViewControllerAnimated:YES
                                                     completion:NULL];
-    
+	
     self.signInBlock = nil;
 }
 

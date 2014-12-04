@@ -17,8 +17,6 @@ NS_ENUM(NSInteger, IGShowSections) {
 NS_ENUM(NSInteger, IGPlaylistInfoRows) {
     IGPlaylistRowAuthor,
     IGPlaylistRowCreatedOn,
-    IGPlaylistRowModifiedOn,
-    IGPlaylistRowTrackCount,
     IGPlaylistRowCount
 };
 
@@ -54,7 +52,7 @@ NS_ENUM(NSInteger, IGPlaylistInfoRows) {
                                                                 }];
     
     self.formatter = [[NSDateFormatter alloc] init];
-    [self.formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+    [self.formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -107,6 +105,10 @@ willDisplayHeaderView:(UIView *)view
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if(section == IGPlaylistTracksSection) {
+		if (self.playlist && self.playlist.tracks) {
+			return [NSString stringWithFormat:@"%d Tracks", (int)self.playlist.tracks.count];
+		}
+		
         return @"Tracks";
     }
     
@@ -139,19 +141,15 @@ willDisplayHeaderView:(UIView *)view
         }
         else if(row == IGPlaylistRowCreatedOn) {
             cell.textLabel.text = @"Created On";
-            NSString *dateString = [self.formatter stringFromDate:self.playlist.createdAt];
-            cell.detailTextLabel.text = dateString;
+            NSDate *date = [self.formatter dateFromString:self.playlist.createdAt];
+			
+			NSDateFormatter *f = NSDateFormatter.alloc.init;
+			f.dateStyle = NSDateFormatterShortStyle;
+			f.timeStyle = NSDateFormatterShortStyle;
+			
+            cell.detailTextLabel.text = [f stringFromDate:date];
         }
-        else if(row == IGPlaylistRowModifiedOn) {
-            cell.textLabel.text = @"Last Modified On";
-            NSString *dateString = [self.formatter stringFromDate:self.playlist.updatedAt];
-            cell.detailTextLabel.text = dateString;
-        }
-        else if(row == IGPlaylistRowTrackCount) {
-            cell.textLabel.text = @"Tracks";
-            cell.detailTextLabel.text = @(self.playlist.tracks.count).stringValue;
-        }
-        
+		
         cell.backgroundColor = IG_COLOR_CELL_BG;
         cell.textLabel.textColor = IG_COLOR_CELL_TEXT;
         cell.detailTextLabel.textColor = IG_COLOR_CELL_TEXT_FADED;
@@ -177,9 +175,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if(indexPath.section == IGPlaylistTracksSection)
     {
-        NSArray *trks = [self.playlist.tracks mk_map:^id(id item) {
+        NSArray *trks = [self.playlist.tracks mk_map:^id(IGTrack *item) {
             return [[IGMediaItem alloc] initWithTrack:item
-                                             show:nil];
+                                             show:item.show];
         }];
     
         BOOL shouldShowBar = AGNowPlayingViewController.sharedInstance.shouldShowBar;

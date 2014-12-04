@@ -104,7 +104,7 @@
             
             self.uiUsername = [UITextField.alloc initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width / 1.75, 30.f)];
             
-            self.uiUsername.placeholder = @"me@example.com";
+            self.uiUsername.placeholder = @"trey";
             self.uiUsername.tintColor = [UIColor whiteColor];
             self.uiUsername.textColor = [UIColor whiteColor];
             self.uiUsername.keyboardType = UIKeyboardTypeDefault;
