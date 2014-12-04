@@ -1202,7 +1202,7 @@
 						TestTargetID = 7CD15C2418C29CCD00D52DCC;
 					};
 					7CF82AFD19EDB72C002671ED = {
-						DevelopmentTeam = W685T434Q5;
+						DevelopmentTeam = HT7ELV3Q35;
 					};
 				};
 			};

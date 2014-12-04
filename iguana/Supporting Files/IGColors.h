@@ -19,6 +19,7 @@
 #define IG_COLOR_TABLE_BUTTON_BG            [UIColor.blackColor colorWithAlphaComponent:0.4]
 #define IG_COLOR_PLAYER_BG                  (IS_IPAD() ? [UIColor.blackColor colorWithAlphaComponent:0.7] : UIColor.clearColor)
 #define IG_COLOR_PLAYER_FULL_BG             (IS_IPAD() ? UIColor.blackColor : UIColor.clearColor)
+#define IG_COLOR_ACCENT						[UIColor colorWithRed:1.000 green:0.580 blue:0.000 alpha:1]
 
 #define IG_SLIDESHOW_HOME_OVERLAY_ALPHA     0.7
 #define IG_SLIDESHOW_OVERLAY_ALPHA          0.85

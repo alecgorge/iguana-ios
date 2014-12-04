@@ -37,7 +37,7 @@
                                                                            target:self
                                                                            action:@selector(dismiss)];
     self.navigationItem.leftBarButtonItem = dismiss;
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor yellowColor];
+    self.navigationItem.leftBarButtonItem.tintColor = IG_COLOR_ACCENT;
     self.tableView.backgroundColor = IG_COLOR_TABLE_BG;
     self.tableView.separatorColor = IG_COLOR_TABLE_SEP;
 }

@@ -128,8 +128,11 @@ willDisplayHeaderView:(UIView *)view
         }
         
         cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+		
+		UIView *hilite = [[UIView alloc] initWithFrame:cell.bounds];
+		hilite.backgroundColor = IG_COLOR_CELL_TAP_BG;
+		cell.selectedBackgroundView = hilite;
+		
         if(row == IGPlaylistRowAuthor) {
             cell.textLabel.text = @"Author";
             cell.detailTextLabel.text = self.playlist.owner;

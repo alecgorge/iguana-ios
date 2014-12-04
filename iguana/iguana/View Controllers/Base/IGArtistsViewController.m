@@ -64,7 +64,11 @@
     [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
     cell.textLabel.text = artist.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld recordings", (long)artist.recordingCount];
-    
+
+	UIView *hilite = [[UIView alloc] initWithFrame:cell.bounds];
+	hilite.backgroundColor = IG_COLOR_CELL_TAP_BG;
+	cell.selectedBackgroundView = hilite;
+
     return cell;
 }
 
@@ -118,7 +122,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                                                         action:@selector(logoutButtonPressed)];
         
         self.navigationItem.rightBarButtonItem = logoutButton;
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];
+        self.navigationItem.rightBarButtonItem.tintColor = IG_COLOR_ACCENT;
         
         UIBarButtonItem *playlistButton = [[UIBarButtonItem alloc] initWithTitle:@"Playlists"
                                                                          style:UIBarButtonItemStyleBordered
@@ -126,7 +130,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                                                         action:@selector(playlistButtonPressed)];
         
         self.navigationItem.leftBarButtonItem = playlistButton;
-        self.navigationItem.leftBarButtonItem.tintColor = [UIColor yellowColor];
+        self.navigationItem.leftBarButtonItem.tintColor = IG_COLOR_ACCENT;
     }
     // User is not signed in
     else {
@@ -142,8 +146,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         self.navigationItem.leftBarButtonItem = signUpButton;
         self.navigationItem.rightBarButtonItem = loginButton;
-        self.navigationItem.leftBarButtonItem.tintColor = [UIColor yellowColor];
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor yellowColor];
+        self.navigationItem.leftBarButtonItem.tintColor = IG_COLOR_ACCENT;
+        self.navigationItem.rightBarButtonItem.tintColor = IG_COLOR_ACCENT;
 
     }
 }

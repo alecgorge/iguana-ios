@@ -47,16 +47,20 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //static NSString *CellIdentifier = @"artist";
     
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"artist"];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+												   reuseIdentifier:@"artist"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.backgroundColor = [UIColor clearColor];
-    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     IGPlaylist *playlist = self.playlists[indexPath.row];
     [cell.textLabel setTextColor:[UIColor whiteColor]];
     [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
     cell.textLabel.text = playlist.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld tracks", (long)playlist.count];
-    
+
+	UIView *hilite = [[UIView alloc] initWithFrame:cell.bounds];
+	hilite.backgroundColor = IG_COLOR_CELL_TAP_BG;
+	cell.selectedBackgroundView = hilite;
+	
     return cell;
 }
 

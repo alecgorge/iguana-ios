@@ -14,4 +14,12 @@
     return [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];
 }
 
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+	if ([propertyName isEqualToString:@"avgRating"]) {
+		return YES;
+	}
+	
+	return [super propertyIsOptional:propertyName];
+}
+
 @end
